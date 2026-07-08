@@ -1,4 +1,5 @@
 ﻿using System;
+using LightGame.Core;
 using LightGame.Events;
 using LightGame.Globals;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace LightGame.Features
     public class HealOverTimeEffect : MonoBehaviourEffect<HealOverTimeEffect.EffectData>
     {
         [Serializable]
-        public class EffectData : Components.EffectData
+        public new class EffectData : LightGame.Core.EffectData
         {
             public int Amount;
             public bool ResetTickOnHealthChange = true;
