@@ -94,8 +94,7 @@ public class PlayerTeleportSkill : MonoBehaviourWithData<PlayerTeleportSkill.Tel
         {
             // Gamepad: use right stick direction directly
             direction = Gamepad.current.rightStick.ReadValue().normalized;
-        using LightGame.Core;
-}
+        }
         else
         {
             // Mouse/Touch: calculate direction from screen center to aim position
