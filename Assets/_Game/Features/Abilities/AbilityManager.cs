@@ -2,6 +2,7 @@
 using LightGame.Features.Abilities;
 using UnityEngine;
 
+using LightGame.Globals;
 namespace LightGame.Globals
 {
     public class AbilityManager : MonoBehaviour

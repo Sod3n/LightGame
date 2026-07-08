@@ -7,6 +7,7 @@ using Cysharp.Threading.Tasks;
 using LightGame.Features;
 using LightGame;
 
+using LightGame.Globals;
 public class Trigger : MonoBehaviour
 {
     [SerializeField] private Transform targetLightPoint;

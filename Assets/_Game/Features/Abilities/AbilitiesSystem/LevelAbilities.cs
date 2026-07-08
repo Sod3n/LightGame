@@ -5,6 +5,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.Serialization;
 
+using LightGame.Globals;
 namespace LightGame.Features.Abilities
 {
     [CreateAssetMenu(fileName = "LevelAbilities", menuName = "Abilities/LevelAbilities")]

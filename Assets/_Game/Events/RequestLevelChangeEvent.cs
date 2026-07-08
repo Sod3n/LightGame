@@ -1,5 +1,6 @@
 ﻿using LightGame;
 
+using LightGame.Globals;
 namespace LightGame.Events
 {
     /// <summary>

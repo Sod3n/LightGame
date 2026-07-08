@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+using LightGame.Globals;
 namespace LightGame.Features.Abilities
 {
     public enum UnlockBehavior

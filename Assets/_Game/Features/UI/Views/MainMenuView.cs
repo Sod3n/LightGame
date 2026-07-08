@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
+using LightGame.Globals;
 namespace LightGame.Features.UI
 {
     public class MainMenuView : MonoBehaviour

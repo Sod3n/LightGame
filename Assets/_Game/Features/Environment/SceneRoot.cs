@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 using LightGame.Core;
+using LightGame.Globals;
 namespace LightGame.Features
 {
     public class SceneRoot : MonoBehaviour

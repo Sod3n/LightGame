@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+using LightGame.Globals;
 namespace LightGame
 {
     [CreateAssetMenu(fileName = "LevelOrder", menuName = "Game/LevelOrder")]

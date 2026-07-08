@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEditor.Callbacks;
 
+using LightGame.Globals;
 namespace LightGame.Editor
 {
     /// <summary>
