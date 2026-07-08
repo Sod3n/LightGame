@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using LightGame.Core;
 using LightGame.Globals;
 using UnityEngine;
 using UnityEngine.Events;
@@ -50,7 +51,7 @@ namespace LightGame.Features
                
                if (isInLightOfType != _lastStateByType[lightType])
                {
-                   LightGame.SceneName? targetScene = null;
+                   SceneName? targetScene = null;
 
                    // If this is a LevelChange light type, get the target scene from the trigger
                    if (lightType == LightType.LevelChange && _activeLevelChangeTrigger != null)
@@ -61,7 +62,7 @@ namespace LightGame.Features
                            if (trigger.UseNextScene)
                            {
                                // Get next scene from LevelOrder
-                               targetScene = LightGame.Game.LevelOrder?.GetNextScene();
+                               targetScene = Game.LevelOrder?.GetNextScene();
                            }
                            else
                            {
