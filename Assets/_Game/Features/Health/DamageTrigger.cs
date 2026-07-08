@@ -4,6 +4,7 @@ using LightGame.Features;
 using LightGame.Globals;
 using UnityEngine;
 
+using LightGame.Core;
 public class DamageTrigger : MonoBehaviour
 {
     [SerializeField] private int damage;

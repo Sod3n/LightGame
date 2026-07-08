@@ -1,6 +1,7 @@
 ﻿using LightGame.Features;
 using UnityEngine;
 
+using LightGame.Core;
 namespace LightGame.Features.Abilities
 {
     [CreateAssetMenu(fileName = "DamageInDark", menuName = "Abilities/DamageInDark")]
