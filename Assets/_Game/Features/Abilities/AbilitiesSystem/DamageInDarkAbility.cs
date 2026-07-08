@@ -1,7 +1,7 @@
-using Light_and_controller.Scripts.Components;
+﻿using LightGame.Features;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.AbilitiesSystem
+namespace LightGame.Features.Abilities
 {
     [CreateAssetMenu(fileName = "DamageInDark", menuName = "Abilities/DamageInDark")]
     public class DamageInDarkAbility : LevelAbility

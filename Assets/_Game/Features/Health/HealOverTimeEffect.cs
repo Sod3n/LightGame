@@ -1,9 +1,9 @@
-using System;
-using Light_and_controller.Scripts.Events;
-using Light_and_controller.Scripts.Systems;
+﻿using System;
+using LightGame.Events;
+using LightGame.Globals;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.Components
+namespace LightGame.Features
 {
     public class HealOverTimeEffect : MonoBehaviourEffect<HealOverTimeEffect.EffectData>
     {

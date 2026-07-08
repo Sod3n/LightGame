@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+﻿#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 using System.IO;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEditor.Callbacks;
 
-namespace Light_and_controller.Scripts.Editor
+namespace LightGame.Editor
 {
     /// <summary>
     /// Editor window for creating new levels with automated setup

@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using Core._.UI;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.UI
+namespace LightGame.Features.UI
 {
     public class HealthSectorView : MonoBehaviour
     {

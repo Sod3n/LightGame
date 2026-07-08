@@ -1,11 +1,11 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
-using Light_and_controller.Scripts.Components;
-using Light_and_controller.Scripts;
+using LightGame.Features;
+using LightGame;
 
 public class Trigger : MonoBehaviour
 {

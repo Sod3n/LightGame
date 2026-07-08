@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace LightGame.Audio
+namespace LightGame.Features.Audio
 {
     /// <summary>
     /// Interface for sound player implementations.

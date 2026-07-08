@@ -1,9 +1,9 @@
-using Light_and_controller.Scripts.AbilitiesSystem;
+﻿using LightGame.Features.Abilities;
 using UnityEngine.AddressableAssets;
 
-namespace Light_and_controller.Scripts
+namespace LightGame.Globals
 {
-    public static class GD
+    public static class Game
     {
         public static LevelOrder LevelOrder;
         public static LevelAbilities LevelAbilities;

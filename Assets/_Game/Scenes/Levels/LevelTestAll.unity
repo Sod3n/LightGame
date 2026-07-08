@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
 OcclusionCullingSettings:
@@ -6186,7 +6186,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff2b949d758644f99264479a180f5d0b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.CameraView
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.CameraView
   cinemachineCamera: {fileID: 258951432}
   defaultShakeIntensity: 5
   defaultShakeDuration: 0.3
@@ -19948,7 +19948,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ce4540d26164ba1b01119f56530bb9b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.Views.LightProjectorView
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Views.LightProjectorView
 --- !u!1001 &789058251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38267,7 +38267,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ce4540d26164ba1b01119f56530bb9b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.Views.LightProjectorView
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Views.LightProjectorView
 --- !u!43 &1598277131
 Mesh:
   m_ObjectHideFlags: 0
@@ -42599,7 +42599,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ce4540d26164ba1b01119f56530bb9b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.Views.LightProjectorView
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Views.LightProjectorView
 --- !u!43 &1788695626
 Mesh:
   m_ObjectHideFlags: 0

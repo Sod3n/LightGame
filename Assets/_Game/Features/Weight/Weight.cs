@@ -1,9 +1,10 @@
-using System;
-using Light_and_controller.Scripts.Systems;
+﻿using System;
+using LightGame.Globals;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Light_and_controller.Scripts.Components
+using LightGame.Core;
+namespace LightGame.Features
 {
     public class Weight : MonoBehaviour, IWeight
     {
@@ -23,12 +24,12 @@ namespace Light_and_controller.Scripts.Components
 
         private void OnWeightRequest(WeightRequestEvent evt)
         {
-            evt.Weight = GD.ObjectsWeight.GetWeight(type);
+            evt.Weight = Game.ObjectsWeight.GetWeight(type);
         }
         
         public float Get()
         {
-            return GD.ObjectsWeight.GetWeight(type);
+            return Game.ObjectsWeight.GetWeight(type);
         }
     }
 }

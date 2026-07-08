@@ -1,6 +1,6 @@
-using UnityEngine.EventSystems;
+﻿using UnityEngine.EventSystems;
 
-namespace Light_and_controller.Scripts
+namespace LightGame.Core
 {
     public interface IInitializable : IEventSystemHandler
     {

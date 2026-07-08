@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Light_and_controller.Scripts
+namespace LightGame.Core
 {
     public class Root : MonoBehaviour
     {

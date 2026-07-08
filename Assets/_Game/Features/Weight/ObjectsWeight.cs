@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Light_and_controller.Scripts.Components;
+using LightGame.Features;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts
+namespace LightGame
 {
     [CreateAssetMenu(fileName = "ObjectsWeight", menuName = "Game Data/ObjectsWeight")]
     public class ObjectsWeight : ScriptableObject

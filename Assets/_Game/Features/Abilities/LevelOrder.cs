@@ -1,7 +1,7 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts
+namespace LightGame
 {
     [CreateAssetMenu(fileName = "LevelOrder", menuName = "Game/LevelOrder")]
     public class LevelOrder : ScriptableObject

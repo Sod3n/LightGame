@@ -1,7 +1,7 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.Components.Enemy
+namespace LightGame.Features.Enemy
 {
     /// <summary>
     /// Enemy projectile with cannon-like physics (strong gravity effect)

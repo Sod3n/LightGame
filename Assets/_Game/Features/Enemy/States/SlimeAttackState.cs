@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Light_and_controller.Scripts.Components.Enemy.States
+namespace LightGame.Features.Enemy.States
 {
     public class SlimeAttackState : EnemyState
     {

@@ -1,6 +1,6 @@
-using Light_and_controller.Scripts;
+﻿using LightGame;
 
-namespace Light_and_controller.Scripts.Events
+namespace LightGame.Events
 {
     /// <summary>
     /// Event to request a level change

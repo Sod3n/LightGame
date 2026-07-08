@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &3213259104454701869
 GameObject:
@@ -1259,7 +1259,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a5e2653fbfe14177a06e52d2f46ae17, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.PushStrength
+  m_EditorClassIdentifier: LightGame::LightGame.Features.PushStrength
   maxPushableWeight: 0
   pushSpeedMultiplier: 1
 --- !u!114 &563658081202739
@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 962ea84b3beb4743b59b46bae91f583a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Systems.AbilityManager
+  m_EditorClassIdentifier: LightGame::LightGame.Globals.AbilityManager
 --- !u!114 &8911092722811945818
 MonoBehaviour:
   m_ObjectHideFlags: 0

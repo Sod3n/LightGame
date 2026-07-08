@@ -1,9 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-namespace Light_and_controller.Scripts.UI.Views
+using LightGame.Core;
+namespace LightGame.Features.UI.Views
 {
     public class LightProjectorView : Togglable
     {

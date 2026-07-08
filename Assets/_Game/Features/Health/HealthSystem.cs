@@ -1,8 +1,9 @@
-using System;
-using Light_and_controller.Scripts.Components;
-using Light_and_controller.Scripts.Systems;
+﻿using System;
+using LightGame.Features;
+using LightGame.Globals;
 using UnityEngine;
 
+using LightGame.Core;
 public class HealthSystem : MonoBehaviour, IDamageable, IHealable
 {
     [SerializeField] private int health;

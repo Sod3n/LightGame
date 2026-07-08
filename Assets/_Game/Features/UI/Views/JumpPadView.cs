@@ -1,8 +1,8 @@
-using Core._.UI;
-using LightGame.Audio;
+﻿using Core._.UI;
+using LightGame.Features.Audio;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.UI
+namespace LightGame.Features.UI
 {
     /// <summary>
     /// View component for JumpPad that handles visual feedback through tweens.

@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace Light_and_controller.Scripts.Components
+namespace LightGame.Features
 {
     public class SimpleTeleportTrigger : MonoBehaviour
     {

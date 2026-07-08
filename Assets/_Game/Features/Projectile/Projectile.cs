@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.Components
+namespace LightGame.Features
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class Projectile : MonoBehaviour

@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Light_and_controller.Scripts.Components
+namespace LightGame.Features
 {
     public class ParallaxEffect : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &2642626501288576035
 GameObject:
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ce4540d26164ba1b01119f56530bb9b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.Views.LightProjectorView
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Views.LightProjectorView
   lights:
   - {fileID: 3776454411217442731}
   - {fileID: 1434488149860620480}

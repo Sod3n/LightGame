@@ -1,11 +1,12 @@
 ﻿using System;
-using LightGame.Audio;
+using LightGame.Features.Audio;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-namespace Light_and_controller.Scripts.Components
+using LightGame.Core;
+namespace LightGame.Features
 {
     public class SceneRoot : MonoBehaviour
     {
@@ -24,7 +25,7 @@ namespace Light_and_controller.Scripts.Components
                 SceneManager.LoadScene(SceneName.Shared.KeyToString(), LoadSceneMode.Additive);
             }
 
-            GD.Init();
+            Game.Init();
             ExecuteEvents.ExecuteHierarchy<IInitializable>(gameObject, null, (x, _) => x.Initialize());
             var mainTheme = Addressables.LoadAssetAsync<SoundData>("Sounds/MainTheme").WaitForCompletion();
             if(!SoundManager.IsMusicPlaying()) SoundManager.PlayMusic(mainTheme, 2f);

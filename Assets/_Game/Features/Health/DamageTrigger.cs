@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Light_and_controller.Scripts.Components;
-using Light_and_controller.Scripts.Systems;
+using LightGame.Features;
+using LightGame.Globals;
 using UnityEngine;
 
 public class DamageTrigger : MonoBehaviour

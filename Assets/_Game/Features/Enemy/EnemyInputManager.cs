@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Light_and_controller.Scripts.Components.Enemy
+namespace LightGame.Features.Enemy
 {
     /// <summary>
     /// AI-driven input manager for enemy behavior

@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.AbilitiesSystem
+namespace LightGame.Features.Abilities
 {
     public enum UnlockBehavior
     {

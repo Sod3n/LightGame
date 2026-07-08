@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &74923611379272583
 GameObject:
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfc8ac66b4804947b06fe0c00e7775a9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.UICameraBinder
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UICameraBinder
   cameraKey: 0
   canvas: {fileID: 4566293597956157194}
 --- !u!114 &11459153708029236
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89bd8668e9af48dba9944b260c496508, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.MainMenuView
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.MainMenuView
   continueButton: {fileID: 4544064970338593035}
   newGameButton: {fileID: 8210375025392887995}
   settingsButton: {fileID: 487603139546880919}

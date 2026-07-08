@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Light_and_controller.Scripts.AbilitiesSystem
+namespace LightGame.Features.Abilities
 {
     [CreateAssetMenu(fileName = "HealthUpgrade", menuName = "Abilities/HealthUpgrade")]
     public class HealthUpgradeAbility : LevelAbility

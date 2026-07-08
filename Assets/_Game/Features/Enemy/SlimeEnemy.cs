@@ -1,8 +1,8 @@
-using System;
-using Light_and_controller.Scripts.Components.Enemy.States;
+﻿using System;
+using LightGame.Features.Enemy.States;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.Components.Enemy
+namespace LightGame.Features.Enemy
 {
     /// <summary>
     /// Slime enemy controller based on player controller architecture

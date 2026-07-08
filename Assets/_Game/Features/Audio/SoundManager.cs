@@ -1,7 +1,7 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace LightGame.Audio
+namespace LightGame.Features.Audio
 {
     /// <summary>
     /// Static sound manager that handles sound playback without requiring a GameObject.

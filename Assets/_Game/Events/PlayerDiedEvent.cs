@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Light_and_controller.Scripts.Events
+namespace LightGame.Events
 {
     /// <summary>
     /// Event published when the player dies

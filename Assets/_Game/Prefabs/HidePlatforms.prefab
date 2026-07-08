@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &741419047852774922
 GameObject:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.LightDetector
+  m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
   onChangeState:
     m_PersistentCalls:
       m_Calls: []
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.LightDetector
+  m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
   onChangeState:
     m_PersistentCalls:
       m_Calls: []
@@ -682,7 +682,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.LightDetector
+  m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
   onChangeState:
     m_PersistentCalls:
       m_Calls: []
@@ -853,7 +853,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.LightDetector
+  m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
   onChangeState:
     m_PersistentCalls:
       m_Calls: []
@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.LightDetector
+  m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
   onChangeState:
     m_PersistentCalls:
       m_Calls: []
@@ -1298,7 +1298,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.LightDetector
+  m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
   onChangeState:
     m_PersistentCalls:
       m_Calls: []

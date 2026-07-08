@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &243198859162835449
 GameObject:
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9381adb9496bd4ce5ad0dc5e4eea79d8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.Triggers.HintTrigger
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Triggers.HintTrigger
   hintText:
     m_TableReference:
       m_TableCollectionName: GUID:43d18811a754e4b18a33d5b71fb86678

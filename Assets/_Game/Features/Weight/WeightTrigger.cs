@@ -1,10 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Light_and_controller.Scripts.Systems;
+using LightGame.Globals;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Light_and_controller.Scripts.Components
+using LightGame.Core;
+namespace LightGame.Features
 {
     public class WeightTrigger : MonoBehaviour
     {

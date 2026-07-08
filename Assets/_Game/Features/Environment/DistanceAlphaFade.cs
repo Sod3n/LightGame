@@ -1,9 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 
-namespace Light_and_controller.Scripts.Components
+namespace LightGame.Features
 {
     public class DistanceAlphaFade : MonoBehaviour
     {

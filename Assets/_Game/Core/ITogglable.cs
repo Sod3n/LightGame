@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Light_and_controller.Scripts
+namespace LightGame.Core
 {
     /// <summary>
     /// Abstract base class for game elements that can be toggled on/off

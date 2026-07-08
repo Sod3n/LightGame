@@ -1,10 +1,11 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Light_and_controller.Scripts.Components;
-using Light_and_controller.Scripts.Systems;
+using LightGame.Features;
+using LightGame.Globals;
 using UnityEngine;
 using UnityEngine.Events;
 
+using LightGame.Core;
 [RequireComponent(typeof(LightDetector))]
 public class ObjectHider : MonoBehaviour, ILightable
 {

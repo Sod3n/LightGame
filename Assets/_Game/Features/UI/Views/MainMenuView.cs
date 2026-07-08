@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Light_and_controller.Scripts.UI
+namespace LightGame.Features.UI
 {
     public class MainMenuView : MonoBehaviour
     {
@@ -36,11 +36,11 @@ namespace Light_and_controller.Scripts.UI
 
         private void OnNewGameButtonClicked()
         {
-            GD.Init();
+            Game.Init();
             
-            if (GD.LevelOrder != null && GD.LevelOrder.Value.Count > 0)
+            if (Game.LevelOrder != null && Game.LevelOrder.Value.Count > 0)
             {
-                var firstLevel = GD.LevelOrder.Value[0];
+                var firstLevel = Game.LevelOrder.Value[0];
                 SceneLoader.LoadLevel(firstLevel);
                 SceneLoader.UnloadScene(SceneName.MainMenu);
             }

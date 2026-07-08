@@ -1,13 +1,13 @@
-using System;
+﻿using System;
 using System.Collections;
-using Light_and_controller.Scripts.Components;
-using Light_and_controller.Scripts.Events;
-using Light_and_controller.Scripts.Systems;
+using LightGame.Features;
+using LightGame.Events;
+using LightGame.Globals;
 using R3;
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.UI
+namespace LightGame.Features.UI
 {
     public class CameraView : MonoBehaviour
     {

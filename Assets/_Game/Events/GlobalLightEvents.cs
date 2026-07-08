@@ -1,5 +1,5 @@
-using DG.Tweening;
-using Light_and_controller.Scripts.Systems;
+﻿using DG.Tweening;
+using LightGame.Globals;
 
 public enum LightType
 {
@@ -7,7 +7,7 @@ public enum LightType
     LevelChange
 }
 
-namespace Light_and_controller.Scripts.Events
+namespace LightGame.Events
 {
     /// <summary>
     /// Event to set intensity with tweening

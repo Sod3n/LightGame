@@ -1,7 +1,7 @@
-using Light_and_controller.Scripts.Components;
+﻿using LightGame.Features;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.AbilitiesSystem
+namespace LightGame.Features.Abilities
 {
     [CreateAssetMenu(fileName = "HealInLight", menuName = "Abilities/HealInLight")]
     public class HealInLightAbility : LevelAbility

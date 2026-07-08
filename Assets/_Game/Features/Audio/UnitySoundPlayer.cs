@@ -1,7 +1,7 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-namespace LightGame.Audio
+namespace LightGame.Features.Audio
 {
     /// <summary>
     /// Unity AudioSource-based implementation of ISoundPlayer.

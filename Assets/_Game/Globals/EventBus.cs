@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.Systems
+namespace LightGame.Globals
 {
     /// <summary>
     /// Global event bus system for decoupled communication between components

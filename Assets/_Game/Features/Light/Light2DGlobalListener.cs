@@ -1,8 +1,8 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using Light_and_controller.Scripts.Events;
-using Light_and_controller.Scripts.Systems;
+using LightGame.Events;
+using LightGame.Globals;
 
 [RequireComponent(typeof(Light2D))]
 public class Light2DGlobalListener : MonoBehaviour

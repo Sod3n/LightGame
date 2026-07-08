@@ -1,7 +1,7 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.Components
+namespace LightGame.Features
 {
     public class UICameraBinder : MonoBehaviour
     {

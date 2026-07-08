@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Light_and_controller.Scripts.UI.Utils
+namespace LightGame.Features.UI.Utils
 {
     public class ParentedContentSizeFitter : ContentSizeFitter
     {

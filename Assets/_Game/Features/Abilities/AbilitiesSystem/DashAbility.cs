@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Light_and_controller.Scripts.AbilitiesSystem
+namespace LightGame.Features.Abilities
 {
     [CreateAssetMenu(fileName = "Dash", menuName = "Abilities/Dash")]
     public class DashAbility : LevelAbility

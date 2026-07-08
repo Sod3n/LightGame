@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.Components.Enemy
+namespace LightGame.Features.Enemy
 {
     [CreateAssetMenu(fileName = "EnemyData", menuName = "Enemy/Enemy Data")]
     [Serializable]

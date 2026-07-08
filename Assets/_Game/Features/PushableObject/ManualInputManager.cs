@@ -1,4 +1,4 @@
-﻿namespace Light_and_controller.Scripts.Components.PushableObject
+﻿namespace LightGame.Features.PushableObject
 {
     public class ManualInputManager : PlayerInputManager
     {

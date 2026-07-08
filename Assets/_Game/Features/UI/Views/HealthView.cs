@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Light_and_controller.Scripts.Events;
-using Light_and_controller.Scripts.Systems;
+using LightGame.Events;
+using LightGame.Globals;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.UI
+namespace LightGame.Features.UI
 {
     public class HealthView : MonoBehaviour
     {

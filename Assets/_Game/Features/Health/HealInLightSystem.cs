@@ -1,7 +1,8 @@
-using Light_and_controller.Scripts.Systems;
+﻿using LightGame.Globals;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.Components
+using LightGame.Core;
+namespace LightGame.Features
 {
     [RequireComponent(typeof(LightDetector))]
     public class HealInLightSystem : MonoBehaviourWithData<HealOverTimeEffect.EffectData>, ILightable

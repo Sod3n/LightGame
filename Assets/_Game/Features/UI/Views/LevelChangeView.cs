@@ -1,11 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using DG.Tweening;
-using Light_and_controller.Scripts;
-using Light_and_controller.Scripts.Events;
-using Light_and_controller.Scripts.Systems;
+using LightGame;
+using LightGame.Events;
+using LightGame.Globals;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.UI.Views
+namespace LightGame.Features.UI.Views
 {
     public class LevelChangeView : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &1614502612167188095
 GameObject:
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.JumpPadView
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.JumpPadView
   jumpPad: {fileID: 3743545707784075447}
   compressTween: {fileID: 6575293534498146165}
   bounceTween: {fileID: 3992670941814332290}

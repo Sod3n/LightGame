@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
 OcclusionCullingSettings:
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ada985f5e2254890ab5760eb5ff2fecc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.SceneRoot
+  m_EditorClassIdentifier: LightGame::LightGame.Features.SceneRoot
 --- !u!224 &2051079497 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3109548152435879442, guid: 077f6fb2615b742d5be6ba30441b6f89, type: 3}
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfc8ac66b4804947b06fe0c00e7775a9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.UICameraBinder
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UICameraBinder
   cameraKey: 0
   canvas: {fileID: 5187322805133011778}
 --- !u!114 &8027878275759970321

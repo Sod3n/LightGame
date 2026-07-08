@@ -1,11 +1,11 @@
-using System.Collections.Generic;
-using Light_and_controller.Scripts;
+﻿using System.Collections.Generic;
+using LightGame;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.Serialization;
 
-namespace Light_and_controller.Scripts.AbilitiesSystem
+namespace LightGame.Features.Abilities
 {
     [CreateAssetMenu(fileName = "LevelAbilities", menuName = "Abilities/LevelAbilities")]
     public class LevelAbilities : ScriptableObject
@@ -57,14 +57,14 @@ namespace Light_and_controller.Scripts.AbilitiesSystem
             var result = new List<LevelAbility>();
             
             // Get level order from GD
-            if (GD.LevelOrder == null || GD.LevelOrder.Value == null)
+            if (Game.LevelOrder == null || Game.LevelOrder.Value == null)
             {
                 Debug.LogWarning("LevelOrder not initialized or empty");
                 return result;
             }
             
             // Find the index of target level
-            int targetIndex = GD.LevelOrder.Value.IndexOf(targetLevel);
+            int targetIndex = Game.LevelOrder.Value.IndexOf(targetLevel);
             if (targetIndex == -1)
             {
                 // If level not in order (test level), return all abilities for testing
@@ -75,7 +75,7 @@ namespace Light_and_controller.Scripts.AbilitiesSystem
             // Collect all abilities up to and including target level
             foreach (var ability in abilities)
             {
-                int abilityLevelIndex = GD.LevelOrder.Value.IndexOf(ability.unlockAtLevel);
+                int abilityLevelIndex = Game.LevelOrder.Value.IndexOf(ability.unlockAtLevel);
                 if (abilityLevelIndex != -1 && abilityLevelIndex <= targetIndex)
                 {
                     result.Add(ability);

@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Light_and_controller.Scripts.Components
+namespace LightGame.Features
 {
     /// <summary>
     /// Component that tracks the player's ability to push heavy objects.

@@ -1,8 +1,8 @@
-using Core._.UI;
-using Light_and_controller.Scripts.Components.Enemy;
+﻿using Core._.UI;
+using LightGame.Features.Enemy;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.UI
+namespace LightGame.Features.UI
 {
     public class SlimeView : MonoBehaviour
     {

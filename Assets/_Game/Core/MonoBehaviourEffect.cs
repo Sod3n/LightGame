@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Light_and_controller.Scripts.Components
+namespace LightGame.Core
 {
     public abstract class MonoBehaviourEffect<T> : MonoBehaviourWithData<T> where T : EffectData
     {

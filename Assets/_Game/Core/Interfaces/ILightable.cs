@@ -1,6 +1,6 @@
-using Light_and_controller.Scripts;
+﻿using LightGame;
 
-namespace Light_and_controller.Scripts.Components
+namespace LightGame.Core
 {
     public interface ILightable
     {

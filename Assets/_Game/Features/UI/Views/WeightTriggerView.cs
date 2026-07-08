@@ -1,9 +1,9 @@
-using Core._.UI;
+﻿using Core._.UI;
 using DG.Tweening;
-using Light_and_controller.Scripts.Components;
+using LightGame.Features;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.UI
+namespace LightGame.Features.UI
 {
     /// <summary>
     /// Visual feedback for WeightTrigger component.

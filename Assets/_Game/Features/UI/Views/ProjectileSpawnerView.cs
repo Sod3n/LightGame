@@ -1,12 +1,12 @@
-using Core._.UI;
+﻿using Core._.UI;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Light_and_controller.Scripts.Components;
+using LightGame.Features;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.U2D;
 
-namespace Light_and_controller.Scripts.UI
+namespace LightGame.Features.UI
 {
     public class ProjectileSpawnerView : MonoBehaviour
     {

@@ -1,8 +1,9 @@
-using System.Collections;
-using Light_and_controller.Scripts.Components;
-using Light_and_controller.Scripts.Systems;
+﻿using System.Collections;
+using LightGame.Features;
+using LightGame.Globals;
 using UnityEngine;
 
+using LightGame.Core;
 [RequireComponent(typeof(LightDetector))]
 public class DissolveObjectHider : MonoBehaviour, ILightable
 {

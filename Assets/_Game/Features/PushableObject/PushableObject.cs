@@ -1,7 +1,7 @@
 ﻿using System;
-using Light_and_controller.Scripts.Components;
-using Light_and_controller.Scripts.Components.PushableObject;
-using Light_and_controller.Scripts.Systems;
+using LightGame.Features;
+using LightGame.Features.PushableObject;
+using LightGame.Globals;
 using UnityEngine;
 
 public class PushableObject : PlayerMain

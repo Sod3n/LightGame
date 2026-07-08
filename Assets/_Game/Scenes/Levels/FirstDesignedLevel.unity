@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
 OcclusionCullingSettings:
@@ -1506,7 +1506,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAnimationControl
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
   playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
@@ -1834,7 +1834,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -2909,7 +2909,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ce4540d26164ba1b01119f56530bb9b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.Views.LightProjectorView
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Views.LightProjectorView
 --- !u!1001 &282914796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4032,7 +4032,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -4142,7 +4142,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ce4540d26164ba1b01119f56530bb9b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.Views.LightProjectorView
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Views.LightProjectorView
 --- !u!1 &408613625
 GameObject:
   m_ObjectHideFlags: 0
@@ -4769,7 +4769,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07eac839bab784769877f96aed06a019, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.SimpleTeleportTrigger
+  m_EditorClassIdentifier: LightGame::LightGame.Features.SimpleTeleportTrigger
   destinationPoint: {fileID: 2448207723939872789}
   destinationOffset: {x: 0, y: 0}
   linkedTeleport: {fileID: 8492292147205247097}
@@ -7332,7 +7332,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -7489,7 +7489,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -7806,7 +7806,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -8115,7 +8115,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAnimationControl
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
   playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
@@ -8262,7 +8262,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -8488,7 +8488,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -8742,7 +8742,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAnimationControl
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
   playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
@@ -8984,7 +8984,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07eac839bab784769877f96aed06a019, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.SimpleTeleportTrigger
+  m_EditorClassIdentifier: LightGame::LightGame.Features.SimpleTeleportTrigger
   destinationPoint: {fileID: 1425252273}
   destinationOffset: {x: 0, y: 0}
   linkedTeleport: {fileID: 1425252271}
@@ -9061,7 +9061,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -9307,7 +9307,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -9417,7 +9417,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -9815,7 +9815,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -10176,7 +10176,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -11275,7 +11275,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -11590,7 +11590,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -11730,7 +11730,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -12295,7 +12295,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -12518,7 +12518,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ce4540d26164ba1b01119f56530bb9b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.Views.LightProjectorView
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Views.LightProjectorView
 --- !u!1001 &1371459839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12631,7 +12631,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -12840,7 +12840,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAnimationControl
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
   playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
@@ -13064,7 +13064,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07eac839bab784769877f96aed06a019, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.SimpleTeleportTrigger
+  m_EditorClassIdentifier: LightGame::LightGame.Features.SimpleTeleportTrigger
   destinationPoint: {fileID: 1003328817}
   destinationOffset: {x: 0, y: 0}
   linkedTeleport: {fileID: 1003328818}
@@ -13537,7 +13537,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -14004,7 +14004,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ce4540d26164ba1b01119f56530bb9b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.Views.LightProjectorView
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Views.LightProjectorView
 --- !u!1001 &1549876259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14081,7 +14081,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -14204,7 +14204,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAnimationControl
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
   playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
@@ -14440,7 +14440,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ce4540d26164ba1b01119f56530bb9b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.Views.LightProjectorView
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Views.LightProjectorView
 --- !u!1 &1602544397
 GameObject:
   m_ObjectHideFlags: 0
@@ -14844,7 +14844,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -15172,7 +15172,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ce4540d26164ba1b01119f56530bb9b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.UI.Views.LightProjectorView
+  m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Views.LightProjectorView
 --- !u!1001 &1619183426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15249,7 +15249,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -15299,7 +15299,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -15692,7 +15692,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -15814,7 +15814,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -15937,7 +15937,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAnimationControl
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
   playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
@@ -16500,7 +16500,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -16550,7 +16550,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -16954,7 +16954,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ad35be9f066e4cd59e4962cef7ae119, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.ParallaxEffect
+  m_EditorClassIdentifier: LightGame::LightGame.Features.ParallaxEffect
   cameraTransform: {fileID: 0}
   parallaxMultiplier: {x: 0.03, y: 0.03}
   autoFindCamera: 1
@@ -17458,7 +17458,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -19514,7 +19514,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAnimationControl
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
   playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
@@ -19536,7 +19536,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -20513,7 +20513,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -21186,7 +21186,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -21273,7 +21273,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -21323,7 +21323,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -22345,7 +22345,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -22631,7 +22631,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.DistanceAlphaFade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
   playerTag: Player
   minDistance: 0
   maxDistance: 13
@@ -22694,7 +22694,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07eac839bab784769877f96aed06a019, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::Light_and_controller.Scripts.Components.SimpleTeleportTrigger
+  m_EditorClassIdentifier: LightGame::LightGame.Features.SimpleTeleportTrigger
   destinationPoint: {fileID: 498604230}
   destinationOffset: {x: 0, y: 0}
   linkedTeleport: {fileID: 498604231}

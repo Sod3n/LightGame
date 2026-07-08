@@ -1,6 +1,6 @@
-using System;
+﻿using System;
 
-namespace Light_and_controller.Scripts.Events
+namespace LightGame.Events
 {
     public class PendingDamageEvent
     {

@@ -1,4 +1,4 @@
-namespace Light_and_controller.Scripts.Components.Enemy
+﻿namespace LightGame.Features.Enemy
 {
     [System.Serializable]
     public class EnemyStateMachine

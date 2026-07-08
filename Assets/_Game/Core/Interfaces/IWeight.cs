@@ -1,4 +1,4 @@
-namespace Light_and_controller.Scripts.Components
+﻿namespace LightGame.Core
 {
     public interface IWeight
     {

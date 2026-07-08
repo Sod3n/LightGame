@@ -1,9 +1,10 @@
-using System;
-using Light_and_controller.Scripts.Systems;
+﻿using System;
+using LightGame.Globals;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.Components
+using LightGame.Core;
+namespace LightGame.Features
 {
     [RequireComponent(typeof(LightDetector))]
     public class DangerLightSystem : MonoBehaviour, ILightable

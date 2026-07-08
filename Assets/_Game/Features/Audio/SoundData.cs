@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace LightGame.Audio
+namespace LightGame.Features.Audio
 {
     /// <summary>
     /// ScriptableObject that stores sound data and provides methods to play/stop sounds.

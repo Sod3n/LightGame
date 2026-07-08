@@ -1,10 +1,10 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Light_and_controller.Scripts.Systems;
+using LightGame.Globals;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Light_and_controller.Scripts.Components
+namespace LightGame.Features
 {
     [RequireComponent(typeof(Collider2D))]
     public class LightDetector : MonoBehaviour
@@ -50,7 +50,7 @@ namespace Light_and_controller.Scripts.Components
                
                if (isInLightOfType != _lastStateByType[lightType])
                {
-                   Light_and_controller.Scripts.SceneName? targetScene = null;
+                   LightGame.SceneName? targetScene = null;
 
                    // If this is a LevelChange light type, get the target scene from the trigger
                    if (lightType == LightType.LevelChange && _activeLevelChangeTrigger != null)
@@ -61,7 +61,7 @@ namespace Light_and_controller.Scripts.Components
                            if (trigger.UseNextScene)
                            {
                                // Get next scene from LevelOrder
-                               targetScene = Light_and_controller.Scripts.GD.LevelOrder?.GetNextScene();
+                               targetScene = LightGame.Game.LevelOrder?.GetNextScene();
                            }
                            else
                            {

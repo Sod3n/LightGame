@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-using Light_and_controller.Scripts.AbilitiesSystem;
+﻿using System.Collections.Generic;
+using LightGame.Features.Abilities;
 using UnityEngine;
 
-namespace Light_and_controller.Scripts.Systems
+namespace LightGame.Globals
 {
     public class AbilityManager : MonoBehaviour
     {
@@ -14,7 +14,7 @@ namespace Light_and_controller.Scripts.Systems
         
         private void Start()
         {
-            GD.Init();
+            Game.Init();
             _player = GameObject.FindGameObjectWithTag("Player");
             
             // Activate all AlwaysUnlocked abilities at start
@@ -30,9 +30,9 @@ namespace Light_and_controller.Scripts.Systems
         
         private void ActivateAlwaysUnlockedAbilities()
         {
-            if (GD.LevelAbilities == null) return;
+            if (Game.LevelAbilities == null) return;
             
-            foreach (var ability in GD.LevelAbilities.Abilities)
+            foreach (var ability in Game.LevelAbilities.Abilities)
             {
                 if (ability.unlockBehavior == UnlockBehavior.AlwaysUnlocked)
                 {
@@ -43,7 +43,7 @@ namespace Light_and_controller.Scripts.Systems
         
         public void UnlockAbilitiesForLevel(SceneName sceneName)
         {
-            var newAbilities = GD.LevelAbilities.GetAbilitiesForLevel(sceneName);
+            var newAbilities = Game.LevelAbilities.GetAbilitiesForLevel(sceneName);
             foreach (var ability in newAbilities)
             {
                 UnlockAbility(ability);
@@ -56,9 +56,9 @@ namespace Light_and_controller.Scripts.Systems
         /// </summary>
         public void UnlockAbilitiesUpToLevel(SceneName targetLevel)
         {
-            if (GD.LevelAbilities == null) return;
+            if (Game.LevelAbilities == null) return;
             
-            var abilitiesToUnlock = GD.LevelAbilities.GetAbilitiesUpToLevel(targetLevel);
+            var abilitiesToUnlock = Game.LevelAbilities.GetAbilitiesUpToLevel(targetLevel);
             foreach (var ability in abilitiesToUnlock)
             {
                 UnlockAbility(ability);

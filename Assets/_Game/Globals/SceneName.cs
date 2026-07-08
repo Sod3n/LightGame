@@ -1,4 +1,4 @@
-namespace Light_and_controller.Scripts
+﻿namespace LightGame.Globals
 {
     public enum SceneName
     {

@@ -1,9 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Light_and_controller.Scripts
+namespace LightGame.Globals
 {
-    public static class SaveSystem
+    public static class SaveManager
     {
         public static void SaveGame()
         {
