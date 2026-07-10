@@ -5,7 +5,7 @@ using UnityEngine;
 
 using LightGame.Core;
 [RequireComponent(typeof(LightDetector))]
-public class PlayerTeleportSystem : MonoBehaviourWithData<PlayerTeleportSkill.TeleportData>, ILightable
+public class PlayerTeleportSystem : MonoBehaviourWithData<PlayerTeleportSkill.TeleportData>
 {
     [SerializeField] private float disableDelay = 0.5f; // Delay in seconds before ability is removed
 

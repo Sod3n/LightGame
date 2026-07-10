@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using LightGame.Globals;
 using UnityEngine;
-using UnityEngine.Events;
 
 using LightGame.Core;
 namespace LightGame.Features
@@ -10,47 +9,53 @@ namespace LightGame.Features
     public class WeightTrigger : MonoBehaviour
     {
         [Header("Mode")]
-        [SerializeField] private bool toggleMode = false;
-        [SerializeField] private bool interactMode = false;
-        
+        [SerializeField, Tooltip("If ON: each entry into the trigger flips the state (on/off/on/off). Ignores weight.")]
+        private bool toggleMode = false;
+        [SerializeField, Tooltip("If ON: player must press the interact key while inside the trigger. Ignores weight.")]
+        private bool interactMode = false;
+
         [Header("Interact Mode Settings")]
-        [SerializeField] private KeyCode interactKey = KeyCode.F;
-        [SerializeField] private string playerTag = "Player";
-        
+        [SerializeField, Tooltip("Key the player presses to toggle when Interact Mode is on.")]
+        private KeyCode interactKey = KeyCode.F;
+
         [Header("Weight Mode Settings")]
-        [SerializeField] private float weightThreshold;
-        [SerializeField] private bool canDeactivate = true;
-        
+        [SerializeField, Tooltip("Total weight of objects on the platform required to activate. Objects publish their weight via WeightRequestEvent.")]
+        private float weightThreshold;
+        [SerializeField, Tooltip("If ON: platform deactivates when weight drops below threshold. If OFF: once activated, stays activated.")]
+        private bool canDeactivate = true;
+
         [Header("Initial State")]
-        [SerializeField] private bool startActivated = false;
-        
+        [SerializeField, Tooltip("Start the platform already activated at level load (togglables enabled from frame 1).")]
+        private bool startActivated = false;
+
         [Header("References")]
-        [SerializeField] private List<Togglable> togglables = new List<Togglable>();
-        public UnityEvent onActivate = new UnityEvent();
-        public UnityEvent onDeactivate = new UnityEvent();
+        [SerializeField, Tooltip("Objects that get enabled/disabled by this trigger (doors, platforms, hazards, etc.). Drag any Togglable component here.")]
+        private List<Togglable> togglables = new List<Togglable>();
         
         private float _currentWeight;
         private bool _active;
         private bool _playerInZone;
 
         private HashSet<GameObject> AddedWeights { get; } = new();
-        
+
         public bool IsActive => _active;
+
+        public event Action OnActivated;
+        public event Action OnDeactivated;
 
         private void Start()
         {
-            // Initialize based on startActivated setting
             if (startActivated)
             {
                 _active = true;
                 ActivateTogglables();
-                onActivate.Invoke();
+                OnActivated?.Invoke();
             }
             else
             {
                 _active = false;
                 DeactivateTogglables();
-                onDeactivate.Invoke();
+                OnDeactivated?.Invoke();
             }
         }
 
@@ -67,7 +72,7 @@ namespace LightGame.Features
             if (interactMode)
             {
                 // Interact mode: track player presence
-                if (other.CompareTag(playerTag))
+                if (other.GetComponent<PlayerMain>() != null)
                 {
                     _playerInZone = true;
                 }
@@ -95,7 +100,7 @@ namespace LightGame.Features
             if (interactMode)
             {
                 // Interact mode: track player leaving
-                if (other.CompareTag(playerTag))
+                if (other.GetComponent<PlayerMain>() != null)
                 {
                     _playerInZone = false;
                 }
@@ -122,20 +127,20 @@ namespace LightGame.Features
         {
             _currentWeight += value;
             if (!(_currentWeight >= weightThreshold) || _active) return;
-            
-            onActivate.Invoke();
+
             ActivateTogglables();
             _active = true;
+            OnActivated?.Invoke();
         }
 
         private void RemoveWeight(float value)
         {
             _currentWeight -= value;
             if (!(_currentWeight < weightThreshold) || !_active || !canDeactivate) return;
-            
-            onDeactivate.Invoke();
+
             DeactivateTogglables();
             _active = false;
+            OnDeactivated?.Invoke();
         }
 
         private void ActivateTogglables()
@@ -164,15 +169,15 @@ namespace LightGame.Features
         {
             if (_active)
             {
-                onDeactivate.Invoke();
                 DeactivateTogglables();
                 _active = false;
+                OnDeactivated?.Invoke();
             }
             else
             {
-                onActivate.Invoke();
                 ActivateTogglables();
                 _active = true;
+                OnActivated?.Invoke();
             }
         }
     }

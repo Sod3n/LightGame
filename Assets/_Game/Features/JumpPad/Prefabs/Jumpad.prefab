@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &1614502612167188095
 GameObject:
@@ -60,6 +60,8 @@ GameObject:
   m_Component:
   - component: {fileID: 572449464152938189}
   - component: {fileID: 8640028186755188169}
+  - component: {fileID: 7094170138942354140}
+  - component: {fileID: 634805555536021344}
   m_Layer: 0
   m_Name: Jumpad
   m_TagString: Untagged
@@ -98,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.UI.JumpPadView
-  jumpPad: {fileID: 3743545707784075447}
+  jumpPad: {fileID: 634805555536021344}
   compressTween: {fileID: 6575293534498146165}
   bounceTween: {fileID: 3992670941814332290}
   readyTween: {fileID: 3543547246575963278}
@@ -111,6 +113,76 @@ MonoBehaviour:
   activeColor: {r: 0.9254902, g: 0.28235295, b: 0.6, a: 1}
   disabledColor: {r: 0.54509807, g: 0.36078432, b: 0.9647059, a: 1}
   colorTransitionDuration: 0.2
+--- !u!61 &7094170138942354140
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381440528402237345}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.184}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.2313676, y: 0.3560409}
+  m_EdgeRadius: 0
+--- !u!114 &634805555536021344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381440528402237345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f3e8a9c2d4b5e6f1a2c3d4e5f6a7b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightGame::JumpPad
+  jumpIndex: 1
+  useCollisionNormal: 0
+  launchDirection: {x: 0, y: 1}
+  forceMultiplier: 2.5
+  preservePerpendicularVelocity: 1
+  activationAngle: 60
+  cooldownTime: 0.5
+  stuckCheckInterval: 0.2
+  stuckVelocityThreshold: 0.5
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &2839121571335219828
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,8 +253,6 @@ GameObject:
   m_Component:
   - component: {fileID: 950299981496938798}
   - component: {fileID: 3042715434099876093}
-  - component: {fileID: 8504323553653675225}
-  - component: {fileID: 3743545707784075447}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -264,73 +334,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8504323553653675225
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7125363814828263052}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &3743545707784075447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7125363814828263052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f3e8a9c2d4b5e6f1a2c3d4e5f6a7b8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: PlayerController::JumpPad
-  jumpIndex: 1
-  launchDirection: {x: 0, y: 1}
-  forceMultiplier: 2.5
-  preservePerpendicularVelocity: 1
-  activationAngle: 60
-  cooldownTime: 0.5
-  targetLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1 &7759346924178724997
 GameObject:
   m_ObjectHideFlags: 0

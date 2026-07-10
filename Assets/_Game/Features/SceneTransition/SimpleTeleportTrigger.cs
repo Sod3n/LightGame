@@ -18,7 +18,6 @@ namespace LightGame.Features
         
         [Header("Filter")]
         [SerializeField] private LayerMask teleportLayers = -1;
-        [SerializeField] private string requiredTag = "Player";
         
         [Header("Events")]
         public UnityEvent onTeleport = new UnityEvent();
@@ -30,7 +29,7 @@ namespace LightGame.Features
             if (Time.time - _lastTeleportTime < teleportCooldown)
                 return;
 
-            if (!string.IsNullOrEmpty(requiredTag) && !other.CompareTag(requiredTag))
+            if (other.GetComponent<PlayerMain>() == null)
                 return;
 
             if (((1 << other.gameObject.layer) & teleportLayers) == 0)

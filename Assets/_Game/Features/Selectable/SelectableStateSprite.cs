@@ -1,7 +1,6 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
-using R3;
 
 namespace Core.Client.UI.Components
 {
@@ -10,19 +9,31 @@ namespace Core.Client.UI.Components
     {
         [SerializeField] private Image imageToSwap;
         [SerializeField] private SelectionStateToSprite selectionStateToSprite;
-        
+
+        private ISelectable _selectable;
+
         private void OnValidate()
         {
             imageToSwap ??= GetComponent<Image>();
         }
-        
+
         private void Awake()
         {
-            var button = GetComponent<ISelectable>();
             selectionStateToSprite.SetNormal(imageToSwap?.sprite);
-            button.SelectionStateTransition.Subscribe(OnSelectionStateTransition).AddTo(this);
         }
-        
+
+        private void OnEnable()
+        {
+            _selectable ??= GetComponent<ISelectable>();
+            _selectable.SelectionStateChanged += OnSelectionStateTransition;
+            OnSelectionStateTransition(_selectable.CurrentState);
+        }
+
+        private void OnDisable()
+        {
+            if (_selectable != null) _selectable.SelectionStateChanged -= OnSelectionStateTransition;
+        }
+
         public void OnSelectionStateTransition(SelectionState selectionState)
         {
             var sprite = selectionStateToSprite.Get(selectionState);
@@ -31,7 +42,7 @@ namespace Core.Client.UI.Components
                 imageToSwap.sprite = sprite;
             }
         }
-        
+
         [Serializable]
         public class SelectionStateToSprite
         {
@@ -43,7 +54,7 @@ namespace Core.Client.UI.Components
                 Selected = null,
                 Disabled = null
             };
-    
+
             public Sprite Get(SelectionState state) => values.Get(state);
             public void SetNormal(Sprite value) => values.SetNormal(value);
         }

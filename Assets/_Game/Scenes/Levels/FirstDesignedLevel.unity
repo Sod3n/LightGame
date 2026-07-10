@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
 OcclusionCullingSettings:
@@ -496,6 +496,47 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10e6ac24120cd41c896096771bc510fb, type: 3}
+--- !u!21 &108256884
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 77, g: 77, b: 30, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &116127858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,47 +1417,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3260100737747034648, guid: 48a0cf07446304edc93e4eb0fa4eb003, type: 3}
   m_PrefabInstance: {fileID: 200224341}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &205524660
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 80, g: 80, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1001 &207967680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1507,7 +1507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
-  playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
   backwardSpeed: 1
@@ -1835,7 +1834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -3239,88 +3237,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!21 &349444330
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 77, g: 77, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
---- !u!21 &350819083
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 77, g: 77, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!43 &368854261
 Mesh:
   m_ObjectHideFlags: 0
@@ -3904,47 +3820,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
   m_PrefabInstance: {fileID: 371152516}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &372993824
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 80, g: 80, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!114 &382435771 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7205630159491639014, guid: b33a20ed9d05f4d9ca380292ef96c5ce, type: 3}
@@ -4033,7 +3908,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -4066,6 +3940,47 @@ MonoBehaviour:
   updateInterval: 0.1
   tweenDuration: 0.3
   tweenEase: 6
+--- !u!21 &406492273
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 80, g: 80, b: 30, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1001 &406705314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4780,7 +4695,6 @@ MonoBehaviour:
   teleportLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  requiredTag: Player
   onTeleport:
     m_PersistentCalls:
       m_Calls: []
@@ -4849,47 +4763,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
   m_PrefabInstance: {fileID: 513793963}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &514416549
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 75, g: 75, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1001 &515775296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5390,7 +5263,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
       propertyPath: m_Name
-      value: WeightPlaform (3)
+      value: WeightPlatform (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
       propertyPath: m_IsActive
@@ -5678,6 +5551,47 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!21 &599666145
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 77, g: 77, b: 30, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1001 &607730743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6116,7 +6030,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
       propertyPath: m_Name
-      value: WeightPlaform (1)
+      value: WeightPlatform (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
       propertyPath: m_IsActive
@@ -6465,47 +6379,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
   m_PrefabInstance: {fileID: 627932338}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &648207631
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 75, g: 75, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &653742065
 GameObject:
   m_ObjectHideFlags: 0
@@ -6849,7 +6722,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
       propertyPath: m_Name
-      value: WeightPlaform (2)
+      value: WeightPlatform (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
       propertyPath: m_IsActive
@@ -7333,7 +7206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -7382,47 +7254,6 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 942415090941342433, guid: b33a20ed9d05f4d9ca380292ef96c5ce, type: 3}
   m_PrefabInstance: {fileID: 2010825439}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &758494595
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 77, g: 77, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &766087833
 GameObject:
   m_ObjectHideFlags: 0
@@ -7490,7 +7321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -7807,7 +7637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -7971,6 +7800,47 @@ Transform:
   - {fileID: 1512728729}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &833763693
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 75, g: 75, b: 30, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &837569295 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4278741214423043715, guid: 48a0cf07446304edc93e4eb0fa4eb003, type: 3}
@@ -8116,7 +7986,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
-  playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
   backwardSpeed: 1
@@ -8263,7 +8132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -8489,7 +8357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -8612,47 +8479,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!21 &935121499
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 75, g: 75, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1001 &976351232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8743,7 +8569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
-  playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
   backwardSpeed: 1
@@ -8758,7 +8583,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
       propertyPath: m_Name
-      value: WeightPlaform (4)
+      value: WeightPlatform (4)
       objectReference: {fileID: 0}
     - target: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
       propertyPath: m_IsActive
@@ -8939,6 +8764,47 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5286d8d3b0c21bb459bd3c543043cd15, type: 3}
+--- !u!21 &998173835
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 77, g: 77, b: 30, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1003328816
 GameObject:
   m_ObjectHideFlags: 0
@@ -8995,7 +8861,6 @@ MonoBehaviour:
   teleportLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  requiredTag: Player
   onTeleport:
     m_PersistentCalls:
       m_Calls: []
@@ -9062,7 +8927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -9250,47 +9114,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
   m_PrefabInstance: {fileID: 1017020367}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1018881673
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 75, g: 75, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &1039710845 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4278741214423043715, guid: 48a0cf07446304edc93e4eb0fa4eb003, type: 3}
@@ -9308,7 +9131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -9418,7 +9240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -9758,47 +9579,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b33a20ed9d05f4d9ca380292ef96c5ce, type: 3}
---- !u!21 &1060018584
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 77, g: 77, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &1061370666 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4278741214423043715, guid: 48a0cf07446304edc93e4eb0fa4eb003, type: 3}
@@ -9816,7 +9596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -9944,47 +9723,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1594256560580050333, guid: 42965448539c84c32ac855c93820b229, type: 3}
   m_PrefabInstance: {fileID: 1785483900}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1096635516
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 75, g: 75, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &1101436219
 GameObject:
   m_ObjectHideFlags: 0
@@ -10177,7 +9915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -10365,47 +10102,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!21 &1119573157
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 75, g: 75, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!114 &1124853786 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 320491696919902244, guid: b33a20ed9d05f4d9ca380292ef96c5ce, type: 3}
@@ -10953,47 +10649,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!21 &1161262918
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 77, g: 77, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &1170926372
 GameObject:
   m_ObjectHideFlags: 0
@@ -11276,7 +10931,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -11591,7 +11245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -11731,7 +11384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -11829,6 +11481,47 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3260100737747034648, guid: 48a0cf07446304edc93e4eb0fa4eb003, type: 3}
   m_PrefabInstance: {fileID: 1240132276}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1243967621
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 75, g: 75, b: 30, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1245635986
 GameObject:
   m_ObjectHideFlags: 0
@@ -11879,184 +11572,47 @@ MonoBehaviour:
   _endScale: {x: 1, y: 1, z: 1}
   _duration: 0.6
   _scaleEase: 24
---- !u!43 &1247240627
-Mesh:
+--- !u!21 &1252414029
+Material:
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 12
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 0
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 0
-    localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 
-  m_VertexData:
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
     serializedVersion: 3
-    m_VertexCount: 0
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 0
-    _typelessdata: 
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  'm_MeshMetrics[0]': 1
-  'm_MeshMetrics[1]': 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
-  m_MeshLodInfo:
-    serializedVersion: 2
-    m_LodSelectionCurve:
-      serializedVersion: 1
-      m_LodSlope: 0
-      m_LodBias: 0
-    m_NumLevels: 1
-    m_SubMeshes:
-    - serializedVersion: 2
-      m_Levels:
-      - serializedVersion: 1
-        m_IndexStart: 0
-        m_IndexCount: 0
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 80, g: 80, b: 30, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1001 &1259918555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12148,15 +11704,15 @@ PrefabInstance:
     - target: {fileID: 1596924381103994083, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 1499147918}
+      objectReference: {fileID: 1542600936}
     - target: {fileID: 1747176852424264978, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 1096635516}
+      objectReference: {fileID: 1243967621}
     - target: {fileID: 2311435418121846173, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 372993824}
+      objectReference: {fileID: 1252414029}
     - target: {fileID: 2595116351994408536, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12176,7 +11732,7 @@ PrefabInstance:
     - target: {fileID: 3316210703361967212, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 1119573157}
+      objectReference: {fileID: 1795127086}
     - target: {fileID: 3497776562338298001, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12196,15 +11752,27 @@ PrefabInstance:
     - target: {fileID: 3790609865728846676, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 1656320183}
+      objectReference: {fileID: 406492273}
     - target: {fileID: 4218924806685217445, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 514416549}
+      objectReference: {fileID: 833763693}
+    - target: {fileID: 6366317538968489257, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
+      propertyPath: Damping.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366317538968489257, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
+      propertyPath: Damping.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366317538968489257, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
+      propertyPath: Damping.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6705670259711844939, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 349444330}
+      objectReference: {fileID: 599666145}
     - target: {fileID: 7008356457272032129, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
       propertyPath: m_Name
       value: GeneralLevel
@@ -12212,11 +11780,11 @@ PrefabInstance:
     - target: {fileID: 7725335363458378549, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 1060018584}
+      objectReference: {fileID: 108256884}
     - target: {fileID: 9204454148337073660, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 1161262918}
+      objectReference: {fileID: 998173835}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12227,47 +11795,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1547631611833056512, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
   m_PrefabInstance: {fileID: 1259918555}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1284686854
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 80, g: 80, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!114 &1291986993 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8983782413747302362, guid: b33a20ed9d05f4d9ca380292ef96c5ce, type: 3}
@@ -12296,7 +11823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -12632,7 +12158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -12841,7 +12366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
-  playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
   backwardSpeed: 1
@@ -13075,7 +12599,6 @@ MonoBehaviour:
   teleportLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  requiredTag: Player
   onTeleport:
     m_PersistentCalls:
       m_Calls: []
@@ -13538,7 +13061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -13571,47 +13093,6 @@ MonoBehaviour:
   updateInterval: 0.1
   tweenDuration: 0.3
   tweenEase: 6
---- !u!21 &1499147918
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 80, g: 80, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &1507587120
 GameObject:
   m_ObjectHideFlags: 0
@@ -14005,6 +13486,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce4540d26164ba1b01119f56530bb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Views.LightProjectorView
+--- !u!21 &1542600936
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 80, g: 80, b: 30, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1001 &1549876259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14082,7 +13604,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -14205,52 +13726,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
-  playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
   backwardSpeed: 1
   updateInterval: 0.1
---- !u!21 &1591343348
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 77, g: 77, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1001 &1594265292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14845,7 +14324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -14887,10 +14365,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
-      propertyPath: m_Name
-      value: WeightPlaform
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -14898,10 +14372,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2337982516302004825, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
-      propertyPath: m_ShadowMesh.m_Mesh
-      value: 
-      objectReference: {fileID: 1247240627}
     - target: {fileID: 4925771404669307953, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
       propertyPath: _startScale.y
       value: 1
@@ -15250,7 +14720,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -15300,7 +14769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -15423,47 +14891,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!21 &1656320183
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 80, g: 80, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1001 &1671927136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15693,7 +15120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -15815,7 +15241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -15938,11 +15363,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
-  playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
   backwardSpeed: 1
   updateInterval: 0.1
+--- !u!21 &1795127086
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 75, g: 75, b: 30, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1806251967
 GameObject:
   m_ObjectHideFlags: 0
@@ -16501,7 +15966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -16551,7 +16015,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -17459,7 +16922,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -19515,7 +18977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db3c78f159564025a442eb414d91d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAnimationControl
-  playerTag: Player
   activationRadius: 5
   forwardSpeed: 1
   backwardSpeed: 1
@@ -19537,7 +18998,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -20022,47 +19482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c477c63ab4d1049a843d1321b17111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &2011032970
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 80, g: 80, b: 30, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!43 &2015909039
 Mesh:
   m_ObjectHideFlags: 0
@@ -20514,7 +19933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -21187,7 +20605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -21274,7 +20691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -21324,7 +20740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -22346,7 +21761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -22632,7 +22046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
-  playerTag: Player
   minDistance: 0
   maxDistance: 13
   fadeCurve:
@@ -22705,7 +22118,6 @@ MonoBehaviour:
   teleportLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  requiredTag: Player
   onTeleport:
     m_PersistentCalls:
       m_Calls: []

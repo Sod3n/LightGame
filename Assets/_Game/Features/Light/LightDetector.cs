@@ -3,15 +3,15 @@ using System.Linq;
 using LightGame.Core;
 using LightGame.Globals;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace LightGame.Features
 {
     [RequireComponent(typeof(Collider2D))]
     public class LightDetector : MonoBehaviour
    {
-       [SerializeField] private UnityEvent<bool> onChangeState = new UnityEvent<bool>();
-       [SerializeField] private UnityEvent<bool> onChangeStateInverse = new UnityEvent<bool>();
+       // Only these layers can block or provide light. Filtering to layer avoids the ray hitting the detector's own collider.
+       private static int _lightRaycastMask;
+       private static bool _lightRaycastMaskInitialized;
 
        // ToForce - extension
        // enum: Weak, Strong light
@@ -27,10 +27,6 @@ namespace LightGame.Features
 
        // Track the active trigger for LevelChange light type
        private GameObject _activeLevelChangeTrigger;
-
-       // Public accessors for events
-       public UnityEvent<bool> OnChangeState => onChangeState;
-       public UnityEvent<bool> OnChangeStateInverse => onChangeStateInverse;
 
        private bool _lastStateIsInLight;
        private bool _isInLight;
@@ -56,10 +52,10 @@ namespace LightGame.Features
                    // If this is a LevelChange light type, get the target scene from the trigger
                    if (lightType == LightType.LevelChange && _activeLevelChangeTrigger != null)
                    {
-                       var trigger = _activeLevelChangeTrigger.GetComponent<Trigger>();
-                       if (trigger != null)
+                       var source = _activeLevelChangeTrigger.GetComponent<LightSource>();
+                       if (source != null)
                        {
-                           if (trigger.UseNextScene)
+                           if (source.UseNextScene)
                            {
                                // Get next scene from LevelOrder
                                targetScene = Game.LevelOrder?.GetNextScene();
@@ -67,7 +63,7 @@ namespace LightGame.Features
                            else
                            {
                                // Use the specified target scene
-                               targetScene = trigger.TargetScene;
+                               targetScene = source.TargetScene;
                            }
                        }
                    }
@@ -80,8 +76,6 @@ namespace LightGame.Features
            // Publish general light change event
            if(_isInLight == _lastStateIsInLight) return;
            EventBus.Publish(gameObject, new LightChangeEvent(_isInLight, null));
-           onChangeState?.Invoke(_isInLight);
-           onChangeStateInverse?.Invoke(!_isInLight);
            _lastStateIsInLight = _isInLight;
        }
        
@@ -123,15 +117,17 @@ namespace LightGame.Features
            return _lightSourcesByType[lightType].Count > 0;
        }
        
-       public bool LightBlockCheck(Vector3 targetPosition, Rigidbody2D lightRigidbody) 
+       public bool LightBlockCheck(Vector3 targetPosition)
        {
-//           Debug.Log(lightRigidbody);
-           
            Vector3 direction = targetPosition - transform.position;
    
-           var mask = LayerMask.GetMask("LightSource", "Ground");
+           if (!_lightRaycastMaskInitialized)
+           {
+               _lightRaycastMask = LayerMask.GetMask("LightSource", "Ground");
+               _lightRaycastMaskInitialized = true;
+           }
            var filter = new ContactFilter2D();
-           filter.SetLayerMask(mask);
+           filter.SetLayerMask(_lightRaycastMask);
            filter.useTriggers = true;
            var results = new List<RaycastHit2D>();
            Physics2D.Raycast(transform.position, direction.normalized, filter, results, direction.magnitude);

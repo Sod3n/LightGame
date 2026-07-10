@@ -109,17 +109,16 @@ public class PlayerTeleportSkill : MonoBehaviourWithData<PlayerTeleportSkill.Tel
         {
             if (StartLightFiltr && hit.collider?.tag == "Teleport")
             {
-                // Check if the hit object has a TeleportDestination component
-                TeleportDestination teleportDest = hit.collider.GetComponent<TeleportDestination>();
-                
-                if (teleportDest != null)
+                // Every LightSource is a teleport target; use its landing position.
+                LightSource targetLight = hit.collider.GetComponent<LightSource>();
+
+                if (targetLight != null)
                 {
-                    // Use the specified destination point from the component
-                    TargetPosition = teleportDest.GetTeleportPosition();
+                    TargetPosition = targetLight.GetTeleportLandingPosition();
                 }
                 else
                 {
-                    // Fallback to the hit point if no TeleportDestination component is found
+                    // Fallback: hit point (for GameObjects with only the tag, no LightSource).
                     TargetPosition = hit.point;
                 }
 

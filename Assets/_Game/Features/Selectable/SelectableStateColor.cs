@@ -1,8 +1,6 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.UI;
-using R3;
+using System;
 using UltEvents;
+using UnityEngine;
 
 namespace Core.Client.UI.Components
 {
@@ -11,19 +9,27 @@ namespace Core.Client.UI.Components
     {
         [SerializeField] private UltEvent<Color> onChange;
         [SerializeField] private SelectionStateToSprite selectionStateToSprite;
-        
-        private void Awake()
+
+        private ISelectable _selectable;
+
+        private void OnEnable()
         {
-            var button = GetComponent<ISelectable>();
-            button.SelectionStateTransition.Subscribe(OnSelectionStateTransition).AddTo(this);
+            _selectable ??= GetComponent<ISelectable>();
+            _selectable.SelectionStateChanged += OnSelectionStateTransition;
+            OnSelectionStateTransition(_selectable.CurrentState);
         }
-        
+
+        private void OnDisable()
+        {
+            if (_selectable != null) _selectable.SelectionStateChanged -= OnSelectionStateTransition;
+        }
+
         public void OnSelectionStateTransition(SelectionState selectionState)
         {
             var color = selectionStateToSprite.Get(selectionState);
             onChange.Invoke(color);
         }
-        
+
         [Serializable]
         public class SelectionStateToSprite
         {
@@ -34,10 +40,8 @@ namespace Core.Client.UI.Components
                 Pressed = Color.white,
                 Selected = Color.white,
                 Disabled = Color.white,
-                // DisabledPressed = Color.white,
-                // DisabledHighlighted = Color.white
             };
-    
+
             public Color Get(SelectionState state) => values.Get(state);
             public void SetNormal(Color value) => values.SetNormal(value);
         }

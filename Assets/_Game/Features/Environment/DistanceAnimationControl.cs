@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
+using LightGame.Globals;
 
 namespace LightGame.Features
 {
     public class DistanceAnimationControl : MonoBehaviour
     {
-        [Header("Target Settings")]
-        [SerializeField] private string playerTag = "Player";
-        
         [Header("Distance Settings")]
         [SerializeField] private float activationRadius = 5f;
         
@@ -46,15 +44,7 @@ namespace LightGame.Features
 
         private void FindPlayer()
         {
-            GameObject playerObject = GameObject.FindGameObjectWithTag(playerTag);
-            if (playerObject != null)
-            {
-                _playerTransform = playerObject.transform;
-            }
-            else
-            {
-                Debug.LogWarning($"DistanceAnimationControl on {gameObject.name}: Player with tag '{playerTag}' not found!");
-            }
+            _playerTransform = Player.Transform;
         }
 
         private void Update()

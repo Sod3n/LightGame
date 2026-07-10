@@ -16,7 +16,7 @@ namespace LightGame.Globals
         private void Start()
         {
             Game.Init();
-            _player = GameObject.FindGameObjectWithTag("Player");
+            _player = Player.GameObject;
             
             // Activate all AlwaysUnlocked abilities at start
             ActivateAlwaysUnlockedAbilities();

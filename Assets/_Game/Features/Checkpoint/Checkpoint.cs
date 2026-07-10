@@ -8,8 +8,10 @@ namespace LightGame.Features
         public static Checkpoint Active;
 
         [Header("Checkpoint Settings")]
-        [SerializeField] private bool setAsStartCheckpoint = false;
-        [SerializeField] private Vector2 respawnOffset = Vector2.zero;
+        [SerializeField, Tooltip("Mark this as the level's default respawn point. Set on exactly one checkpoint per level (typically the starting one).")]
+        private bool setAsStartCheckpoint = false;
+        [SerializeField, Tooltip("Offset (in world units) from this checkpoint's position where the player respawns. Useful if the checkpoint sits on the ground and you want to spawn slightly above it.")]
+        private Vector2 respawnOffset = Vector2.zero;
 
         public Vector2 RespawnPosition => (Vector2)transform.position + respawnOffset;
 
@@ -23,7 +25,7 @@ namespace LightGame.Features
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Player"))
+            if (other.GetComponent<PlayerMain>() != null)
             {
                 SetAsActiveCheckpoint();
             }

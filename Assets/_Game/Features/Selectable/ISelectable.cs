@@ -1,10 +1,14 @@
-using Core.Client.UI.Components;
-using R3;
+using System;
 
 namespace Core.Client.UI.Components
 {
+    /// <summary>
+    /// Selectables (Button, Toggle, etc.) publish selection-state transitions via a plain C# event.
+    /// Consumers subscribe in OnEnable and unsubscribe in OnDisable.
+    /// </summary>
     public interface ISelectable
     {
-        public ReactiveProperty<SelectionState> SelectionStateTransition { get; }
+        event Action<SelectionState> SelectionStateChanged;
+        SelectionState CurrentState { get; }
     }
 }

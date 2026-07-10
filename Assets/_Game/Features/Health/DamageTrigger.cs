@@ -7,8 +7,11 @@ using UnityEngine;
 using LightGame.Core;
 public class DamageTrigger : MonoBehaviour
 {
-    [SerializeField] private int damage;
-    [SerializeField] private bool useCollision = false;
+    [SerializeField, Tooltip("Damage dealt on contact (HP points).")]
+    private int damage;
+
+    [SerializeField, Tooltip("If ON: fires on physical collision (Collider must NOT be a trigger).\nIf OFF: fires on trigger overlap (Collider must be a trigger).")]
+    private bool useCollision = false;
     
     private HashSet<GameObject> ObjectsInTrigger { get; } = new();
     

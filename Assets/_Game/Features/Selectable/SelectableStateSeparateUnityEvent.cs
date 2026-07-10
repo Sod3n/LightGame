@@ -1,5 +1,4 @@
 using System;
-using R3;
 using UltEvents;
 using UnityEngine;
 
@@ -11,14 +10,19 @@ namespace Core.Client.UI.Components
         [SerializeField] private SelectionStateToUnityEvent onExit;
 
         private UltEvent _previous;
-        private ISelectable selectable;
-        
-        private void Awake()
+        private ISelectable _selectable;
+
+        private void OnEnable()
         {
-            selectable ??= GetComponentInParent<ISelectable>();
-            selectable.SelectionStateTransition.Subscribe(OnSelectionStateTransition).AddTo(this);
+            _selectable ??= GetComponentInParent<ISelectable>();
+            _selectable.SelectionStateChanged += OnSelectionStateTransition;
         }
-        
+
+        private void OnDisable()
+        {
+            if (_selectable != null) _selectable.SelectionStateChanged -= OnSelectionStateTransition;
+        }
+
         public void OnSelectionStateTransition(SelectionState selectionState)
         {
             var enterEvent = onEnter.Get(selectionState);
@@ -27,7 +31,7 @@ namespace Core.Client.UI.Components
             enterEvent.Invoke();
             _previous = exitEvent;
         }
-        
+
         [Serializable]
         public class SelectionStateToUnityEvent
         {
@@ -39,7 +43,7 @@ namespace Core.Client.UI.Components
                 Selected = null,
                 Disabled = null
             };
-    
+
             public UltEvent Get(SelectionState state) => values.Get(state);
             public void SetNormal(UltEvent value) => values.SetNormal(value);
         }

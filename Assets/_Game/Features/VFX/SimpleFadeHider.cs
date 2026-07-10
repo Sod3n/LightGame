@@ -9,7 +9,7 @@ using LightGame.Core;
 /// Good for quick prototyping without custom shaders.
 /// </summary>
 [RequireComponent(typeof(LightDetector))]
-public class SimpleFadeHider : MonoBehaviour, ILightable
+public class SimpleFadeHider : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private MeshRenderer m_Renderer;

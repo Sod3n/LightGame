@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 using LightGame.Core;
 [RequireComponent(typeof(LightDetector))]
-public class ObjectHider : MonoBehaviour, ILightable
+public class ObjectHider : MonoBehaviour
 {
     [SerializeField] private List<Renderer> m_Renderer;
 

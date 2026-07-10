@@ -1,9 +1,6 @@
-﻿using System;
+using System;
 using LightGame.Features.Audio;
 using UnityEngine;
-using UnityEngine.UI;
-using R3;
-using UltEvents;
 
 namespace Core.Client.UI.Components
 {
@@ -11,26 +8,31 @@ namespace Core.Client.UI.Components
     public class SelectableStateSound : MonoBehaviour
     {
         [SerializeField] private SelectionStateToSound selectionStateToSprite;
-        
-        private void Awake()
+
+        private ISelectable _selectable;
+
+        private void OnEnable()
         {
-            var button = GetComponent<ISelectable>();
-            button.SelectionStateTransition.Subscribe(OnSelectionStateTransition).AddTo(this);
+            _selectable ??= GetComponent<ISelectable>();
+            _selectable.SelectionStateChanged += OnSelectionStateTransition;
         }
-        
+
+        private void OnDisable()
+        {
+            if (_selectable != null) _selectable.SelectionStateChanged -= OnSelectionStateTransition;
+        }
+
         public void OnSelectionStateTransition(SelectionState selectionState)
         {
             var soundData = selectionStateToSprite.Get(selectionState);
             soundData?.Play();
         }
-        
+
         [Serializable]
         public class SelectionStateToSound
         {
-            [SerializeField] private SelectionStateValues<SoundData> values = new()
-            {
-            };
-    
+            [SerializeField] private SelectionStateValues<SoundData> values = new() { };
+
             public SoundData Get(SelectionState state) => values.Get(state);
             public void SetNormal(SoundData value) => values.SetNormal(value);
         }

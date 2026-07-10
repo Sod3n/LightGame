@@ -5,7 +5,7 @@ using UnityEngine;
 
 using LightGame.Core;
 [RequireComponent(typeof(LightDetector))]
-public class DissolveObjectHider : MonoBehaviour, ILightable
+public class DissolveObjectHider : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private MeshRenderer m_Renderer;

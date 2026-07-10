@@ -2,14 +2,12 @@
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using LightGame.Globals;
 
 namespace LightGame.Features
 {
     public class DistanceAlphaFade : MonoBehaviour
     {
-        [Header("Target Settings")]
-        [SerializeField] private string playerTag = "Player";
-        
         [Header("Distance Settings")]
         [SerializeField] private float minDistance = 0f;
         [SerializeField] private float maxDistance = 10f;
@@ -81,15 +79,7 @@ namespace LightGame.Features
 
         private void FindPlayer()
         {
-            GameObject playerObject = GameObject.FindGameObjectWithTag(playerTag);
-            if (playerObject != null)
-            {
-                _playerTransform = playerObject.transform;
-            }
-            else
-            {
-                Debug.LogWarning($"DistanceAlphaFade on {gameObject.name}: Player with tag '{playerTag}' not found!");
-            }
+            _playerTransform = Player.Transform;
         }
 
         private void Update()

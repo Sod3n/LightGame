@@ -1,7 +1,6 @@
-﻿using System;
+using System;
 using DG.Tweening;
 using UnityEngine;
-using R3;
 using UnityEngine.Serialization;
 
 namespace Core.Client.UI.Components
@@ -14,32 +13,38 @@ namespace Core.Client.UI.Components
         [FormerlySerializedAs("selectionStateToTextColor")] [SerializeField] private SelectionStateToScale selectionState;
 
         private Vector3 _awakeScale;
-        
+        private ISelectable _selectable;
+
         private void OnValidate()
         {
             if (transformToScale == null) transformToScale = transform;
         }
-        
+
         private void Awake()
         {
-            var button = GetComponent<ISelectable>();
             _awakeScale = transformToScale.localScale;
-            button.SelectionStateTransition.Subscribe(OnSelectionStateTransition).AddTo(this);
+        }
+
+        private void OnEnable()
+        {
+            _selectable ??= GetComponent<ISelectable>();
+            _selectable.SelectionStateChanged += OnSelectionStateTransition;
         }
 
         private void OnDisable()
         {
+            if (_selectable != null) _selectable.SelectionStateChanged -= OnSelectionStateTransition;
             this.DOComplete();
         }
 
         public void OnSelectionStateTransition(SelectionState selectionState)
         {
-            if(!enabled) return;
+            if (!enabled) return;
             transform.DOKill();
             var scale = this.selectionState.Get(selectionState);
             transformToScale.DOScale(_awakeScale * scale, scaleDuration).SetTarget(transform);
         }
-        
+
         [Serializable]
         public class SelectionStateToScale
         {
@@ -50,10 +55,8 @@ namespace Core.Client.UI.Components
                 Pressed = 0.9f,
                 Selected = 1f,
                 Disabled = 1f,
-                // DisabledHighlighted = 1f,
-                // DisabledPressed = 1f,
             };
-    
+
             public float Get(SelectionState state) => values.Get(state);
             public void SetNormal(float value) => values.SetNormal(value);
         }

@@ -1,4 +1,4 @@
-﻿using LightGame.Features;
+using LightGame.Features;
 using UnityEngine;
 
 using LightGame.Core;
@@ -14,40 +14,25 @@ namespace LightGame.Features.Abilities
             IsInfinity = true,
             ResetTickOnHealthChange = true
         };
-        
+
         public override void Activate(GameObject target)
         {
-            // Check if component already exists
-            var existingSystem = target.GetComponent<DamageInDarkSystem>();
-            if (existingSystem != null)
-            {
-                existingSystem.enabled = true;
-                existingSystem.Data = damageData;
-                Debug.Log("Damage in Dark ability re-enabled!");
-                return;
-            }
-            
-            // Add LightDetector if not present
             if (target.GetComponent<LightDetector>() == null)
-            {
                 target.AddComponent<LightDetector>();
-            }
-            
-            // Add the damage system
-            var damageSystem = target.AddComponent<DamageInDarkSystem>();
-            damageSystem.Data = damageData;
-            
+
+            var reactive = target.GetComponent<LightReactiveEffect>() ?? target.AddComponent<LightReactiveEffect>();
+            reactive.SetOnDark(damageData);
+            reactive.enabled = true;
             Debug.Log("Damage in Dark ability activated!");
         }
-        
+
         public override void Deactivate(GameObject target)
         {
-            var damageSystem = target.GetComponent<DamageInDarkSystem>();
-            if (damageSystem != null)
-            {
-                damageSystem.enabled = false;
-                Debug.Log("Damage in Dark ability deactivated");
-            }
+            var reactive = target.GetComponent<LightReactiveEffect>();
+            if (reactive == null) return;
+            reactive.SetOnDark(null);
+            if (!reactive.AnyActive) reactive.enabled = false;
+            Debug.Log("Damage in Dark ability deactivated");
         }
     }
 }

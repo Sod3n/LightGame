@@ -148,7 +148,7 @@ public class SimpleBlockToSpriteSync : MonoBehaviour
 
             if (freeSlot == -1) continue;
 
-            var trigger = lightGO.GetComponent<Trigger>();
+            var trigger = lightGO.GetComponent<LightSource>();
             if (trigger == null) continue;
 
             var countID = (AdvancedDissolveKeywords.CutoutGeometricCount)freeSlot;

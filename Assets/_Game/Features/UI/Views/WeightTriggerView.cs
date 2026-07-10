@@ -60,17 +60,17 @@ namespace LightGame.Features.UI
         {
             if (_weightTrigger != null)
             {
-                _weightTrigger.onActivate.AddListener(OnActivate);
-                _weightTrigger.onDeactivate.AddListener(OnDeactivate);
+                _weightTrigger.OnActivated += OnActivate;
+                _weightTrigger.OnDeactivated += OnDeactivate;
             }
         }
-        
+
         private void OnDisable()
         {
             if (_weightTrigger != null)
             {
-                _weightTrigger.onActivate.RemoveListener(OnActivate);
-                _weightTrigger.onDeactivate.RemoveListener(OnDeactivate);
+                _weightTrigger.OnActivated -= OnActivate;
+                _weightTrigger.OnDeactivated -= OnDeactivate;
             }
         }
         

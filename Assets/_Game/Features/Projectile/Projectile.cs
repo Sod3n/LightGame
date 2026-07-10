@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 
 namespace LightGame.Features
@@ -22,10 +21,9 @@ namespace LightGame.Features
             rb.MoveRotation(rb.rotation + SpeedRotation * Time.fixedDeltaTime);
         }
 
-        private IEnumerator OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.isTrigger) yield break;
-            yield return new WaitForFixedUpdate();
+            if (other.isTrigger) return;
             Destroy(gameObject);
         }
     }

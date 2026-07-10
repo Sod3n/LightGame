@@ -1,5 +1,4 @@
-﻿using System;
-using R3;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -13,14 +12,24 @@ namespace Core.Client.UI.Components
         [SerializeField] private SelectionStateToTextMaterial selectionStateToTextMaterial;
         [SerializeField] private bool changeColor;
         [SerializeField] private SelectionStateToTextColor selectionStateToTextColor;
-        
-        public void Awake()
+
+        private ISelectable _selectable;
+
+        private void Awake()
         {
             selectionStateToTextMaterial.SetNormal(text.material);
             selectionStateToTextColor.SetNormal(text.color);
-            
-            var button = GetComponent<ISelectable>();
-            button.SelectionStateTransition.Subscribe(OnSelectionStateTransition).AddTo(this);
+        }
+
+        private void OnEnable()
+        {
+            _selectable ??= GetComponent<ISelectable>();
+            _selectable.SelectionStateChanged += OnSelectionStateTransition;
+        }
+
+        private void OnDisable()
+        {
+            if (_selectable != null) _selectable.SelectionStateChanged -= OnSelectionStateTransition;
         }
 
         public void OnSelectionStateTransition(SelectionState selectionState)
@@ -32,23 +41,22 @@ namespace Core.Client.UI.Components
         private void ChangeMaterial(SelectionState selectionState)
         {
             text.material = selectionStateToTextMaterial.Get(selectionState);
-
         }
 
         private void ChangeColor(SelectionState selectionState)
         {
             text.color = selectionStateToTextColor.Get(selectionState);
         }
-        
+
         [Serializable]
         public class SelectionStateToTextMaterial
         {
             [SerializeField] private SelectionStateValues<Material> values = new();
-            
+
             public Material Get(SelectionState state) => values.Get(state);
             public void SetNormal(Material value) => values.SetNormal(value);
         }
-        
+
         [Serializable]
         public class SelectionStateToTextColor
         {
@@ -60,7 +68,7 @@ namespace Core.Client.UI.Components
                 Selected = Color.white,
                 Disabled = Color.white
             };
-    
+
             public Color Get(SelectionState state) => values.Get(state);
             public void SetNormal(Color value) => values.SetNormal(value);
         }

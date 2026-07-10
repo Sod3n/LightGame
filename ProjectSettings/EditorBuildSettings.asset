@@ -6,70 +6,70 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Light and controller/Scenes/MainMenu.unity
+    path: Assets/_Game/Features/MainMenu/MainMenu.unity
     guid: 39bc895d8bb084179838b99f037b3304
   - enabled: 0
-    path: Assets/Light and controller/Scenes/TestLevels/Level1.unity
+    path: Assets/_Game/Scenes/TestLevels/Level1.unity
     guid: 34e9a3a491a61490385e47bf45b5f5fd
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Shared.unity
+    path: Assets/_Game/Scenes/Shared.unity
     guid: 0ccc036bae6a543b1aa8fafcfd034939
   - enabled: 0
     path: Assets/Light and controller/Scenes/SharedLevel.unity
     guid: ec48d55fd492742aaba15698ba075bde
   - enabled: 0
-    path: Assets/Light and controller/Scenes/Levels/LevelTemplate.unity
+    path: Assets/_Game/Scenes/Levels/LevelTemplate.unity
     guid: c6d27237a7ea44c79b11c9bd5345aae3
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelTeleportPlatformerSimple.unity
+    path: Assets/_Game/Scenes/Levels/LevelTeleportPlatformerSimple.unity
     guid: 436a981802a0f47c893c68333dbe57ac
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelWeightPlatformSimple.unity
+    path: Assets/_Game/Scenes/Levels/LevelWeightPlatformSimple.unity
     guid: 4fde431d569ed43eaa0ec429cc59f66c
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelJumpadAndCubeSimple.unity
+    path: Assets/_Game/Scenes/Levels/LevelJumpadAndCubeSimple.unity
     guid: 6018f193ada5d447d98270e0f780ad67
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelGetCubeUpper.unity
+    path: Assets/_Game/Scenes/Levels/LevelGetCubeUpper.unity
     guid: ecae9b155fedf438d8c50fc976cf7db8
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelCubeTriggerLightIntoduction.unity
+    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightIntoduction.unity
     guid: 4ffc5775ca1b440599da17b3b9f2e700
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelCubeTriggerLightInverse.unity
+    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightInverse.unity
     guid: 018b2cd58c37e4825ae8429f10a53b57
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelCubeTriggerLightSequencing.unity
+    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightSequencing.unity
     guid: 39571940d283441598c6b38e66a53d4d
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelCubeTriggerLightSequence2.unity
+    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightSequence2.unity
     guid: 5a704d4afa663472498c844a2b8e6049
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelTeachPullCube.unity
+    path: Assets/_Game/Scenes/Levels/LevelTeachPullCube.unity
     guid: ff796814080ee4db3b1995e60ecff318
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelCubeTriggerLightFinale.unity
+    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightFinale.unity
     guid: 1262062a23f874ebda767da490eb9f15
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelCubeTriggerLightOptionalSkip.unity
+    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightOptionalSkip.unity
     guid: 3a19a52897001492d8c86ff95a6e5016
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelTeachPullCube2.unity
+    path: Assets/_Game/Scenes/Levels/LevelTeachPullCube2.unity
     guid: 2bece49edadee4dfe970e4c154ba10ee
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelTeachPullCubeNarrowCoridor.unity
+    path: Assets/_Game/Scenes/Levels/LevelTeachPullCubeNarrowCoridor.unity
     guid: 7559551f02ceb4348aa0499e575c1298
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelCubeTriggerLightPlayerOnTrigger.unity
+    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightPlayerOnTrigger.unity
     guid: f05e777c3137b4b8498f67015b5b6de3
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelCubeTriggerLightSequencingAdvance.unity
+    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightSequencingAdvance.unity
     guid: 84ffc4364861d49d4968ec321c56d86e
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/LevelTestAll.unity
+    path: Assets/_Game/Scenes/Levels/LevelTestAll.unity
     guid: 6969e751d9992475f9ae8b6c8c14f405
   - enabled: 1
-    path: Assets/Light and controller/Scenes/Levels/FirstDesignedLevel.unity
+    path: Assets/_Game/Scenes/Levels/FirstDesignedLevel.unity
     guid: 51b96e067bf7741c0af2dfc84ff2ab1a
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 57f2ff209156b4bbe979f26c23507ed1, type: 2}

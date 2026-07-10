@@ -6,7 +6,7 @@ using UnityEngine;
 
 using LightGame.Core;
 [RequireComponent(typeof(LightDetector))]
-public class LevelChangeTrigger : MonoBehaviour, ILightable
+public class LevelChangeTrigger : MonoBehaviour
 {
     private LightDetector _lightDetector;
     private bool _wasInLevelChangeLight = false;
@@ -33,12 +33,6 @@ public class LevelChangeTrigger : MonoBehaviour, ILightable
             return;
 
         OnInLightChange(evt.IsInLight, evt.TargetScene);
-    }
-
-    public void OnInLightChange(bool isInLight)
-    {
-        // This method is kept for ILightable interface compatibility
-        // but the actual logic is in the overload below
     }
 
     private void OnInLightChange(bool isInLight, SceneName? targetScene)

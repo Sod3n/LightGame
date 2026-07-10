@@ -1,4 +1,4 @@
-﻿using LightGame.Features;
+using LightGame.Features;
 using UnityEngine;
 
 using LightGame.Core;
@@ -14,40 +14,25 @@ namespace LightGame.Features.Abilities
             IsInfinity = true,
             ResetTickOnHealthChange = true
         };
-        
+
         public override void Activate(GameObject target)
         {
-            // Check if component already exists
-            var existingSystem = target.GetComponent<HealInLightSystem>();
-            if (existingSystem != null)
-            {
-                existingSystem.enabled = true;
-                existingSystem.Data = healData;
-                Debug.Log("Heal in Light ability re-enabled!");
-                return;
-            }
-            
-            // Add LightDetector if not present
             if (target.GetComponent<LightDetector>() == null)
-            {
                 target.AddComponent<LightDetector>();
-            }
-            
-            // Add the heal system
-            var healSystem = target.AddComponent<HealInLightSystem>();
-            healSystem.Data = healData;
-            
+
+            var reactive = target.GetComponent<LightReactiveEffect>() ?? target.AddComponent<LightReactiveEffect>();
+            reactive.SetOnLight(healData);
+            reactive.enabled = true;
             Debug.Log("Heal in Light ability activated!");
         }
-        
+
         public override void Deactivate(GameObject target)
         {
-            var healSystem = target.GetComponent<HealInLightSystem>();
-            if (healSystem != null)
-            {
-                healSystem.enabled = false;
-                Debug.Log("Heal in Light ability deactivated");
-            }
+            var reactive = target.GetComponent<LightReactiveEffect>();
+            if (reactive == null) return;
+            reactive.SetOnLight(null);
+            if (!reactive.AnyActive) reactive.enabled = false;
+            Debug.Log("Heal in Light ability deactivated");
         }
     }
 }
