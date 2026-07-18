@@ -12,6 +12,9 @@
       ]
     }
   ],
+  "testables": [
+    "com.gemserk.tools.gameobjectbrush"
+  ],
   "dependencies": {
     "com.ivanmurzak.unity.mcp": "0.21.0",
     "com.unity.memoryprofiler": "1.1.10",

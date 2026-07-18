@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DefaultMultiply
   m_EditorClassIdentifier: 
   min: 1
-  max: 5
+  max: 1
