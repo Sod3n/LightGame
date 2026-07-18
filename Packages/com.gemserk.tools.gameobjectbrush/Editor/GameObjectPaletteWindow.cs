@@ -669,6 +669,7 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             // Force each open palette window to reflect the new selection highlight.
             foreach (var w in Resources.FindObjectsOfTypeAll<GameObjectPaletteWindow>())
                 w.Repaint();
+            PaletteCommon.RaiseQuickChanged();
         }
 
         private void UnselectUnityTool()
@@ -805,6 +806,7 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             if (!PaletteCommon.favoriteGuids.Add(guid))
                 PaletteCommon.favoriteGuids.Remove(guid);
             EditorPrefs.SetString(FavoritesPrefKey, string.Join(";", PaletteCommon.favoriteGuids));
+            PaletteCommon.RaiseQuickChanged();
         }
 
         public static bool IsFavorite(PaletteObject entry)

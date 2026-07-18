@@ -47,6 +47,14 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             recentEntries.RemoveAll(e => e == null || ReferenceEquals(e.sourceObject, entry.sourceObject));
             recentEntries.Insert(0, entry);
             while (recentEntries.Count > RecentCap) recentEntries.RemoveAt(recentEntries.Count - 1);
+            onQuickChanged?.Invoke();
         }
+
+        // Fired whenever recents, favorites, or the active selection changes. UI surfaces
+        // (palette window Quick strip, scene-view PaletteQuickOverlay) subscribe to keep
+        // themselves in sync without polling.
+        public static event System.Action onQuickChanged;
+
+        public static void RaiseQuickChanged() => onQuickChanged?.Invoke();
     }
 }
