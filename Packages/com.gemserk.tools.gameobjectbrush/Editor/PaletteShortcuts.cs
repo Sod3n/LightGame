@@ -144,6 +144,50 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             return moved;
         }
 
+        // ================ Copy component values across scene selection ================
+
+        [Shortcut("Object Palette/Apply Active's Properties To Selection", KeyCode.D, ShortcutModifiers.Shift | ShortcutModifiers.Action)]
+        static void ApplyActiveToSelection()
+        {
+            ApplyPropertiesToSelection();
+        }
+
+        // Public + static for testing. Uses Selection.activeTransform as source and copies
+        // its non-Transform component values into every other selected scene transform.
+        // Returns number of successful targets updated.
+        public static int ApplyPropertiesToSelection()
+        {
+            var source = Selection.activeTransform;
+            var all = Selection.transforms;
+            if (source == null || all == null || all.Length < 2) return 0;
+            var updated = 0;
+            foreach (var target in all)
+            {
+                if (target == null || target == source) continue;
+                if (!target.gameObject.scene.IsValid()) continue;
+                CopyOverridesTo(source, target);
+                updated++;
+            }
+            if (updated > 0) SceneView.RepaintAll();
+            return updated;
+        }
+
+        static void CopyOverridesTo(Transform src, Transform dst)
+        {
+            var srcComps = src.GetComponents<Component>();
+            var dstComps = dst.GetComponents<Component>();
+            int n = Mathf.Min(srcComps.Length, dstComps.Length);
+            for (int i = 0; i < n; i++)
+            {
+                var s = srcComps[i]; var d = dstComps[i];
+                if (s == null || d == null || s.GetType() != d.GetType()) continue;
+                if (s is Transform) continue; // Never copy world transform
+                Undo.RecordObject(d, "Apply Properties");
+                UnityEditorInternal.ComponentUtility.CopyComponent(s);
+                UnityEditorInternal.ComponentUtility.PasteComponentValues(d);
+            }
+        }
+
         // Guards for shortcuts that need a live brush selection (rotate/scale/erase).
         static bool GuardBrushActive()
         {

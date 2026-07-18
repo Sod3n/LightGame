@@ -97,6 +97,7 @@ namespace Gemserk.Tools.ObjectPalette
                 paintedObject.transform.localScale = worldScale;
 
                 Undo.RegisterCreatedObjectUndo(paintedObject, "Painted");
+                Editor.PaletteCommon.lastPaintedGameObject = paintedObject;
 #else
                 var paintedObject = Instantiate(previewInstance, previewParent.parent);
                 paintedObject.transform.position = previewInstance.transform.position;

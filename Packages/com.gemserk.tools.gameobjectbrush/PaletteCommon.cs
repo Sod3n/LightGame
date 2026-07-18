@@ -21,6 +21,10 @@ namespace Gemserk.Tools.ObjectPalette.Editor
         // even after closing the palette window or clearing selection.
         public static PaletteObject lastPaintedEntry;
 
+        // The most recently painted scene GameObject, for "drag-out to rotate" (RMB drag on
+        // the just-painted object rotates it around its origin, like Figma's rotate handle).
+        public static GameObject lastPaintedGameObject;
+
         // Last world position the brush was moved to (for the palette window status bar).
         public static Vector2 lastCursorWorld;
 

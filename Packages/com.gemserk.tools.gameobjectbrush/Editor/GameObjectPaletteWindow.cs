@@ -43,6 +43,10 @@ namespace Gemserk.Tools.ObjectPalette.Editor
         private bool layersFoldout = true;
         private bool hotkeysFoldout = false;
 
+        // Which per-category foldouts are open (keyed by category label). Session-scope.
+        private readonly System.Collections.Generic.Dictionary<string, bool> categoryFoldouts
+            = new System.Collections.Generic.Dictionary<string, bool>();
+
         [SerializeField]
         private ScriptableBrushBaseAsset defaultBrush = null;
 
@@ -103,22 +107,35 @@ namespace Gemserk.Tools.ObjectPalette.Editor
                 return;
             }
 
-            // Alt+LMB — duplicate the last painted entry at the cursor without needing
-            // the palette to still be selected. Only fires when we actually have a
-            // remembered entry AND some brush is available.
+            // Alt+LMB: two flavors depending on what's under the cursor.
+            //   - hovering an existing scene object → clone that object at cursor (Figma-style)
+            //   - hovering empty space → duplicate last painted from palette
             if (Event.current.type == EventType.MouseDown
                 && Event.current.button == 0
-                && Event.current.alt
-                && PaletteCommon.lastPaintedEntry != null
-                && PaletteCommon.brush != null)
+                && Event.current.alt)
             {
                 var world = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition).origin;
                 world.z = 0f;
-                DuplicateLastPaintedAt(world);
-                Event.current.Use();
-                sceneView.Repaint();
-                return;
+                var hovered = HandleUtility.PickGameObject(Event.current.mousePosition, false);
+                if (hovered != null && hovered.scene.IsValid())
+                {
+                    CloneExistingAt(hovered, world);
+                    Event.current.Use();
+                    sceneView.Repaint();
+                    return;
+                }
+                if (PaletteCommon.lastPaintedEntry != null && PaletteCommon.brush != null)
+                {
+                    DuplicateLastPaintedAt(world);
+                    Event.current.Use();
+                    sceneView.Repaint();
+                    return;
+                }
             }
+
+            // RMB drag-out to rotate the just-painted object. If the RMB gesture is a click
+            // (no drag), fall through to the deselect handler further down.
+            HandleRmbRotateDrag(sceneView);
 
             Handles.BeginGUI();
 
@@ -156,11 +173,114 @@ namespace Gemserk.Tools.ObjectPalette.Editor
                 Repaint();
             }
 
-            if (Event.current.rawType == EventType.MouseDown && Event.current.button == 1)
+            // RMB click (no drag) — deselect palette. `rmbWasDrag` set true in
+            // HandleRmbRotateDrag suppresses this when the user rotated instead.
+            if (Event.current.rawType == EventType.MouseUp && Event.current.button == 1)
             {
-                UnselectPalette();
-                Repaint();
+                if (!rmbWasDrag)
+                {
+                    UnselectPalette();
+                    Repaint();
+                }
+                rmbWasDrag = false;
+                rmbRotateTarget = null;
             }
+        }
+
+        // ================ Alt+drag existing scene object to clone ================
+
+        // Clones an existing scene GameObject at the cursor. If the source is a prefab
+        // instance, uses PrefabUtility to keep the prefab connection AND overrides.
+        // Otherwise a plain Object.Instantiate copy.
+        public static GameObject CloneExistingAt(GameObject source, Vector3 worldPos)
+        {
+            if (source == null) return null;
+            GameObject clone;
+            var prefabAsset = PrefabUtility.GetCorrespondingObjectFromSource(source);
+            if (prefabAsset != null)
+            {
+                clone = (GameObject)PrefabUtility.InstantiatePrefab(prefabAsset, source.scene);
+                clone.transform.SetParent(source.transform.parent, worldPositionStays: false);
+                // Copy overrides so the clone visually matches the source.
+                MirrorOverrides(source.transform, clone.transform, isRoot: true);
+            }
+            else
+            {
+                clone = (GameObject)Object.Instantiate(source, source.transform.parent);
+                clone.name = source.name;
+            }
+            clone.transform.position = worldPos;
+            clone.transform.rotation = source.transform.rotation;
+            clone.transform.localScale = source.transform.lossyScale;
+            Undo.RegisterCreatedObjectUndo(clone, "Clone Existing");
+            return clone;
+        }
+
+        static void MirrorOverrides(Transform src, Transform dst, bool isRoot)
+        {
+            var srcComps = src.GetComponents<Component>();
+            var dstComps = dst.GetComponents<Component>();
+            int n = Mathf.Min(srcComps.Length, dstComps.Length);
+            for (int i = 0; i < n; i++)
+            {
+                var s = srcComps[i]; var d = dstComps[i];
+                if (s == null || d == null || s.GetType() != d.GetType()) continue;
+                if (s is Transform && isRoot) continue;
+                UnityEditorInternal.ComponentUtility.CopyComponent(s);
+                UnityEditorInternal.ComponentUtility.PasteComponentValues(d);
+            }
+            int childCount = Mathf.Min(src.childCount, dst.childCount);
+            for (int i = 0; i < childCount; i++)
+                MirrorOverrides(src.GetChild(i), dst.GetChild(i), false);
+        }
+
+        // ================ Drag-out to rotate (RMB) ================
+
+        private static bool rmbWasDrag;
+        private static Transform rmbRotateTarget;
+        private static Vector2 rmbInitialWorld;
+        private static float rmbInitialRotationZ;
+
+        private void HandleRmbRotateDrag(SceneView sv)
+        {
+            var evt = Event.current;
+            if (evt.button != 1) return;
+
+            var world = HandleUtility.GUIPointToWorldRay(evt.mousePosition).origin;
+            world.z = 0f;
+
+            if (evt.type == EventType.MouseDown)
+            {
+                var tgt = PaletteCommon.lastPaintedGameObject;
+                if (tgt != null)
+                {
+                    rmbRotateTarget = tgt.transform;
+                    rmbInitialWorld = world;
+                    rmbInitialRotationZ = rmbRotateTarget.eulerAngles.z;
+                    rmbWasDrag = false;
+                    // Don't Use yet — click without drag should still fall through to deselect.
+                }
+            }
+            else if (evt.type == EventType.MouseDrag && rmbRotateTarget != null)
+            {
+                RotateTargetTo(rmbRotateTarget, rmbInitialWorld, world, rmbInitialRotationZ);
+                rmbWasDrag = true;
+                sv.Repaint();
+                evt.Use();
+            }
+        }
+
+        // Testable: given the drag start and current world positions, rotate `target`
+        // around its own origin so its Z rotation reflects the swept angle plus the initial rotation.
+        public static void RotateTargetTo(Transform target, Vector2 dragStartWorld, Vector2 currentWorld, float initialRotationZ)
+        {
+            if (target == null) return;
+            var pivot = (Vector2)target.position;
+            var a0 = Mathf.Atan2(dragStartWorld.y - pivot.y, dragStartWorld.x - pivot.x) * Mathf.Rad2Deg;
+            var a1 = Mathf.Atan2(currentWorld.y - pivot.y, currentWorld.x - pivot.x) * Mathf.Rad2Deg;
+            var delta = Mathf.DeltaAngle(a0, a1);
+            Undo.RecordObject(target, "Rotate");
+            target.rotation = Quaternion.Euler(0f, 0f, initialRotationZ + delta);
         }
 
         private void OnBecameVisible()
@@ -238,10 +358,6 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             verticalScroll = GUILayout.BeginScrollView(verticalScroll, false, true,
                 GUIStyle.none, GUI.skin.verticalScrollbar);
 
-            GUILayout.BeginHorizontal();
-
-            var current = 0f;
-
             var fontStyle = new GUIStyle(GUI.skin.GetStyle("PreOverlayLabel"))
             {
                 fontSize = 10
@@ -249,71 +365,71 @@ namespace Gemserk.Tools.ObjectPalette.Editor
 
             var multiselection = Event.current.shift;
 
-            foreach (var entry in _selectedSelectedPalette.cachedEntries)
+            // Group entries by leaf-folder name (e.g., "Tiles", "Platforms"). Folder → list.
+            var groups = GroupByCategory(_selectedSelectedPalette.cachedEntries);
+            foreach (var kv in groups)
             {
-                if (entry == null)
-                    continue;
+                var category = kv.Key;
+                var entries = kv.Value;
+                if (!categoryFoldouts.TryGetValue(category, out var open)) open = true;
+                open = EditorGUILayout.Foldout(open, $"{category}  ({entries.Count})", true);
+                categoryFoldouts[category] = open;
+                if (!open) continue;
 
-                var previewSize = buttonSize;
+                GUILayout.BeginHorizontal();
+                var current = 0f;
 
-                var previewContent = new GUIContent
+                foreach (var entry in entries)
                 {
-                    text = entry.name
-                };
+                    if (entry == null) continue;
 
-                var guiStyle = new GUIStyle(GUI.skin.button)
-                {
-                    alignment = TextAnchor.MiddleCenter,
-                    imagePosition = ImagePosition.ImageAbove,
-                    fixedWidth = previewSize.x,
-                    fixedHeight = previewSize.y
-                };
-
-                var isSelected = PaletteCommon.selection.Contains(entry);
-
-                if (GUILayout.Button(previewContent, guiStyle))
-                {
-                    if (multiselection)
+                    var previewSize = buttonSize;
+                    var previewContent = new GUIContent { text = entry.name };
+                    var guiStyle = new GUIStyle(GUI.skin.button)
                     {
-                        SelectBrushObject(entry);
+                        alignment = TextAnchor.MiddleCenter,
+                        imagePosition = ImagePosition.ImageAbove,
+                        fixedWidth = previewSize.x,
+                        fixedHeight = previewSize.y
+                    };
+
+                    var isSelected = PaletteCommon.selection.Contains(entry);
+
+                    if (GUILayout.Button(previewContent, guiStyle))
+                    {
+                        if (multiselection) SelectBrushObject(entry);
+                        else if (isSelected) UnselectPalette();
+                        else { UnselectPalette(); SelectBrushObject(entry); }
                     }
-                    else
+
+                    var r = GUILayoutUtility.GetLastRect();
+
+                    if (entry.preview == null)
+                        entry.preview = AssetPreview.GetAssetPreview(entry.sourceObject);
+                    if (entry.preview != null) GUI.DrawTexture(r, entry.preview, ScaleMode.StretchToFill);
+                    EditorGUI.DropShadowLabel(new Rect(r.x, r.y, r.width, r.height), entry.name, fontStyle);
+                    if (isSelected) EditorGUI.DrawRect(r, new Color(0, 0, 0.5f, 0.15f));
+
+                    // Right-click on palette entry toggles favorite (pin/unpin).
+                    if (Event.current.type == EventType.MouseDown && Event.current.button == 1
+                        && r.Contains(Event.current.mousePosition))
                     {
-                        if (isSelected)
-                            UnselectPalette();
-                        else
-                        {
-                            UnselectPalette();
-                            SelectBrushObject(entry);
-                        }
+                        ToggleFavorite(entry);
+                        Event.current.Use();
+                    }
+
+                    current += buttonSize.x;
+                    if (current >= position.width - buttonSize.x)
+                    {
+                        GUILayout.EndHorizontal();
+                        GUILayout.BeginHorizontal();
+                        current = 0;
                     }
                 }
 
-                var r = GUILayoutUtility.GetLastRect();
-
-                if (entry.preview == null)
-                    entry.preview = AssetPreview.GetAssetPreview(entry.sourceObject);
-
-                if (entry.preview != null)
-                    GUI.DrawTexture(r, entry.preview, ScaleMode.StretchToFill);
-
-                EditorGUI.DropShadowLabel(new Rect(r.x, r.y, r.width, r.height - 0.0f), entry.name,
-                    fontStyle);
-
-                if (isSelected)
-                    EditorGUI.DrawRect(r, new Color(0, 0, 0.5f, 0.15f));
-
-                current += buttonSize.x;
-
-                if (current >= position.width - buttonSize.x)
-                {
-                    GUILayout.EndHorizontal();
-                    GUILayout.BeginHorizontal();
-                    current = 0;
-                }
+                GUILayout.EndHorizontal();
+                EditorGUILayout.Space(2);
             }
-
-            GUILayout.EndHorizontal();
 
             GUILayout.EndScrollView();
 
@@ -509,6 +625,45 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             var s = t.name;
             while (t.parent != null) { t = t.parent; s = t.name + "/" + s; }
             return s;
+        }
+
+        // Groups palette entries by their leaf-folder name (from AssetDatabase path). Entries
+        // without an asset path or in the top-level project fall under "General". Preserves
+        // the original order within each group. Returned as insertion-ordered list of groups.
+        public static System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<string, System.Collections.Generic.List<PaletteObject>>>
+            GroupByCategory(System.Collections.Generic.IList<PaletteObject> entries)
+        {
+            var order = new System.Collections.Generic.List<string>();
+            var buckets = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<PaletteObject>>();
+            if (entries == null)
+                return new System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<string, System.Collections.Generic.List<PaletteObject>>>();
+            foreach (var e in entries)
+            {
+                if (e == null) continue;
+                var cat = CategoryFor(e);
+                if (!buckets.ContainsKey(cat))
+                {
+                    buckets[cat] = new System.Collections.Generic.List<PaletteObject>();
+                    order.Add(cat);
+                }
+                buckets[cat].Add(e);
+            }
+            var result = new System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<string, System.Collections.Generic.List<PaletteObject>>>();
+            foreach (var cat in order)
+                result.Add(new System.Collections.Generic.KeyValuePair<string, System.Collections.Generic.List<PaletteObject>>(cat, buckets[cat]));
+            return result;
+        }
+
+        static string CategoryFor(PaletteObject e)
+        {
+            if (e?.sourceObject == null) return "General";
+            var assetPath = AssetDatabase.GetAssetPath(e.sourceObject);
+            if (string.IsNullOrEmpty(assetPath)) return "General";
+            var dir = System.IO.Path.GetDirectoryName(assetPath)?.Replace('\\', '/');
+            if (string.IsNullOrEmpty(dir)) return "General";
+            var slash = dir.LastIndexOf('/');
+            var leaf = slash < 0 ? dir : dir.Substring(slash + 1);
+            return string.IsNullOrEmpty(leaf) ? "General" : leaf;
         }
 
         // ================ Recent + favorites strip ================
