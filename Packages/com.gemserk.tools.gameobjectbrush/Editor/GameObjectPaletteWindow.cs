@@ -632,26 +632,43 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             RestoreUnityTool();
         }
 
-        private void SelectBrushObject(PaletteObject o)
+        private void SelectBrushObject(PaletteObject o) => SelectBrushObjectStatic(o);
+
+        // Public + static so the Scene View overlay (and other outside callers) share the
+        // exact same "start painting this entry" path — auto-brush pick, tool activation,
+        // preview creation, inspector selection, hook suppression.
+        public static void SelectBrushObjectStatic(PaletteObject o)
         {
+            if (o == null) return;
             if (PaletteCommon.brush == null)
             {
-                Debug.LogError("[Object Palette] No brush available. Create one via Assets > Create > Object Palette > Default Brush.");
+                // Try to auto-pick a brush now so the overlay is usable even if the palette
+                // window was never opened.
+                var brushes = AssetDatabaseExt.FindAssets<ScriptableBrushBaseAsset>();
+                if (brushes.Count > 0) PaletteCommon.brush = brushes[0];
+            }
+            if (PaletteCommon.brush == null)
+            {
+                Debug.LogError("[Object Palette] No brush asset in project. Create one via Assets > Create > Object Palette > Default Brush.");
                 return;
             }
+            PaletteCommon.selection.Clear();
             PaletteCommon.selection.Add(o);
             PaletteCommon.brush.CreatePreview(PaletteCommon.selection.selection);
-            UnselectUnityTool();
+            var tm = UnityEditor.EditorTools.ToolManager.activeToolType;
+            if (tm != typeof(PalettePaintTool))
+                UnityEditor.EditorTools.ToolManager.SetActiveTool<PalettePaintTool>();
             (PaletteCommon.brush as ScriptableBrushBaseAsset)?.ApplyPreviewTransform();
             var brush = PaletteCommon.brush as ScriptableBrushBaseAsset;
-            // We're about to change Unity's Selection programmatically to show the preview
-            // instance in the Inspector. Suppress the paint-under hook so it doesn't
-            // retarget to the ~BrushPreview holder.
             BeginSuppressSelectionHook();
             if (brush?.previewParent != null && brush.previewParent.childCount > 0)
                 Selection.activeGameObject = brush.previewParent.GetChild(0).gameObject;
             else if (o.sourceObject != null)
                 Selection.activeObject = o.sourceObject;
+
+            // Force each open palette window to reflect the new selection highlight.
+            foreach (var w in Resources.FindObjectsOfTypeAll<GameObjectPaletteWindow>())
+                w.Repaint();
         }
 
         private void UnselectUnityTool()
