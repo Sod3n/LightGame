@@ -12,11 +12,14 @@ namespace Gemserk.Tools.ObjectPalette.Editor
         internal const string DragSpacingKey = "Gemserk.ObjectPalette.DragSpacing";
         internal const string DefaultPaintUnderPathKey = "Gemserk.ObjectPalette.PaintTargetId";
         internal const string FavoritesKey = "Gemserk.ObjectPalette.Favorites";
+        internal const string AutoSetPaintUnderKey = "Gemserk.ObjectPalette.AutoSetPaintUnderFromHierarchyClick";
 
         [InitializeOnLoadMethod]
         static void LoadOnStartup()
         {
             PaletteCommon.dragSpacing = EditorPrefs.GetFloat(DragSpacingKey, 1f);
+            GameObjectPaletteWindow.autoSetPaintUnderFromHierarchyClick =
+                EditorPrefs.GetBool(AutoSetPaintUnderKey, true);
         }
 
         [SettingsProvider]
@@ -46,6 +49,17 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             {
                 PaletteCommon.dragSpacing = newSpacing;
                 EditorPrefs.SetFloat(DragSpacingKey, newSpacing);
+            }
+
+            EditorGUI.BeginChangeCheck();
+            var newAuto = EditorGUILayout.ToggleLeft(
+                new GUIContent("Auto-set Paint Under from Hierarchy click",
+                    "Clicking a scene object in the Hierarchy or Scene View sets it as the Paint Under target automatically."),
+                GameObjectPaletteWindow.autoSetPaintUnderFromHierarchyClick);
+            if (EditorGUI.EndChangeCheck())
+            {
+                GameObjectPaletteWindow.autoSetPaintUnderFromHierarchyClick = newAuto;
+                EditorPrefs.SetBool(AutoSetPaintUnderKey, newAuto);
             }
 
             EditorGUILayout.Space();

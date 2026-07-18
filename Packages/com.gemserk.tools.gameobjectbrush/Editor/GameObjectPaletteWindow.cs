@@ -22,7 +22,54 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             window.minSize = new Vector2(300, 300);
         }
 
+        // Hierarchy-click → paint under. Ignored for programmatic Selection changes:
+        // EditorWindow.mouseOverWindow only points to Hierarchy/SceneView when a real
+        // user mouse gesture is in progress. Our own SelectBrushObject sets Selection
+        // while the mouse is over the palette window, so it doesn't trip this hook.
+        [InitializeOnLoadMethod]
+        static void HookSelectionChanged()
+        {
+            Selection.selectionChanged -= OnSelectionMaybeSetPaintUnder;
+            Selection.selectionChanged += OnSelectionMaybeSetPaintUnder;
+        }
+
+        static void OnSelectionMaybeSetPaintUnder()
+        {
+            var over = EditorWindow.mouseOverWindow;
+            var sourceWindow = over == null ? null : over.GetType().Name;
+            if (!ShouldSetPaintUnderFromSelection(Selection.activeTransform, sourceWindow))
+                return;
+
+            var t = Selection.activeTransform;
+            PaletteCommon.paintTarget = t;
+            EditorPrefs.SetString("Gemserk.ObjectPalette.PaintTargetId",
+                GlobalObjectId.GetGlobalObjectIdSlow(t.gameObject).ToString());
+            foreach (var w in Resources.FindObjectsOfTypeAll<GameObjectPaletteWindow>())
+                w.Repaint();
+        }
+
+        // Pure decision function — testable without a live Hierarchy window.
+        // Returns true when: palette window is visible, feature toggled on, mouse is over
+        // a Hierarchy or SceneView window, and the selection is a real scene GameObject
+        // that isn't part of the ~BrushPreview holder AND isn't already the paint target.
+        public static bool ShouldSetPaintUnderFromSelection(Transform selection, string sourceWindowTypeName)
+        {
+            if (!windowVisible || !autoSetPaintUnderFromHierarchyClick) return false;
+            if (string.IsNullOrEmpty(sourceWindowTypeName)) return false;
+            if (!sourceWindowTypeName.Contains("Hierarchy") && sourceWindowTypeName != "SceneView") return false;
+            if (selection == null || !selection.gameObject.scene.IsValid()) return false;
+            if (selection.GetComponentInParent<BrushPreview>() != null) return false;
+            if (PaletteCommon.paintTarget == selection) return false;
+            return true;
+        }
+
         public static bool windowVisible = false;
+
+        // When true, clicking a scene GameObject in the Hierarchy (or picking one in the
+        // scene view) automatically sets it as the Paint Under target. Ignores
+        // programmatic selection changes (like our SelectBrushObject setting the preview
+        // as active) — see the mouseOverWindow guard in HookSelectionChanged.
+        public static bool autoSetPaintUnderFromHierarchyClick = true;
 
         [SerializeField]
         private ScriptableBrushBaseAsset defaultBrush = null;
@@ -42,7 +89,6 @@ namespace Gemserk.Tools.ObjectPalette.Editor
         private FloatField dragSpacingField;
         private FloatField rotField;
         private FloatField scaleField;
-        private VisualElement layerVizContainer;
         private VisualElement favoritesContainer;
         private VisualElement paletteGrid;
         private Slider previewSizeSlider;
@@ -109,10 +155,18 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             }
         }
 
-        // Periodic UI refresh for status bar (cursor world coords change with mouse move).
+        // Periodic UI refresh for status bar (cursor world coords change with mouse move)
+        // and to catch external changes to PaletteCommon.paintTarget (e.g. from the
+        // "Set Paint Under From Selection" shortcut).
+        private Transform lastKnownPaintTarget;
         private void Tick()
         {
             if (statusBar != null) statusBar.text = BuildStatusText();
+            if (paintTargetField != null && PaletteCommon.paintTarget != lastKnownPaintTarget)
+            {
+                RebuildPaintTargetField();
+                lastKnownPaintTarget = PaletteCommon.paintTarget;
+            }
         }
 
         // ==================== Scene-view hooks (unchanged from IMGUI version) ====================
@@ -212,16 +266,23 @@ namespace Gemserk.Tools.ObjectPalette.Editor
         public void CreateGUI()
         {
             var root = rootVisualElement;
+            root.style.flexDirection = FlexDirection.Column;
             root.style.paddingTop = 4;
             root.style.paddingLeft = 6;
             root.style.paddingRight = 6;
 
             // Top header — brush/palette pickers, paint-target, transform offsets, layers, favorites
-            root.Add(BuildHeaderSection());
+            var header = BuildHeaderSection();
+            header.style.flexShrink = 0;
+            root.Add(header);
 
-            // Palette grid (scrollable, category foldouts)
+            // Palette grid — scrollable region that gets whatever height remains after the
+            // fixed header and footer. min-height keeps it usable when the window is short.
             var scroll = new ScrollView(ScrollViewMode.Vertical) { name = "palette-scroll" };
             scroll.style.flexGrow = 1;
+            scroll.style.flexShrink = 1;
+            scroll.style.minHeight = 80;
+            scroll.style.overflow = Overflow.Hidden;
             paletteGrid = new VisualElement { name = "palette-grid" };
             scroll.Add(paletteGrid);
             root.Add(scroll);
@@ -245,9 +306,9 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             AddHotkeyLabel("0                — reset rotation & scale");
             AddHotkeyLabel("E                — toggle erase mode");
             AddHotkeyLabel("V                — exit paint mode, back to Move tool");
-            AddHotkeyLabel("Arrows           — nudge selected 1u  (Shift = 10u, Ctrl = 0.1u)");
             AddHotkeyLabel("RMB drag         — rotate last painted around its origin");
             AddHotkeyLabel("Ctrl+Shift+D     — apply active's properties to selection");
+            AddHotkeyLabel("Ctrl+Shift+U     — set Paint Under = current scene selection");
             AddHotkeyLabel("Esc / RMB click  — deselect palette entry");
             AddHotkeyLabel("Shift+click      — multi-select in palette");
             AddHotkeyLabel("Ctrl+wheel       — regenerate preview");
@@ -305,7 +366,6 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             {
                 PaletteCommon.paintTarget = evt.newValue as Transform;
                 SavePaintTarget();
-                RebuildLayerVisibility();
             });
             header.Add(paintTargetField);
 
@@ -318,7 +378,6 @@ namespace Gemserk.Tools.ObjectPalette.Editor
                     PaletteCommon.paintTarget = t;
                     paintTargetField.SetValueWithoutNotify(t);
                     SavePaintTarget();
-                    RebuildLayerVisibility();
                 }
             }) { text = "Use Selection" };
             useSelBtn.style.width = 120;
@@ -327,7 +386,6 @@ namespace Gemserk.Tools.ObjectPalette.Editor
                 PaletteCommon.paintTarget = null;
                 paintTargetField.SetValueWithoutNotify(null);
                 SavePaintTarget();
-                RebuildLayerVisibility();
             }) { text = "Clear" };
             clearBtn.style.width = 60;
             paintTargetButtons.Add(useSelBtn);
@@ -339,6 +397,12 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             dragSpacingField.tooltip = "World-space distance the cursor must travel during a paint-drag before another paint fires. 0 = every drag paints.";
             dragSpacingField.RegisterValueChangedCallback(evt => PaletteCommon.dragSpacing = Mathf.Max(0f, evt.newValue));
             header.Add(dragSpacingField);
+
+            // "Save Overrides as Variant" — bakes the current preview's per-instance overrides
+            // into a new prefab variant on disk and appends it to the active palette.
+            var saveVariantBtn = new Button(() => SaveCurrentAsVariant()) { text = "Save Overrides as Variant" };
+            saveVariantBtn.tooltip = "Save the current brush preview (with your Inspector edits) as a new prefab variant, and add it to the active palette.";
+            header.Add(saveVariantBtn);
 
             // Rot / Scale row
             var rotScaleRow = new VisualElement { style = { flexDirection = FlexDirection.Row } };
@@ -373,12 +437,6 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             rotScaleRow.Add(resetBtn);
             header.Add(rotScaleRow);
 
-            // Layer visibility
-            var layerFoldout = new Foldout { text = "Layer Visibility", value = true };
-            layerVizContainer = new VisualElement();
-            layerFoldout.Add(layerVizContainer);
-            header.Add(layerFoldout);
-
             // Favorites/recents strip
             var favFoldout = new Foldout { text = "Quick (recent + favorites)", value = true };
             favoritesContainer = new VisualElement { style = { flexDirection = FlexDirection.Row, flexWrap = Wrap.Wrap } };
@@ -395,7 +453,6 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             RebuildBrushDropdown();
             RebuildPaletteDropdown();
             RebuildPaintTargetField();
-            RebuildLayerVisibility();
             RebuildFavoritesStrip();
             RebuildPaletteGrid();
         }
@@ -422,47 +479,6 @@ namespace Gemserk.Tools.ObjectPalette.Editor
         private void RebuildPaintTargetField()
         {
             paintTargetField?.SetValueWithoutNotify(PaletteCommon.paintTarget);
-        }
-
-        private void RebuildLayerVisibility()
-        {
-            if (layerVizContainer == null) return;
-            layerVizContainer.Clear();
-            var target = PaletteCommon.paintTarget;
-            if (target == null) { layerVizContainer.Add(new Label("(no paint target set)") { style = { unityFontStyleAndWeight = FontStyle.Italic, fontSize = 10 } }); return; }
-            var parent = target.parent;
-            var siblings = parent == null
-                ? target.gameObject.scene.GetRootGameObjects().Select(g => g.transform).ToList()
-                : Enumerable.Range(0, parent.childCount).Select(i => parent.GetChild(i)).ToList();
-            if (siblings.Count <= 1) return;
-            foreach (var s in siblings)
-            {
-                if (s == null) continue;
-                var t = s;
-                var isTarget = t == target;
-                var row = new VisualElement { style = { flexDirection = FlexDirection.Row } };
-                var tog = new Toggle((isTarget ? "► " : "   ") + t.gameObject.name) { value = t.gameObject.activeSelf };
-                tog.RegisterValueChangedCallback(evt =>
-                {
-                    Undo.RecordObject(t.gameObject, "Toggle Layer Visibility");
-                    t.gameObject.SetActive(evt.newValue);
-                    EditorSceneManager.MarkSceneDirty(t.gameObject.scene);
-                });
-                row.Add(tog);
-                if (!isTarget)
-                {
-                    var focus = new Button(() =>
-                    {
-                        PaletteCommon.paintTarget = t;
-                        paintTargetField.SetValueWithoutNotify(t);
-                        SavePaintTarget();
-                        RebuildLayerVisibility();
-                    }) { text = "Focus" };
-                    focus.style.width = 60;
-                    row.Add(focus);
-                }
-                layerVizContainer.Add(row);
-            }
         }
 
         private void RebuildFavoritesStrip()
@@ -608,6 +624,11 @@ namespace Gemserk.Tools.ObjectPalette.Editor
 
         private void SelectBrushObject(PaletteObject o)
         {
+            if (PaletteCommon.brush == null)
+            {
+                Debug.LogError("[Object Palette] No brush available. Create one via Assets > Create > Object Palette > Default Brush.");
+                return;
+            }
             PaletteCommon.selection.Add(o);
             PaletteCommon.brush.CreatePreview(PaletteCommon.selection.selection);
             UnselectUnityTool();
@@ -633,10 +654,90 @@ namespace Gemserk.Tools.ObjectPalette.Editor
                 UnityEditor.EditorTools.ToolManager.RestorePreviousTool();
         }
 
+        // ==================== Save preview as new prefab variant ====================
+
+        // Takes the current preview instance (with any inspector overrides the user made) and
+        // saves it as a prefab variant of the source prefab. Adds the variant to the active
+        // palette. Public for testing and menu/button invocation.
+        public string SaveCurrentAsVariant()
+        {
+            var brush = PaletteCommon.brush as ScriptableBrushBaseAsset;
+            if (brush == null || brush.previewParent == null || brush.previewParent.childCount == 0)
+            {
+                EditorUtility.DisplayDialog("Save Variant", "Select a palette entry first — there's no live preview to save.", "OK");
+                return null;
+            }
+            var preview = brush.previewParent.GetChild(0).gameObject;
+            var source = PrefabUtility.GetCorrespondingObjectFromSource(preview);
+            if (source == null)
+            {
+                EditorUtility.DisplayDialog("Save Variant", "Preview isn't a prefab instance — nothing to make a variant of.", "OK");
+                return null;
+            }
+
+            var sourceDir = System.IO.Path.GetDirectoryName(AssetDatabase.GetAssetPath(source))?.Replace('\\', '/') ?? "Assets";
+            var variantsDir = sourceDir + "/Variants";
+            if (!AssetDatabase.IsValidFolder(variantsDir))
+            {
+                if (!AssetDatabase.IsValidFolder(sourceDir))
+                    variantsDir = "Assets";
+                else
+                    AssetDatabase.CreateFolder(sourceDir, "Variants");
+            }
+
+            var defaultName = source.name + "_variant";
+            var chosen = EditorUtility.SaveFilePanelInProject(
+                "Save Variant", defaultName, "prefab",
+                "Save the brush preview as a new prefab variant.",
+                variantsDir);
+            if (string.IsNullOrEmpty(chosen)) return null;
+
+            // Reset root transform so variant has a neutral origin (baked scale from the
+            // source prefab is preserved because we're only touching root position/rotation).
+            var savedPos = preview.transform.localPosition;
+            var savedRot = preview.transform.localRotation;
+            preview.transform.localPosition = Vector3.zero;
+            preview.transform.localRotation = Quaternion.identity;
+            GameObject variantAsset;
+            try
+            {
+                variantAsset = PrefabUtility.SaveAsPrefabAssetAndConnect(preview, chosen, InteractionMode.AutomatedAction);
+            }
+            finally
+            {
+                preview.transform.localPosition = savedPos;
+                preview.transform.localRotation = savedRot;
+            }
+            if (variantAsset == null) return null;
+
+            // Append the new variant to the current palette so it appears in the grid.
+            if (availablePalettes.Count > 0 && selectedPaletteIndex >= 0
+                && availablePalettes[selectedPaletteIndex] is ObjectPaletteAsset palette)
+            {
+                if (palette.prefabs == null) palette.prefabs = new List<GameObject>();
+                if (!palette.prefabs.Contains(variantAsset))
+                {
+                    palette.prefabs.Add(variantAsset);
+                    EditorUtility.SetDirty(palette);
+                    AssetDatabase.SaveAssets();
+                }
+            }
+
+            cachedEntries = null;
+            RebuildPaletteGrid();
+            RebuildFavoritesStrip();
+            Debug.Log($"[Object Palette] Saved variant: {chosen}");
+            return chosen;
+        }
+
         private void ReloadPalettesAndBrushes()
         {
             availablePalettes = AssetDatabaseExt.FindAssets<ObjectPaletteBaseAsset>();
             availableBrushes = AssetDatabaseExt.FindAssets<ScriptableBrushBaseAsset>();
+            // Auto-select first brush if none set — prevents NPE in SelectBrushObject when
+            // the user clicks a palette entry before touching the Brush dropdown.
+            if (PaletteCommon.brush == null && availableBrushes.Count > 0)
+                PaletteCommon.brush = availableBrushes[0];
             RebuildBrushDropdown();
             RebuildPaletteDropdown();
         }

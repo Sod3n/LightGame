@@ -72,6 +72,25 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             SceneView.RepaintAll();
         }
 
+        // ================ Set Paint Under from current scene selection ================
+
+        [Shortcut("Object Palette/Set Paint Under From Selection", KeyCode.U, ShortcutModifiers.Shift | ShortcutModifiers.Action)]
+        static void SetPaintUnderFromSelectionShortcut() => SetPaintUnderFromSelection();
+
+        // Public + static for testing and for the "Use Selection" button in the palette
+        // window to share the same code path.
+        public static bool SetPaintUnderFromSelection()
+        {
+            var t = Selection.activeTransform;
+            if (t == null || !t.gameObject.scene.IsValid()) return false;
+            PaletteCommon.paintTarget = t;
+            EditorPrefs.SetString("Gemserk.ObjectPalette.PaintTargetId",
+                GlobalObjectId.GetGlobalObjectIdSlow(t.gameObject).ToString());
+            foreach (var w in Resources.FindObjectsOfTypeAll<GameObjectPaletteWindow>())
+                w.Repaint();
+            return true;
+        }
+
         // ================ V = Select mode (exit paint) ================
 
         [Shortcut("Object Palette/Exit To Select Mode", KeyCode.V)]
@@ -86,41 +105,21 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             SceneView.RepaintAll();
         }
 
-        // ================ Nudge selected scene objects (arrow keys) ================
+        // ================ Nudge helper (no default arrow-key bindings) ================
         //
-        // Figma-style arrow-key nudge for currently-selected scene GameObjects.
-        //   Arrow          =  1 unit
-        //   Shift+Arrow    = 10 units
-        //   Ctrl+Arrow     = 0.1 units
-        // Registered as separate bindings because Unity's Shortcut Manager treats each
-        // (key + modifier) pair as its own action.
+        // Arrow-key bindings were removed because they conflict with Unity's built-in
+        // scene navigation. The Nudge helper stays public so users can rebind it via
+        // Edit > Shortcuts if they want, and so the copy-properties/undo tests keep
+        // exercising the same code path.
 
-        [Shortcut("Object Palette/Nudge Right", KeyCode.RightArrow)]
+        [Shortcut("Object Palette/Nudge Right", KeyCode.None)]
         static void NudgeRight() => Nudge(new Vector3(1f, 0f, 0f));
-        [Shortcut("Object Palette/Nudge Left", KeyCode.LeftArrow)]
+        [Shortcut("Object Palette/Nudge Left", KeyCode.None)]
         static void NudgeLeft() => Nudge(new Vector3(-1f, 0f, 0f));
-        [Shortcut("Object Palette/Nudge Up", KeyCode.UpArrow)]
+        [Shortcut("Object Palette/Nudge Up", KeyCode.None)]
         static void NudgeUp() => Nudge(new Vector3(0f, 1f, 0f));
-        [Shortcut("Object Palette/Nudge Down", KeyCode.DownArrow)]
+        [Shortcut("Object Palette/Nudge Down", KeyCode.None)]
         static void NudgeDown() => Nudge(new Vector3(0f, -1f, 0f));
-
-        [Shortcut("Object Palette/Nudge Right (10u)", KeyCode.RightArrow, ShortcutModifiers.Shift)]
-        static void NudgeRightBig() => Nudge(new Vector3(10f, 0f, 0f));
-        [Shortcut("Object Palette/Nudge Left (10u)", KeyCode.LeftArrow, ShortcutModifiers.Shift)]
-        static void NudgeLeftBig() => Nudge(new Vector3(-10f, 0f, 0f));
-        [Shortcut("Object Palette/Nudge Up (10u)", KeyCode.UpArrow, ShortcutModifiers.Shift)]
-        static void NudgeUpBig() => Nudge(new Vector3(0f, 10f, 0f));
-        [Shortcut("Object Palette/Nudge Down (10u)", KeyCode.DownArrow, ShortcutModifiers.Shift)]
-        static void NudgeDownBig() => Nudge(new Vector3(0f, -10f, 0f));
-
-        [Shortcut("Object Palette/Nudge Right (0.1u)", KeyCode.RightArrow, ShortcutModifiers.Control)]
-        static void NudgeRightSmall() => Nudge(new Vector3(0.1f, 0f, 0f));
-        [Shortcut("Object Palette/Nudge Left (0.1u)", KeyCode.LeftArrow, ShortcutModifiers.Control)]
-        static void NudgeLeftSmall() => Nudge(new Vector3(-0.1f, 0f, 0f));
-        [Shortcut("Object Palette/Nudge Up (0.1u)", KeyCode.UpArrow, ShortcutModifiers.Control)]
-        static void NudgeUpSmall() => Nudge(new Vector3(0f, 0.1f, 0f));
-        [Shortcut("Object Palette/Nudge Down (0.1u)", KeyCode.DownArrow, ShortcutModifiers.Control)]
-        static void NudgeDownSmall() => Nudge(new Vector3(0f, -0.1f, 0f));
 
         // ================ Shared helpers ================
 
