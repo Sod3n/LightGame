@@ -654,6 +654,10 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             }
             PaletteCommon.selection.Clear();
             PaletteCommon.selection.Add(o);
+            // Add to recents on selection too — user's "I was just working with this" list
+            // should reflect anything they've picked up, not only things they've committed to
+            // the scene. RememberRecent raises onQuickChanged which rebuilds the overlay.
+            PaletteCommon.RememberRecent(o);
             PaletteCommon.brush.CreatePreview(PaletteCommon.selection.selection);
             var tm = UnityEditor.EditorTools.ToolManager.activeToolType;
             if (tm != typeof(PalettePaintTool))
