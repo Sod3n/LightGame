@@ -35,9 +35,7 @@ namespace Gemserk.Tools.ObjectPalette.Editor
 
         static void OnSelectionMaybeSetPaintUnder()
         {
-            var over = EditorWindow.mouseOverWindow;
-            var sourceWindow = over == null ? null : over.GetType().Name;
-            if (!ShouldSetPaintUnderFromSelection(Selection.activeTransform, sourceWindow))
+            if (!ShouldSetPaintUnderFromSelection(Selection.activeTransform))
                 return;
 
             var t = Selection.activeTransform;
@@ -48,15 +46,27 @@ namespace Gemserk.Tools.ObjectPalette.Editor
                 w.Repaint();
         }
 
+        // Suppression counter for programmatic Selection changes. Incremented by
+        // SelectBrushObject when we set Selection to the preview (so the user can inspect
+        // it), decremented on the next editor tick. Any user-driven Selection change happens
+        // while this is zero and passes the guard.
+        public static int suppressSelectionHookCount;
+
+        public static void BeginSuppressSelectionHook()
+        {
+            suppressSelectionHookCount++;
+            EditorApplication.delayCall += EndSuppressSelectionHookOnce;
+        }
+        static void EndSuppressSelectionHookOnce()
+        {
+            if (suppressSelectionHookCount > 0) suppressSelectionHookCount--;
+        }
+
         // Pure decision function — testable without a live Hierarchy window.
-        // Returns true when: palette window is visible, feature toggled on, mouse is over
-        // a Hierarchy or SceneView window, and the selection is a real scene GameObject
-        // that isn't part of the ~BrushPreview holder AND isn't already the paint target.
-        public static bool ShouldSetPaintUnderFromSelection(Transform selection, string sourceWindowTypeName)
+        public static bool ShouldSetPaintUnderFromSelection(Transform selection)
         {
             if (!windowVisible || !autoSetPaintUnderFromHierarchyClick) return false;
-            if (string.IsNullOrEmpty(sourceWindowTypeName)) return false;
-            if (!sourceWindowTypeName.Contains("Hierarchy") && sourceWindowTypeName != "SceneView") return false;
+            if (suppressSelectionHookCount > 0) return false;
             if (selection == null || !selection.gameObject.scene.IsValid()) return false;
             if (selection.GetComponentInParent<BrushPreview>() != null) return false;
             if (PaletteCommon.paintTarget == selection) return false;
@@ -634,6 +644,10 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             UnselectUnityTool();
             (PaletteCommon.brush as ScriptableBrushBaseAsset)?.ApplyPreviewTransform();
             var brush = PaletteCommon.brush as ScriptableBrushBaseAsset;
+            // We're about to change Unity's Selection programmatically to show the preview
+            // instance in the Inspector. Suppress the paint-under hook so it doesn't
+            // retarget to the ~BrushPreview holder.
+            BeginSuppressSelectionHook();
             if (brush?.previewParent != null && brush.previewParent.childCount > 0)
                 Selection.activeGameObject = brush.previewParent.GetChild(0).gameObject;
             else if (o.sourceObject != null)
