@@ -42,47 +42,47 @@ namespace LightGame.Features.Abilities
         }
         
         // Helper methods
-        public List<LevelAbility> GetAbilitiesForLevel(SceneName sceneName)
+        public List<LevelAbility> GetAbilitiesForLevel(string sceneName)
         {
             var abilities = new List<LevelAbility>();
             foreach (var ability in this.abilities)
             {
-                if (ability.unlockAtLevel == sceneName)
+                if (ability.unlockAtLevel?.SceneName == sceneName)
                     abilities.Add(ability);
             }
             return abilities;
         }
-        
-        public List<LevelAbility> GetAbilitiesUpToLevel(SceneName targetLevel)
+
+        public List<LevelAbility> GetAbilitiesUpToLevel(string targetLevel)
         {
             var result = new List<LevelAbility>();
-            
+
             // Get level order from GD
-            if (Game.LevelOrder == null || Game.LevelOrder.Value == null)
+            if (Game.LevelOrder == null || Game.LevelOrder.Levels == null)
             {
                 Debug.LogWarning("LevelOrder not initialized or empty");
                 return result;
             }
-            
+
             // Find the index of target level
-            int targetIndex = Game.LevelOrder.Value.IndexOf(targetLevel);
+            int targetIndex = Game.LevelOrder.IndexOf(targetLevel);
             if (targetIndex == -1)
             {
                 // If level not in order (test level), return all abilities for testing
                 Debug.Log($"Level {targetLevel} not found in LevelOrder - returning all abilities for testing");
                 return new List<LevelAbility>(abilities);
             }
-            
+
             // Collect all abilities up to and including target level
             foreach (var ability in abilities)
             {
-                int abilityLevelIndex = Game.LevelOrder.Value.IndexOf(ability.unlockAtLevel);
+                int abilityLevelIndex = Game.LevelOrder.IndexOf(ability.unlockAtLevel?.SceneName);
                 if (abilityLevelIndex != -1 && abilityLevelIndex <= targetIndex)
                 {
                     result.Add(ability);
                 }
             }
-            
+
             return result;
         }
     }

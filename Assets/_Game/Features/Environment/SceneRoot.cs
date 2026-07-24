@@ -21,9 +21,9 @@ namespace LightGame.Features
             // Set current scene in SceneLoader based on which scene this SceneRoot belongs to
             SceneLoader.SetCurrentScene(gameObject.scene.name);
             
-            if (!SceneLoader.IsSceneLoaded(SceneName.Shared))
+            if (!SceneLoader.IsSceneLoaded("Shared"))
             {
-                SceneManager.LoadScene(SceneName.Shared.KeyToString(), LoadSceneMode.Additive);
+                SceneManager.LoadScene("Shared", LoadSceneMode.Additive);
             }
 
             Game.Init();

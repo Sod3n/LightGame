@@ -8,9 +8,9 @@ namespace LightGame.Events
     /// </summary>
     public class RequestLevelChangeEvent
     {
-        public SceneName TargetScene { get; set; }
+        public string TargetScene { get; set; }
 
-        public RequestLevelChangeEvent(SceneName targetScene)
+        public RequestLevelChangeEvent(string targetScene)
         {
             TargetScene = targetScene;
         }

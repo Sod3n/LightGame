@@ -23,9 +23,9 @@ namespace LightGame.Globals
             
             // Unlock abilities for current level
             var currentLevel = SceneLoader.GetCurrentLevel();
-            if (currentLevel.HasValue)
+            if (currentLevel != null)
             {
-                UnlockAbilitiesUpToLevel(currentLevel.Value);
+                UnlockAbilitiesUpToLevel(currentLevel);
             }
         }
         
@@ -42,7 +42,7 @@ namespace LightGame.Globals
             }
         }
         
-        public void UnlockAbilitiesForLevel(SceneName sceneName)
+        public void UnlockAbilitiesForLevel(string sceneName)
         {
             var newAbilities = Game.LevelAbilities.GetAbilitiesForLevel(sceneName);
             foreach (var ability in newAbilities)
@@ -55,7 +55,7 @@ namespace LightGame.Globals
         /// Unlock all abilities up to and including the specified level.
         /// Useful for save/load systems or starting mid-game.
         /// </summary>
-        public void UnlockAbilitiesUpToLevel(SceneName targetLevel)
+        public void UnlockAbilitiesUpToLevel(string targetLevel)
         {
             if (Game.LevelAbilities == null) return;
             

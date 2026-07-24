@@ -23,7 +23,7 @@ public class LightSource : MonoBehaviour
     [SerializeField, Tooltip("If ON: load the next scene in Game.LevelOrder. If OFF: load the specific Target Scene below.")]
     private bool useNextScene = true;
     [SerializeField, Tooltip("Scene to load when the player enters the light. Ignored if Use Next Scene is ON.")]
-    private SceneName targetScene;
+    private SceneReference targetScene;
 
     [Header("Teleport Landing (every light is a teleport target)")]
     [SerializeField, Tooltip("Optional: specific Transform where the player lands when teleporting here. If null, uses this GameObject's position.")]
@@ -33,7 +33,7 @@ public class LightSource : MonoBehaviour
 
     public LightType LightType => lightType;
     public bool UseNextScene => useNextScene;
-    public SceneName TargetScene => targetScene;
+    public string TargetScene => targetScene?.SceneName;
     public Transform TargetLightPoint => targetLightPoint;
     public Collider2D LightCollider => collider2D;
 

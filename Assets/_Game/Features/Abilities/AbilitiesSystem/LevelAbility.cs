@@ -13,7 +13,7 @@ namespace LightGame.Features.Abilities
     
     public class LevelAbility : ScriptableObject
     {
-        public SceneName unlockAtLevel;
+        public SceneReference unlockAtLevel;
         public UnlockBehavior unlockBehavior = UnlockBehavior.UnlockAtLevel;
         public bool disableInNearDeath = true;
 

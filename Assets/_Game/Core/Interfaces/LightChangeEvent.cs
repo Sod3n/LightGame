@@ -7,9 +7,9 @@ namespace LightGame.Core
     {
         public bool IsInLight { get; set; }
         public LightType? LightType { get; set; }
-        public SceneName? TargetScene { get; set; }
+        public string TargetScene { get; set; }
 
-        public LightChangeEvent(bool isInLight, LightType? lightType = null, SceneName? targetScene = null)
+        public LightChangeEvent(bool isInLight, LightType? lightType = null, string targetScene = null)
         {
             IsInLight = isInLight;
             LightType = lightType;

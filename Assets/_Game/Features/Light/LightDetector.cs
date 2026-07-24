@@ -47,7 +47,7 @@ namespace LightGame.Features
                
                if (isInLightOfType != _lastStateByType[lightType])
                {
-                   SceneName? targetScene = null;
+                   string targetScene = null;
 
                    // If this is a LevelChange light type, get the target scene from the trigger
                    if (lightType == LightType.LevelChange && _activeLevelChangeTrigger != null)

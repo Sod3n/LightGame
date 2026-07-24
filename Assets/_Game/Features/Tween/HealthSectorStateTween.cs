@@ -38,8 +38,7 @@ namespace Core._.UI
 
         public override Tween CreateTween()
         {
-            // For editor preview, return the appropriate tween based on current state
-            // This allows the CustomTweenAnimationEditor to preview the animation
+            // Returns the appropriate tween based on current state
             switch (currentState)
             {
                 case AnimationState.Heal:

@@ -35,18 +35,18 @@ public class LevelChangeTrigger : MonoBehaviour
         OnInLightChange(evt.IsInLight, evt.TargetScene);
     }
 
-    private void OnInLightChange(bool isInLight, SceneName? targetScene)
+    private void OnInLightChange(bool isInLight, string targetScene)
     {
-        if (isInLight && !_wasInLevelChangeLight && targetScene.HasValue)
+        if (isInLight && !_wasInLevelChangeLight && targetScene != null)
         {
             // Entered LevelChange light - trigger scene change with the scene from the trigger
-            TriggerLevelChange(targetScene.Value);
+            TriggerLevelChange(targetScene);
         }
-        
+
         _wasInLevelChangeLight = isInLight;
     }
 
-    private void TriggerLevelChange(SceneName targetScene)
+    private void TriggerLevelChange(string targetScene)
     {
         // Publish event that LevelChangeView can listen to
         EventBus.Publish(new RequestLevelChangeEvent(targetScene));

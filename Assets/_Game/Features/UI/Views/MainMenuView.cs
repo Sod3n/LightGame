@@ -39,11 +39,11 @@ namespace LightGame.Features.UI
         {
             Game.Init();
             
-            if (Game.LevelOrder != null && Game.LevelOrder.Value.Count > 0)
+            if (Game.LevelOrder != null && Game.LevelOrder.Levels.Count > 0)
             {
-                var firstLevel = Game.LevelOrder.Value[0];
+                var firstLevel = Game.LevelOrder.Levels[0].SceneName;
                 SceneLoader.LoadLevel(firstLevel);
-                SceneLoader.UnloadScene(SceneName.MainMenu);
+                SceneLoader.UnloadScene("MainMenu");
             }
             else
             {

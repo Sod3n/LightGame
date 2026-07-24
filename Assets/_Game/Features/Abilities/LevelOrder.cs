@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 using LightGame.Globals;
@@ -7,40 +7,40 @@ namespace LightGame
     [CreateAssetMenu(fileName = "LevelOrder", menuName = "Game/LevelOrder")]
     public class LevelOrder : ScriptableObject
     {
-        public List<SceneName> Value = new();
+        public List<SceneReference> Levels = new();
+
+        public int IndexOf(string sceneName)
+        {
+            if (sceneName == null) return -1;
+            return Levels.FindIndex(l => l.SceneName == sceneName);
+        }
 
         /// <summary>
         /// Get the next scene in the level order based on the current scene
         /// </summary>
-        /// <param name="currentScene">The current scene</param>
-        /// <returns>The next scene, or null if current scene is the last or not found</returns>
-        public SceneName? GetNextScene(SceneName currentScene)
+        /// <param name="currentScene">The current scene's name</param>
+        /// <returns>The next scene's name, or null if current scene is the last or not found</returns>
+        public string GetNextScene(string currentScene)
         {
-            int currentIndex = Value.IndexOf(currentScene);
+            int currentIndex = IndexOf(currentScene);
 
             // If current scene not found or is the last scene, return null
-            if (currentIndex == -1 || currentIndex >= Value.Count - 1)
+            if (currentIndex == -1 || currentIndex >= Levels.Count - 1)
             {
                 return null;
             }
 
-            return Value[currentIndex + 1];
+            return Levels[currentIndex + 1].SceneName;
         }
 
         /// <summary>
         /// Get the next scene based on the currently active scene
         /// </summary>
-        /// <returns>The next scene, or null if current scene is the last or not found</returns>
-        public SceneName? GetNextScene()
+        /// <returns>The next scene's name, or null if current scene is the last or not found</returns>
+        public string GetNextScene()
         {
             var currentLevel = SceneLoader.GetCurrentLevel();
-
-            if (!currentLevel.HasValue)
-            {
-                return null;
-            }
-
-            return GetNextScene(currentLevel.Value);
+            return currentLevel == null ? null : GetNextScene(currentLevel);
         }
     }
 }

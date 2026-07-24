@@ -1,4 +1,3 @@
-﻿using System;
 using LightGame.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,92 +6,72 @@ namespace LightGame.Globals
 {
     public static class SceneLoader
     {
-        private static string _currentSceneName = string.Empty;
-        private static SceneName? _currentLevelScene = null;
-        
-        private static void InitializeScene(string sceneName)
+        private static string _currentLevelScene = null;
+
+        public static void LoadScene(string sceneName)
         {
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
         }
 
-        public static void LoadScene(SceneName sceneName)
-        {
-            SceneManager.LoadScene(sceneName.KeyToString(), LoadSceneMode.Additive);
-            InitializeScene(sceneName.KeyToString());
-        }
-        
         /// <summary>
         /// Load a new level scene, unloading the previous level and ensuring Shared scene is loaded
         /// </summary>
-        public static void LoadLevel(SceneName newLevel)
+        public static void LoadLevel(string newLevel)
         {
             // Ensure Shared scene is loaded
-            if (!IsSceneLoaded(SceneName.Shared))
+            if (!IsSceneLoaded("Shared"))
             {
-                SceneManager.LoadScene(SceneName.Shared.KeyToString(), LoadSceneMode.Additive);
+                SceneManager.LoadScene("Shared", LoadSceneMode.Additive);
             }
-            
+
             // Unload previous level if exists
-            if (_currentLevelScene.HasValue)
+            if (_currentLevelScene != null)
             {
-                UnloadScene(_currentLevelScene.Value);
+                UnloadScene(_currentLevelScene);
             }
-            
+
             // Load new level
-            var asyncOp = SceneManager.LoadSceneAsync(newLevel.KeyToString(), LoadSceneMode.Additive);
-            
+            var asyncOp = SceneManager.LoadSceneAsync(newLevel, LoadSceneMode.Additive);
+
             // Set callback to set active scene when loaded
             if (asyncOp != null)
             {
                 asyncOp.completed += (op) =>
                 {
-                    var scene = SceneManager.GetSceneByName(newLevel.KeyToString());
+                    var scene = SceneManager.GetSceneByName(newLevel);
                     if (scene.IsValid() && scene.isLoaded)
                     {
                         SceneManager.SetActiveScene(scene);
                     }
                 };
             }
-            
+
             // Update current level
             _currentLevelScene = newLevel;
-            _currentSceneName = newLevel.KeyToString();
-        }
-        
-        public static void UnloadScene(SceneName sceneName)
-        {
-            SceneManager.UnloadSceneAsync(sceneName.KeyToString());
         }
 
-        public static bool IsSceneLoaded(SceneName sceneName)
+        public static void UnloadScene(string sceneName)
         {
-            var scene = SceneManager.GetSceneByName(sceneName.KeyToString());
-            Debug.Log($"Is scene '{sceneName}' loaded? {scene.IsValid() && scene.isLoaded}. Loaded scenes: {SceneManager.loadedSceneCount}");
+            SceneManager.UnloadSceneAsync(sceneName);
+        }
+
+        public static bool IsSceneLoaded(string sceneName)
+        {
+            var scene = SceneManager.GetSceneByName(sceneName);
             return scene.IsValid() && scene.isLoaded;
         }
-        
+
         /// <summary>
-        /// Try to parse a scene name string to SceneName enum
+        /// Get the current level scene's name
         /// </summary>
-        private static bool TryParseSceneName(string sceneName, out SceneName result)
-        {
-            return System.Enum.TryParse(sceneName, true, out result);
-        }
-        
-        /// <summary>
-        /// Get the current level scene
-        /// </summary>
-        public static SceneName? GetCurrentLevel()
+        public static string GetCurrentLevel()
         {
             return _currentLevelScene;
         }
-        
+
         public static void SetCurrentScene(string sceneName)
         {
-            _currentSceneName = sceneName;
-            if (TryParseSceneName(_currentSceneName, out SceneName parsedScene))
-            {
-                _currentLevelScene = parsedScene;
-            }
+            _currentLevelScene = sceneName;
         }
     }
 }

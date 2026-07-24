@@ -41,7 +41,7 @@ namespace LightGame.Features.UI.Views
         /// <summary>
         /// Change to a new level with light fade transition
         /// </summary>
-        public void ChangeLevel(SceneName targetScene)
+        public void ChangeLevel(string targetScene)
         {
             if (!isTransitioning)
             {
@@ -49,7 +49,7 @@ namespace LightGame.Features.UI.Views
             }
         }
 
-        private IEnumerator ChangeLevelCoroutine(SceneName targetScene)
+        private IEnumerator ChangeLevelCoroutine(string targetScene)
         {
             isTransitioning = true;
 
@@ -95,7 +95,7 @@ namespace LightGame.Features.UI.Views
         /// <summary>
         /// Change level immediately without fade
         /// </summary>
-        public void ChangeLevelImmediate(SceneName targetScene)
+        public void ChangeLevelImmediate(string targetScene)
         {
             if (!isTransitioning)
             {
