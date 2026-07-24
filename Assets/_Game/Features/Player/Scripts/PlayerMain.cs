@@ -6,7 +6,8 @@ public class PlayerMain : MonoBehaviour
     public PlayerStateMachine _stateMachine; // State Machine declaration where we change current state
     [NonEditable, Space(5)] public AnimName CurrentState; // Variable to display the current state in the Unity inspector for debugging purposes.
     public MainState IdleState, WalkState, JumpState, LandState, DashState, CrouchIdleState, CrouchWalkState, WallGrabState, WallClimbState, WallJumpState, WallSlideState, DirectionalJumpState ; // State declarations
-    public enum AnimName { Idle, Walk, Jump, ExtraJump1, ExtraJump2, Land, Dash, CrouchIdle, CrouchWalk, WallGrab, WallClimb, WallJump, WallSlide, DirectionalJump } // Enum declaration of state names as animator parameters
+    public PlayerOneShotState AttackState, HitState, DeathState; // One-shot presentation states (triggered from gameplay, not movement input)
+    public enum AnimName { Idle, Walk, Jump, ExtraJump1, ExtraJump2, Land, Dash, CrouchIdle, CrouchWalk, WallGrab, WallClimb, WallJump, WallSlide, DirectionalJump, Attack, Hit, Death } // Enum declaration of state names as animator parameters
 
     [NonSerialized] public Animator Animator; // The Animator is used to control the player's animations based on their current state.
     [NonSerialized] public Rigidbody2D Rigidbody2D; // The Rigidbody2D is used to control movement based on velocity vector.
@@ -45,6 +46,68 @@ public class PlayerMain : MonoBehaviour
         WallJumpState = new PlayerWallJumpState(this, _stateMachine, AnimName.WallJump, PlayerData);
         WallSlideState = new PlayerWallSlideState(this, _stateMachine, AnimName.WallSlide, PlayerData);
         DirectionalJumpState = new PlayerDirectionalJumpState(this, _stateMachine, AnimName.DirectionalJump, PlayerData);
+
+        // One-shot presentation states. They play their clip once (watching the Animator
+        // for completion) and then hand control back to Idle.
+        AttackState = new PlayerOneShotState(this, _stateMachine, AnimName.Attack, PlayerData, "PlayerAttack",
+            pinInPlace: true);
+        HitState = new PlayerOneShotState(this, _stateMachine, AnimName.Hit, PlayerData, "PlayerHit",
+            pinInPlace: true, locksStateMachine: true);
+        DeathState = new PlayerOneShotState(this, _stateMachine, AnimName.Death, PlayerData, "PlayerDeath",
+            pinInPlace: true, locksStateMachine: true, returnToIdleOnFinish: false);
+    }
+
+    // --- One-shot animation triggers (call these from gameplay code) ---
+
+    /// <summary>Play the attack animation once, then return to Idle. Ignored while dead.</summary>
+    public void PlayAttack()
+    {
+        if (CurrentState == AnimName.Death) return;
+        _stateMachine.ChangeState(AttackState);
+    }
+
+    /// <summary>Play the hit/hurt reaction once, then return to Idle. Ignored while dead.</summary>
+    public void PlayHit()
+    {
+        if (CurrentState == AnimName.Death) return;
+        _stateMachine.ChangeState(HitState);
+    }
+
+    /// <summary>
+    /// Play the death animation, then invoke <paramref name="onComplete"/> once it finishes
+    /// (used to gate respawn/teleport until the animation has played). Ignored if already dead.
+    /// </summary>
+    public void PlayDeath(System.Action onComplete = null)
+    {
+        if (CurrentState == AnimName.Death) return;
+        DeathState.OnComplete = onComplete;
+        _stateMachine.ChangeState(DeathState, force: true); // death overrides any current (even locked) state
+    }
+
+    /// <summary>
+    /// Reset the player after a respawn: release the death/one-shot lock and return to Idle.
+    /// Called by the health system when the player is revived (healed from a dead state).
+    /// </summary>
+    public void OnRespawn()
+    {
+        ClearPendingMovementIntent();
+        _stateMachine.Unlock();
+        _stateMachine.ChangeState(IdleState, force: true);
+    }
+
+    /// <summary>
+    /// Wipe any queued jump/buffer state. A hazard's jump pad may have set NewJump (etc.)
+    /// right before a locking one-shot blocked its state change, and that stale intent
+    /// would otherwise fire a spurious jump the moment movement control resumes.
+    /// </summary>
+    public void ClearPendingMovementIntent()
+    {
+        PlayerData.Jump.NewJump = false;
+        PlayerData.Jump.NextJumpInt = 1;
+        PlayerData.Jump.JumpBufferTimer = 0f;
+        PlayerData.Jump.CoyoteTimeTimer = 0f;
+        PlayerData.Walls.WallJump.JumpBufferTimer = 0f;
+        PlayerData.Walls.WallJump.CoyoteTimeTimer = 0f;
     }
 
     private void Start()

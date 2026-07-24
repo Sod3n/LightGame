@@ -17,6 +17,7 @@ public class PlayerInputManager : MonoBehaviour
     [SerializeField, NonEditable] private bool input_Crouch;
     [SerializeField, NonEditable] private bool input_WallGrab;
     [SerializeField, NonEditable] private float input_WallClimb;
+    [SerializeField, NonEditable] private bool input_Attack;
 
     // Properties to access the input variables
     public float Input_Walk => input_Walk;
@@ -25,6 +26,7 @@ public class PlayerInputManager : MonoBehaviour
     public bool Input_Crouch => input_Crouch;
     public bool Input_WallGrab => input_WallGrab;
     public float Input_WallClimb => input_WallClimb;
+    public bool Input_Attack => input_Attack;
 
     // Constructor to set player and playerData references
     public PlayerInputManager(PlayerMain player, PlayerData playerData)
@@ -57,6 +59,27 @@ public class PlayerInputManager : MonoBehaviour
         playerControls.Player.WallGrab.canceled += OnWallGrab;
         playerControls.Player.WallClimb.performed += OnWallClimb;
         playerControls.Player.WallClimb.canceled += OnWallClimb;
+        playerControls.Player.Attack.performed += OnAttack;
+        playerControls.Player.Attack.canceled += OnAttack;
+    }
+
+    protected virtual void OnDisable()
+    {
+        playerControls.Player.Jump.started -= OnJumpStarted;
+        playerControls.Player.Jump.canceled -= OnJumpCanceled;
+        playerControls.Player.Walk.performed -= OnWalk;
+        playerControls.Player.Walk.canceled -= OnWalk;
+        playerControls.Player.Dash.performed -= OnDash;
+        playerControls.Player.Dash.canceled -= OnDash;
+        playerControls.Player.Crouch.performed -= OnCrouch;
+        playerControls.Player.Crouch.canceled -= OnCrouch;
+        playerControls.Player.WallGrab.performed -= OnWallGrab;
+        playerControls.Player.WallGrab.canceled -= OnWallGrab;
+        playerControls.Player.WallClimb.performed -= OnWallClimb;
+        playerControls.Player.WallClimb.canceled -= OnWallClimb;
+        playerControls.Player.Attack.performed -= OnAttack;
+        playerControls.Player.Attack.canceled -= OnAttack;
+        playerControls.Player.Disable();
     }
 
     private void FixedUpdate()
@@ -87,7 +110,11 @@ public class PlayerInputManager : MonoBehaviour
 
         playerData.Jump.JumpBufferTimer = playerData.Jump.JumpBufferTimer > 0f ? playerData.Jump.JumpBufferTimer - Time.deltaTime : 0f;
         playerData.Jump.CoyoteTimeTimer = playerData.Jump.CoyoteTimeTimer > 0f ? playerData.Jump.CoyoteTimeTimer - Time.deltaTime : 0f;
-        playerData.Dash.DashCooldownTimer = playerData.Dash.DashCooldownTimer > 0f ? playerData.Dash.DashCooldownTimer - Time.deltaTime : 0f;
+        // Dash refreshes like jumps: no time cooldown - it becomes available again the instant
+        // you're grounded. A mid-air dash stays spent until you land, which kills the infinite
+        // Attack->Dash->Attack->Dash air-hover (you only get one dash per airtime).
+        if (playerData.Physics.IsGrounded)
+            playerData.Dash.DashCooldownTimer = 0f;
         playerData.Walls.WallJump.JumpBufferTimer = playerData.Walls.WallJump.JumpBufferTimer > 0f ? playerData.Walls.WallJump.JumpBufferTimer - Time.deltaTime : 0f;
         playerData.Walls.WallJump.CoyoteTimeTimer = playerData.Walls.WallJump.CoyoteTimeTimer > 0f ? playerData.Walls.WallJump.CoyoteTimeTimer - Time.deltaTime : 0f;
     }
@@ -136,6 +163,13 @@ public class PlayerInputManager : MonoBehaviour
     {
         input_WallClimb = context.ReadValue<float>();
     }
+
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        input_Attack = context.ReadValueAsButton();
+        if (context.performed)
+            player.PlayAttack(); // fire the one-shot attack on button press
+    }
     #endregion
 
     public void ClearInput()
@@ -146,7 +180,8 @@ public class PlayerInputManager : MonoBehaviour
         input_Crouch = false;
         input_WallGrab = false;
         input_WallClimb = 0f;
-        
+        input_Attack = false;
+
         playerData.Jump.JumpBufferTimer = 0f;
         playerData.Walls.WallJump.JumpBufferTimer = 0f;
     }

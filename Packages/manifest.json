@@ -16,9 +16,8 @@
     "com.gemserk.tools.gameobjectbrush"
   ],
   "dependencies": {
-    "com.ivanmurzak.unity.mcp": "0.21.0",
-    "com.unity.memoryprofiler": "1.1.10",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+    "com.ivanmurzak.unity.mcp": "0.86.1",
     "com.nobi.roundedcorners": "https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap.extras": "5.0.1",
@@ -30,6 +29,7 @@
     "com.unity.ide.visualstudio": "2.0.23",
     "com.unity.inputsystem": "1.14.2",
     "com.unity.localization": "1.5.8",
+    "com.unity.memoryprofiler": "1.1.10",
     "com.unity.render-pipelines.universal": "17.2.0",
     "com.unity.test-framework": "1.6.0",
     "com.unity.ugui": "2.0.0",
@@ -64,6 +64,7 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "com.ivanmurzak.unity.mcp.animation": "1.2.28"
   }
 }

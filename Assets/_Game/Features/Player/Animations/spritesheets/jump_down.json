@@ -1,0 +1,26 @@
+{
+  "source_folder": "новые кадры/новые кадры/прыжок/полет вниз",
+  "frame_count": 2,
+  "frame_size": [
+    512,
+    393
+  ],
+  "source_frame_size": [
+    1760,
+    1350
+  ],
+  "scale": 0.2909,
+  "grid": {
+    "cols": 2,
+    "rows": 1
+  },
+  "sheet_size": [
+    1024,
+    393
+  ],
+  "read_order": "left-to-right, top-to-bottom",
+  "source_files": [
+    "jump_3_0000.png",
+    "jump_3_0001.png"
+  ]
+}
