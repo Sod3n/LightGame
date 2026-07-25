@@ -100,13 +100,28 @@ namespace Gemserk.Tools.ObjectPalette.Editor
                 else if (PaletteCommon.mode == PaletteToolMode.Erase)
                 {
                     var go = HandleUtility.PickGameObject(p, true);
-                    if (go != null && PrefabUtility.GetPrefabInstanceStatus(go) != PrefabInstanceStatus.NotAPrefab)
+                    if (go != null
+                        && PrefabUtility.GetPrefabInstanceStatus(go) != PrefabInstanceStatus.NotAPrefab
+                        && IsUnderPaintTarget(go.transform))
                     {
                         Undo.DestroyObjectImmediate(go);
                         evt.Use();
                     }
                 }
             }
+        }
+
+        // Erase is scoped to whatever's under Paint Target (the same root new paints are
+        // parented under) so an erase click can't reach into unrelated parts of the scene —
+        // e.g. the player, managers, or another level's objects. No Paint Target set = nothing
+        // to scope to, so erase is a no-op rather than falling back to scene-wide deletion.
+        public static bool IsUnderPaintTarget(Transform t)
+        {
+            var root = PaletteCommon.paintTarget;
+            if (root == null) return false;
+            for (; t != null; t = t.parent)
+                if (t == root) return true;
+            return false;
         }
 
         // Testable predicate for drag-to-paint spacing:

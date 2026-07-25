@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 4577508022152415354}
   - component: {fileID: 563658081202739}
   - component: {fileID: 8911092722811945818}
+  - component: {fileID: 7352882981468197292}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -794,6 +795,7 @@ MonoBehaviour:
       dashTime: 0.35
       dashCooldown: 1
       dashCooldownTimer: 0
+      dashCharged: 1
       physics2DGravityScale: 0
       isDashEnabled: 0
     Walls:
@@ -1281,13 +1283,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: PlayerController::PlayerView
   playerMain: {fileID: 3213259104454701870}
-  landingEffectPrefab: {fileID: 7018498864273421396, guid: 34c043344c1954b51b5c1d51440aecf3, type: 3}
+  landingEffectPrefab: {fileID: 7018498864273421396, guid: 3518de9a059d14497903b65730358873, type: 3}
   landingSpawnPoint: {fileID: 4784293917535534717}
   scaleEffectByFallTime: 1
-  minFallTimeForEffect: 0.1
-  minScale: 0.75
-  maxScale: 1.5
+  minFallTimeForEffect: 0.5
+  minScale: 0.6
+  maxScale: 1
   fallTimeScaleMultiplier: 1
+--- !u!210 &7352882981468197292
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213259104454701869}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &3803380629175493506
 GameObject:
   m_ObjectHideFlags: 0

@@ -91,18 +91,33 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             return true;
         }
 
-        // ================ V = Select mode (exit paint) ================
+        // ================ Toggle Focus Mode ================
+        // Bound to "3" — confirmed free in this project's Shortcut Manager.
 
-        [Shortcut("Object Palette/Exit To Select Mode", KeyCode.V)]
+        [Shortcut("Object Palette/Toggle Focus Mode", KeyCode.Alpha3)]
+        static void ToggleFocusModeShortcut()
+        {
+            if (!GameObjectPaletteWindow.windowVisible) return;
+            PaletteFocusMode.SetEnabled(!PaletteFocusMode.Enabled);
+            PaletteCommon.RaiseQuickChanged();
+            SceneView.RepaintAll();
+        }
+
+        // ================ Select mode (toggle) ================
+        // Bound to "4" — confirmed free in this project's Shortcut Manager (V collides with
+        // Unity's built-in vertex-snapping hold-key on the Move tool). Toggles both ways,
+        // mirroring the Quick overlay's Select button — this used to only ever call
+        // EnterSelectMode(), which early-returns while already active, so pressing 4 again
+        // did nothing instead of switching back to Paint mode.
+
+        [Shortcut("Object Palette/Exit To Select Mode", KeyCode.Alpha4)]
         static void ExitToSelectMode()
         {
             if (!GameObjectPaletteWindow.windowVisible) return;
-            PaletteCommon.brush?.DestroyPreview();
-            PaletteCommon.selection.Clear();
-            var tm = UnityEditor.EditorTools.ToolManager.activeToolType;
-            if (tm == typeof(PalettePaintTool))
-                UnityEditor.EditorTools.ToolManager.RestorePreviousTool();
-            SceneView.RepaintAll();
+            if (GameObjectPaletteWindow.selectModeActive)
+                GameObjectPaletteWindow.ExitSelectMode();
+            else
+                GameObjectPaletteWindow.EnterSelectMode();
         }
 
         // ================ Nudge helper (no default arrow-key bindings) ================

@@ -71,6 +71,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/Scenes/Levels/FirstDesignedLevel.unity
     guid: 51b96e067bf7741c0af2dfc84ff2ab1a
+  - enabled: 1
+    path: Assets/_Game/Scenes/Levels/SecondLevel.unity
+    guid: 889649cc28db97f4696ba12ba60a84a7
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 57f2ff209156b4bbe979f26c23507ed1, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 779ec90fde5150045aad8f8c0c364448, type: 3}

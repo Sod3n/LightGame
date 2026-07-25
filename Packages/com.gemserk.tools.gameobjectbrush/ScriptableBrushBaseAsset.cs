@@ -18,6 +18,8 @@ namespace Gemserk.Tools.ObjectPalette
             get
             {
                 var list = new List<GameObject>();
+                if (previewParent == null)
+                    return list;
                 for (var i = 0; i < previewParent.childCount; i++)
                     list.Add(previewParent.GetChild(i).gameObject);
                 return list;
@@ -48,9 +50,14 @@ namespace Gemserk.Tools.ObjectPalette
         {
             if (previewParent != null)
                 return;
+            // NotEditable alone does NOT exclude this from scene serialization — only
+            // DontSaveInEditor/DontSaveInBuild do. Without those, saving the scene while a
+            // palette entry is selected would bake this preview (and its unpainted clone
+            // children) straight into the .unity file as permanent content, and merely
+            // selecting a palette entry would mark the scene dirty before anything is painted.
             var brushPreviewObject = new GameObject("~BrushPreview")
             {
-                hideFlags = HideFlags.NotEditable,
+                hideFlags = HideFlags.NotEditable | HideFlags.DontSave,
                 tag = "EditorOnly"
             };
 

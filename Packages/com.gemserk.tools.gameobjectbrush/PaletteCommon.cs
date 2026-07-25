@@ -5,7 +5,22 @@ namespace Gemserk.Tools.ObjectPalette.Editor
 {
     public static class PaletteCommon
     {
-        public static PaletteToolMode mode = PaletteToolMode.Paint;
+        private static PaletteToolMode _mode = PaletteToolMode.Paint;
+
+        // Raises onQuickChanged on change so every UI surface (palette window toggle, scene-view
+        // overlay button) stays in sync no matter which of the several entry points (hotkey,
+        // Shortcut Manager, overlay button) changed it.
+        public static PaletteToolMode mode
+        {
+            get => _mode;
+            set
+            {
+                if (_mode == value) return;
+                _mode = value;
+                onQuickChanged?.Invoke();
+            }
+        }
+
         public static IBrush brush;
         public static PaletteSelection selection = new PaletteSelection();
 
@@ -56,5 +71,22 @@ namespace Gemserk.Tools.ObjectPalette.Editor
         public static event System.Action onQuickChanged;
 
         public static void RaiseQuickChanged() => onQuickChanged?.Invoke();
+
+        // Shared Paint/Erase switch: destroys the preview when entering Erase, recreates it
+        // when returning to Paint with a live selection. Callers that also need to repaint the
+        // Scene View (this file is runtime-compiled, no UnityEditor access) do that themselves.
+        public static void SetMode(PaletteToolMode newMode)
+        {
+            if (mode == newMode) return;
+            mode = newMode;
+            if (newMode == PaletteToolMode.Erase)
+            {
+                brush?.DestroyPreview();
+            }
+            else if (brush != null && !selection.IsEmpty)
+            {
+                brush.CreatePreview(selection.selection);
+            }
+        }
     }
 }

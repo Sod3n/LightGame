@@ -32,8 +32,7 @@ namespace Gemserk.Tools.ObjectPalette.Editor
         public override VisualElement CreatePanelContent()
         {
             root = new VisualElement();
-            root.style.flexDirection = FlexDirection.Row;
-            root.style.flexWrap = Wrap.Wrap;
+            root.style.flexDirection = FlexDirection.Column;
             root.style.maxWidth = 260;
             Rebuild();
             return root;
@@ -43,6 +42,17 @@ namespace Gemserk.Tools.ObjectPalette.Editor
         {
             if (root == null) return;
             root.Clear();
+
+            var toggleRow = new VisualElement { style = { flexDirection = FlexDirection.Row, marginBottom = 3 } };
+            toggleRow.Add(BuildEraseToggle());
+            toggleRow.Add(BuildSelectModeToggle());
+            toggleRow.Add(BuildFocusModeToggle());
+            root.Add(toggleRow);
+
+            var grid = new VisualElement();
+            grid.style.flexDirection = FlexDirection.Row;
+            grid.style.flexWrap = Wrap.Wrap;
+            root.Add(grid);
 
             var seen = new HashSet<Object>();
 
@@ -59,7 +69,7 @@ namespace Gemserk.Tools.ObjectPalette.Editor
                     sourceObject = go,
                     preview = AssetPreview.GetAssetPreview(go)
                 };
-                root.Add(BuildBtn(entry, favorite: true));
+                grid.Add(BuildBtn(entry, favorite: true));
             }
 
             // Recents
@@ -68,10 +78,10 @@ namespace Gemserk.Tools.ObjectPalette.Editor
                 if (e?.sourceObject == null || seen.Contains(e.sourceObject)) continue;
                 seen.Add(e.sourceObject);
                 if (e.preview == null) e.preview = AssetPreview.GetAssetPreview(e.sourceObject);
-                root.Add(BuildBtn(e, favorite: false));
+                grid.Add(BuildBtn(e, favorite: false));
             }
 
-            if (root.childCount == 0)
+            if (grid.childCount == 0)
             {
                 var empty = new Label("Paint or pin a palette entry to populate.")
                 {
@@ -84,7 +94,68 @@ namespace Gemserk.Tools.ObjectPalette.Editor
                         whiteSpace = WhiteSpace.Normal
                     }
                 };
-                root.Add(empty);
+                grid.Add(empty);
+            }
+        }
+
+        private VisualElement BuildEraseToggle()
+        {
+            var erasing = PaletteCommon.mode == PaletteToolMode.Erase;
+            var btn = new Button(() => PaletteCommon.SetMode(erasing ? PaletteToolMode.Paint : PaletteToolMode.Erase))
+            {
+                text = erasing ? "Erase: On (E)" : "Erase (E)",
+                tooltip = "Toggle erase mode (E). Erases only objects under the current Paint Target."
+            };
+            StyleModeButton(btn, erasing, new Color(0.85f, 0.3f, 0.3f));
+            btn.style.marginRight = 3;
+            return btn;
+        }
+
+        private VisualElement BuildSelectModeToggle()
+        {
+            var on = GameObjectPaletteWindow.selectModeActive;
+            var btn = new Button(() =>
+            {
+                if (GameObjectPaletteWindow.selectModeActive) GameObjectPaletteWindow.ExitSelectMode();
+                else GameObjectPaletteWindow.EnterSelectMode();
+            })
+            {
+                text = on ? "Select: On (4)" : "Select (4)",
+                tooltip = "Edit existing objects (Move gizmo, Inspector) without changing Paint Target (4). " +
+                          "Combine with Focus to scope editing to just the current layer."
+            };
+            StyleModeButton(btn, on, new Color(0.6f, 0.6f, 0.6f));
+            btn.style.marginLeft = 3;
+            btn.style.marginRight = 3;
+            return btn;
+        }
+
+        private VisualElement BuildFocusModeToggle()
+        {
+            var on = PaletteFocusMode.Enabled;
+            var btn = new Button(() =>
+            {
+                PaletteFocusMode.SetEnabled(!PaletteFocusMode.Enabled);
+                PaletteCommon.RaiseQuickChanged();
+            })
+            {
+                text = on ? "Focus: On (3)" : "Focus (3)",
+                tooltip = "Highlight the Paint Target's objects and hide everything else in the Scene View " +
+                          "(non-destructive — Scene Visibility only). Hotkey: 3."
+            };
+            StyleModeButton(btn, on, new Color(0.3f, 0.75f, 1f));
+            return btn;
+        }
+
+        private static void StyleModeButton(Button btn, bool active, Color activeColor)
+        {
+            btn.style.height = 20;
+            btn.style.fontSize = 10;
+            btn.style.flexGrow = 1;
+            if (active)
+            {
+                btn.style.backgroundColor = activeColor;
+                btn.style.color = Color.white;
             }
         }
 

@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: LightGame::Core._.UI.ScaleTween
   playOnEnable: 0
   _useStartScale: 1
-  _startScale: {x: 1, y: 0.3, z: 1}
+  _startScale: {x: 1, y: 1, z: 1}
   _endScale: {x: 1, y: 1, z: 1}
   _duration: 0.6
   _scaleEase: 24
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7140033457921835401}
   - component: {fileID: 4283270501506582914}
   m_Layer: 0
-  m_Name: WeightPlatform
+  m_Name: Activator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,20 +177,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d86ad71ac6714bdb9d2fb82f5cd8b82b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleMode: 0
-  interactMode: 0
+  toggleMode: 1
+  interactMode: 1
   interactKey: 102
-  playerTag: Player
   weightThreshold: 10
   canDeactivate: 1
   startActivated: 0
   togglables: []
-  onActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeactivate:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &4283270501506582914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,7 +250,7 @@ MonoBehaviour:
   playOnEnable: 0
   _useStartScale: 1
   _startScale: {x: 1, y: 1, z: 1}
-  _endScale: {x: 1, y: 0.3, z: 1}
+  _endScale: {x: 1, y: 1, z: 1}
   _duration: 0.6
   _scaleEase: 24
 --- !u!1 &6522509878480832564
@@ -338,7 +331,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: c965c83e4e23646209810450e1077238, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

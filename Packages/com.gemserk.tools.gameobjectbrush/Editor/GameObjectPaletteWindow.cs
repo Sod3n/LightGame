@@ -67,6 +67,7 @@ namespace Gemserk.Tools.ObjectPalette.Editor
         {
             if (!windowVisible || !autoSetPaintUnderFromHierarchyClick) return false;
             if (suppressSelectionHookCount > 0) return false;
+            if (selectModeActive) return false;
             if (selection == null || !selection.gameObject.scene.IsValid()) return false;
             if (selection.GetComponentInParent<BrushPreview>() != null) return false;
             if (PaletteCommon.paintTarget == selection) return false;
@@ -86,6 +87,11 @@ namespace Gemserk.Tools.ObjectPalette.Editor
 
         private const string PaintTargetPrefKey = "Gemserk.ObjectPalette.PaintTargetId";
         private const string FavoritesPrefKey = "Gemserk.ObjectPalette.Favorites";
+        // Session-scoped (survives script-recompile domain reloads, not editor restarts) so an
+        // in-progress paint selection isn't silently dropped by the next assembly reload while
+        // the palette window stays open — see RestoreSelectionAndPreview / Tick.
+        private const string SelectionSessionKey = "Gemserk.ObjectPalette.SelectionGuids";
+        private string lastSavedSelectionFingerprint = "";
 
         private List<ObjectPaletteBaseAsset> availablePalettes = new List<ObjectPaletteBaseAsset>();
         private List<ScriptableBrushBaseAsset> availableBrushes = new List<ScriptableBrushBaseAsset>();
@@ -118,6 +124,7 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             if (PaletteCommon.brush == null) PaletteCommon.brush = defaultBrush;
             RestorePaintTarget();
             LoadFavorites();
+            RestoreSelectionAndPreview();
         }
 
         private void OnDisable()
@@ -177,6 +184,64 @@ namespace Gemserk.Tools.ObjectPalette.Editor
                 RebuildPaintTargetField();
                 lastKnownPaintTarget = PaletteCommon.paintTarget;
             }
+            MaybeSaveSelectionToSession();
+        }
+
+        // Recompiles wipe PaletteCommon.selection (static field) and DestroyHangingPreview()
+        // above just tore down any leftover preview GameObject, so without this, the palette
+        // silently forgets what was selected — the next click looks like "does nothing and the
+        // preview vanished" even though nothing is actually broken, just unrestored.
+        private void RestoreSelectionAndPreview()
+        {
+            if (!PaletteCommon.selection.IsEmpty)
+            {
+                PaletteCommon.brush?.CreatePreview(PaletteCommon.selection.selection);
+                lastSavedSelectionFingerprint = BuildSelectionFingerprint();
+                return;
+            }
+
+            var raw = SessionState.GetString(SelectionSessionKey, "");
+            if (string.IsNullOrEmpty(raw)) return;
+
+            foreach (var guid in raw.Split(';'))
+            {
+                if (string.IsNullOrEmpty(guid)) continue;
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                if (string.IsNullOrEmpty(path)) continue;
+                var obj = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(path);
+                if (obj == null) continue;
+                PaletteCommon.selection.Add(new PaletteObject
+                {
+                    name = obj.name,
+                    sourceObject = obj,
+                    preview = AssetPreview.GetAssetPreview(obj)
+                });
+            }
+
+            if (!PaletteCommon.selection.IsEmpty)
+                PaletteCommon.brush?.CreatePreview(PaletteCommon.selection.selection);
+            lastSavedSelectionFingerprint = BuildSelectionFingerprint();
+        }
+
+        private void MaybeSaveSelectionToSession()
+        {
+            var fingerprint = BuildSelectionFingerprint();
+            if (fingerprint == lastSavedSelectionFingerprint) return;
+            lastSavedSelectionFingerprint = fingerprint;
+            SessionState.SetString(SelectionSessionKey, fingerprint);
+        }
+
+        private static string BuildSelectionFingerprint()
+        {
+            var guids = new List<string>();
+            foreach (var e in PaletteCommon.selection.selection)
+            {
+                if (e?.sourceObject == null) continue;
+                var path = AssetDatabase.GetAssetPath(e.sourceObject);
+                var guid = AssetDatabase.AssetPathToGUID(path);
+                if (!string.IsNullOrEmpty(guid)) guids.Add(guid);
+            }
+            return string.Join(";", guids);
         }
 
         // ==================== Scene-view hooks (unchanged from IMGUI version) ====================
@@ -632,6 +697,53 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             RestoreUnityTool();
         }
 
+        // ==================== Select Mode ====================
+        //
+        // Lets you click/select and edit (Move gizmo, Inspector) existing scene objects without
+        // that click silently reassigning Paint Under — the palette tool being active is what
+        // normally lets Hierarchy clicks retarget Paint Under (see ShouldSetPaintUnderFromSelection),
+        // which is convenient while painting but not what you want while just poking at what's
+        // already there. Combine with PaletteFocusMode (hides everything outside Paint Target)
+        // to scope what's even selectable to the current "layer".
+
+        public static bool selectModeActive { get; private set; }
+        private static List<PaletteObject> savedSelectionForSelectMode;
+
+        public static void EnterSelectMode()
+        {
+            if (selectModeActive) return;
+            selectModeActive = true;
+            savedSelectionForSelectMode = new List<PaletteObject>(PaletteCommon.selection.selection);
+            PaletteCommon.brush?.DestroyPreview();
+            PaletteCommon.selection.Clear();
+            if (UnityEditor.EditorTools.ToolManager.activeToolType == typeof(PalettePaintTool))
+                UnityEditor.EditorTools.ToolManager.RestorePreviousTool();
+            PaletteCommon.RaiseQuickChanged();
+            SceneView.RepaintAll();
+        }
+
+        // Toggling back off (as opposed to just picking a new palette entry, which resets
+        // Select Mode itself — see SelectBrushObjectStatic) restores exactly what was armed
+        // before you switched to Select Mode, so you can pop in to tweak something and pop
+        // back out without re-picking from the palette.
+        public static void ExitSelectMode()
+        {
+            if (!selectModeActive) return;
+            selectModeActive = false;
+            var restore = savedSelectionForSelectMode ?? new List<PaletteObject>();
+            savedSelectionForSelectMode = null;
+
+            PaletteCommon.selection.Clear();
+            foreach (var e in restore) PaletteCommon.selection.Add(e);
+            if (!PaletteCommon.selection.IsEmpty && PaletteCommon.brush != null)
+            {
+                UnityEditor.EditorTools.ToolManager.SetActiveTool<PalettePaintTool>();
+                PaletteCommon.brush.CreatePreview(PaletteCommon.selection.selection);
+            }
+            PaletteCommon.RaiseQuickChanged();
+            SceneView.RepaintAll();
+        }
+
         private void SelectBrushObject(PaletteObject o) => SelectBrushObjectStatic(o);
 
         // Public + static so the Scene View overlay (and other outside callers) share the
@@ -640,6 +752,11 @@ namespace Gemserk.Tools.ObjectPalette.Editor
         public static void SelectBrushObjectStatic(PaletteObject o)
         {
             if (o == null) return;
+            // Picking any palette entry is unambiguously "back to painting" — reset Select
+            // Mode bookkeeping regardless of how it was entered (widget toggle or V hotkey) so
+            // Paint Under auto-follow resumes and we don't hang onto a stale saved selection.
+            selectModeActive = false;
+            savedSelectionForSelectMode = null;
             if (PaletteCommon.brush == null)
             {
                 // Try to auto-pick a brush now so the overlay is usable even if the palette
@@ -863,7 +980,7 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             {
                 clone = (GameObject)PrefabUtility.InstantiatePrefab(prefabAsset, source.scene);
                 clone.transform.SetParent(source.transform.parent, worldPositionStays: false);
-                MirrorOverrides(source.transform, clone.transform, isRoot: true);
+                MirrorOverrides(source.transform, clone.transform, source.transform, clone.transform);
             }
             else
             {
@@ -877,8 +994,15 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             return clone;
         }
 
-        static void MirrorOverrides(Transform src, Transform dst, bool isRoot)
+        // Field-by-field copy via SerializedObject rather than Unity's clipboard flow
+        // (ComponentUtility.CopyComponent + PasteComponentValues) — the clipboard flow copies
+        // object-reference fields as literal references, so a script referencing something
+        // INSIDE its own hierarchy (e.g. a controller pointing at a child hitbox) would end up
+        // pointing at the source's child instead of the clone's own. References pointing outside
+        // src's hierarchy (other scene objects, assets) are left untouched.
+        static void MirrorOverrides(Transform src, Transform dst, Transform srcRoot, Transform dstRoot)
         {
+            var isRoot = src == srcRoot;
             var srcComps = src.GetComponents<Component>();
             var dstComps = dst.GetComponents<Component>();
             int n = Mathf.Min(srcComps.Length, dstComps.Length);
@@ -887,12 +1011,103 @@ namespace Gemserk.Tools.ObjectPalette.Editor
                 var s = srcComps[i]; var d = dstComps[i];
                 if (s == null || d == null || s.GetType() != d.GetType()) continue;
                 if (s is Transform && isRoot) continue;
-                UnityEditorInternal.ComponentUtility.CopyComponent(s);
-                UnityEditorInternal.ComponentUtility.PasteComponentValues(d);
+                CopySerializedValuesRemappingInternalRefs(s, d, srcRoot, dstRoot);
             }
             int childCount = Mathf.Min(src.childCount, dst.childCount);
             for (int i = 0; i < childCount; i++)
-                MirrorOverrides(src.GetChild(i), dst.GetChild(i), false);
+                MirrorOverrides(src.GetChild(i), dst.GetChild(i), srcRoot, dstRoot);
+        }
+
+        static void CopySerializedValuesRemappingInternalRefs(Component s, Component d, Transform srcRoot, Transform dstRoot)
+        {
+            var srcSO = new SerializedObject(s);
+            var dstSO = new SerializedObject(d);
+            var iterator = srcSO.GetIterator();
+            var enterChildren = true;
+            while (iterator.NextVisible(enterChildren))
+            {
+                enterChildren = true;
+                if (iterator.propertyType == SerializedPropertyType.Generic) continue;
+                if (iterator.propertyPath == "m_Script") continue;
+
+                var dstProp = dstSO.FindProperty(iterator.propertyPath);
+                if (dstProp == null) continue;
+
+                if (iterator.propertyType == SerializedPropertyType.ObjectReference)
+                    dstProp.objectReferenceValue = RemapIfInternal(iterator.objectReferenceValue, srcRoot, dstRoot);
+                else
+                    CopyLeafValue(iterator, dstProp);
+            }
+            dstSO.ApplyModifiedPropertiesWithoutUndo();
+        }
+
+        // SerializedProperty has no generic "copy value from another property" API — each
+        // leaf type needs its own typed accessor.
+        static void CopyLeafValue(SerializedProperty src, SerializedProperty dst)
+        {
+            switch (src.propertyType)
+            {
+                case SerializedPropertyType.Integer: dst.longValue = src.longValue; break;
+                case SerializedPropertyType.Boolean: dst.boolValue = src.boolValue; break;
+                case SerializedPropertyType.Float: dst.doubleValue = src.doubleValue; break;
+                case SerializedPropertyType.String: dst.stringValue = src.stringValue; break;
+                case SerializedPropertyType.Color: dst.colorValue = src.colorValue; break;
+                case SerializedPropertyType.LayerMask: dst.intValue = src.intValue; break;
+                case SerializedPropertyType.Enum: dst.enumValueIndex = src.enumValueIndex; break;
+                case SerializedPropertyType.Vector2: dst.vector2Value = src.vector2Value; break;
+                case SerializedPropertyType.Vector3: dst.vector3Value = src.vector3Value; break;
+                case SerializedPropertyType.Vector4: dst.vector4Value = src.vector4Value; break;
+                case SerializedPropertyType.Rect: dst.rectValue = src.rectValue; break;
+                case SerializedPropertyType.ArraySize: dst.intValue = src.intValue; break; // resizes dst's array to match
+                case SerializedPropertyType.Character: dst.intValue = src.intValue; break;
+                case SerializedPropertyType.AnimationCurve: dst.animationCurveValue = src.animationCurveValue; break;
+                case SerializedPropertyType.Bounds: dst.boundsValue = src.boundsValue; break;
+                case SerializedPropertyType.Quaternion: dst.quaternionValue = src.quaternionValue; break;
+                case SerializedPropertyType.ExposedReference: dst.exposedReferenceValue = src.exposedReferenceValue; break;
+                case SerializedPropertyType.Vector2Int: dst.vector2IntValue = src.vector2IntValue; break;
+                case SerializedPropertyType.Vector3Int: dst.vector3IntValue = src.vector3IntValue; break;
+                case SerializedPropertyType.RectInt: dst.rectIntValue = src.rectIntValue; break;
+                case SerializedPropertyType.BoundsInt: dst.boundsIntValue = src.boundsIntValue; break;
+                case SerializedPropertyType.ManagedReference: dst.managedReferenceValue = src.managedReferenceValue; break;
+                case SerializedPropertyType.Hash128: dst.hash128Value = src.hash128Value; break;
+                // Gradient has no public SerializedProperty accessor — left as-is on dst.
+                default: break;
+            }
+        }
+
+        static Object RemapIfInternal(Object value, Transform srcRoot, Transform dstRoot)
+        {
+            if (value == null) return null;
+            var owner = value is GameObject go ? go.transform : (value as Component)?.transform;
+            if (owner == null || !IsDescendantOrSelf(owner, srcRoot)) return value;
+
+            var indices = new List<int>();
+            for (var t = owner; t != srcRoot; t = t.parent)
+                indices.Add(t.GetSiblingIndex());
+            indices.Reverse();
+
+            var dstOwner = dstRoot;
+            foreach (var idx in indices)
+            {
+                if (dstOwner == null || idx >= dstOwner.childCount) return value;
+                dstOwner = dstOwner.GetChild(idx);
+            }
+
+            if (value is GameObject) return dstOwner.gameObject;
+            if (value is Transform) return dstOwner;
+
+            var comp = (Component)value;
+            var srcOfType = owner.GetComponents(comp.GetType());
+            var occurrence = System.Array.IndexOf(srcOfType, comp);
+            var dstOfType = dstOwner.GetComponents(comp.GetType());
+            return occurrence >= 0 && occurrence < dstOfType.Length ? dstOfType[occurrence] : value;
+        }
+
+        static bool IsDescendantOrSelf(Transform t, Transform root)
+        {
+            for (; t != null; t = t.parent)
+                if (t == root) return true;
+            return false;
         }
 
         private static bool rmbWasDrag;

@@ -11,7 +11,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edd7e7d3ec484143aaae71e3be7901c1, type: 3}
   m_Name: LevelOrder
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   Levels:
   - sceneAsset: {fileID: 102900000, guid: 51b96e067bf7741c0af2dfc84ff2ab1a, type: 3}
     sceneName: FirstDesignedLevel
+  - sceneAsset: {fileID: 102900000, guid: 889649cc28db97f4696ba12ba60a84a7, type: 3}
+    sceneName: SecondLevel
