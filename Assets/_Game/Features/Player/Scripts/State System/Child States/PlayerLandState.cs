@@ -9,7 +9,11 @@ public class PlayerLandState : MainState, IMove2D
     private float localXVelovity;
     private int turnBackStartDirection;
     private float landingVelocity;
-    
+
+    // Minimum airtime (seconds spent in this fall state) before touchdown plays the
+    // jump-land squash. Keeps tiny steps / stairs from flickering a landing animation.
+    private const float MinAirTimeForImpact = 0.1f;
+
     public event Action<float> OnLanded;
     
     public PlayerLandState(PlayerMain player, PlayerStateMachine stateMachine, PlayerMain.AnimName animEnum, PlayerData playerData) : base(player, stateMachine, animEnum, playerData)
@@ -67,13 +71,23 @@ public class PlayerLandState : MainState, IMove2D
     public override void SwitchStateLogic()
     {
         base.SwitchStateLogic();
-        if ((((playerData.Physics.IsGrounded && !playerData.Physics.IsOnNotWalkableSlope)) && inputManager.Input_Walk == 0) || playerData.Physics.IsMultipleContactWithNonWalkableSlope)
+        bool cleanGround = playerData.Physics.IsGrounded && !playerData.Physics.IsOnNotWalkableSlope;
+
+        if ((cleanGround && inputManager.Input_Walk == 0) || playerData.Physics.IsMultipleContactWithNonWalkableSlope)
         {
-            stateMachine.ChangeState(player.IdleState);
+            // Clean touchdown after a real fall -> play the jump-land squash (it returns to Idle,
+            // where Walk re-engages next frame if a direction is held). Odd-slope contacts skip it.
+            if (cleanGround && !playerData.Physics.IsMultipleContactWithNonWalkableSlope && localTime >= MinAirTimeForImpact)
+                stateMachine.ChangeState(player.LandImpactState);
+            else
+                stateMachine.ChangeState(player.IdleState);
         }
-        else if ((playerData.Physics.IsGrounded && !playerData.Physics.IsOnNotWalkableSlope))
+        else if (cleanGround)
         {
-            stateMachine.ChangeState(player.WalkState);
+            if (localTime >= MinAirTimeForImpact)
+                stateMachine.ChangeState(player.LandImpactState);
+            else
+                stateMachine.ChangeState(player.WalkState);
         }
         else if (inputManager.Input_Jump && playerData.Physics.CanJump)
         {
@@ -83,7 +97,7 @@ public class PlayerLandState : MainState, IMove2D
         {
             stateMachine.ChangeState(player.WallJumpState);
         }
-        else if (inputManager.Input_Dash && playerData.Dash.DashCooldownTimer <= 0f && playerData.Dash.IsDashEnabled)
+        else if (inputManager.Input_Dash && playerData.Dash.DashCharged && playerData.Dash.IsDashEnabled)
         {
             stateMachine.ChangeState(player.DashState);
         }

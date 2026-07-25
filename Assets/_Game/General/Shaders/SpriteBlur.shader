@@ -5,6 +5,7 @@ Shader "LightGame/SpriteBlur"
         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "white" {}
         _Color ("Tint", Color) = (1,1,1,1)
         _BlurPixels ("Blur Radius (source px)", Float) = 0
+        _EdgeBlurBoost ("Extra LOD At Fully-Transparent Edge", Float) = 2
     }
 
     SubShader
@@ -50,6 +51,7 @@ Shader "LightGame/SpriteBlur"
             float4 _MainTex_TexelSize;
             float4 _Color;
             float  _BlurPixels;
+            float  _EdgeBlurBoost;
 
             Varyings vert(Attributes v)
             {
@@ -65,8 +67,15 @@ Shader "LightGame/SpriteBlur"
             half4 frag(Varyings i) : SV_Target
             {
                 float radius = max(0.0, _BlurPixels);
-                float lod = max(0.0, log2(max(1.0, radius)) - 1.0);
-                float2 t = _MainTex_TexelSize.xy * exp2(lod);
+                float base_lod = max(0.0, log2(max(1.0, radius)) - 1.0);
+
+                // Extra blur near the edge: peek at alpha at the base LOD and
+                // boost the sampling LOD in proportion to (1 - alpha). Interior
+                // pixels (a = 1) keep the base blur; near-transparent edge pixels
+                // pull from higher (blurrier) mips, feathering the shape softer.
+                half peek_a = SAMPLE_TEXTURE2D_LOD(_MainTex, sampler_MainTex, i.uv, base_lod).a;
+                float lod   = base_lod + saturate(1.0 - peek_a) * _EdgeBlurBoost;
+                float2 t    = _MainTex_TexelSize.xy * exp2(lod);
 
                 half4 c  = SAMPLE_TEXTURE2D_LOD(_MainTex, sampler_MainTex, i.uv,                    lod) * 0.40h;
                 c       += SAMPLE_TEXTURE2D_LOD(_MainTex, sampler_MainTex, i.uv + float2( t.x, 0),  lod) * 0.15h;

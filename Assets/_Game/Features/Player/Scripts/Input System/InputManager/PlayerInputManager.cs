@@ -110,11 +110,13 @@ public class PlayerInputManager : MonoBehaviour
 
         playerData.Jump.JumpBufferTimer = playerData.Jump.JumpBufferTimer > 0f ? playerData.Jump.JumpBufferTimer - Time.deltaTime : 0f;
         playerData.Jump.CoyoteTimeTimer = playerData.Jump.CoyoteTimeTimer > 0f ? playerData.Jump.CoyoteTimeTimer - Time.deltaTime : 0f;
-        // Dash refreshes like jumps: no time cooldown - it becomes available again the instant
-        // you're grounded. A mid-air dash stays spent until you land, which kills the infinite
-        // Attack->Dash->Attack->Dash air-hover (you only get one dash per airtime).
-        if (playerData.Physics.IsGrounded)
-            playerData.Dash.DashCooldownTimer = 0f;
+        // Dash works like a charge you refill on the floor: the cooldown ticks down everywhere
+        // (including mid-air), but the dash only RECHARGES while grounded once the cooldown has
+        // expired. Once charged you can spend it anywhere - including mid-air - but you get exactly
+        // one dash per floor-charge, so you can't chain air-dashes to fly.
+        playerData.Dash.DashCooldownTimer = playerData.Dash.DashCooldownTimer > 0f ? playerData.Dash.DashCooldownTimer - Time.deltaTime : 0f;
+        if (playerData.Physics.IsGrounded && playerData.Dash.DashCooldownTimer <= 0f)
+            playerData.Dash.DashCharged = true;
         playerData.Walls.WallJump.JumpBufferTimer = playerData.Walls.WallJump.JumpBufferTimer > 0f ? playerData.Walls.WallJump.JumpBufferTimer - Time.deltaTime : 0f;
         playerData.Walls.WallJump.CoyoteTimeTimer = playerData.Walls.WallJump.CoyoteTimeTimer > 0f ? playerData.Walls.WallJump.CoyoteTimeTimer - Time.deltaTime : 0f;
     }

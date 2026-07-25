@@ -6,8 +6,8 @@ public class PlayerMain : MonoBehaviour
     public PlayerStateMachine _stateMachine; // State Machine declaration where we change current state
     [NonEditable, Space(5)] public AnimName CurrentState; // Variable to display the current state in the Unity inspector for debugging purposes.
     public MainState IdleState, WalkState, JumpState, LandState, DashState, CrouchIdleState, CrouchWalkState, WallGrabState, WallClimbState, WallJumpState, WallSlideState, DirectionalJumpState ; // State declarations
-    public PlayerOneShotState AttackState, HitState, DeathState; // One-shot presentation states (triggered from gameplay, not movement input)
-    public enum AnimName { Idle, Walk, Jump, ExtraJump1, ExtraJump2, Land, Dash, CrouchIdle, CrouchWalk, WallGrab, WallClimb, WallJump, WallSlide, DirectionalJump, Attack, Hit, Death } // Enum declaration of state names as animator parameters
+    public PlayerOneShotState AttackState, HitState, DeathState, LandImpactState; // One-shot presentation states (triggered from gameplay / touchdown, not movement input)
+    public enum AnimName { Idle, Walk, Jump, ExtraJump1, ExtraJump2, Land, Dash, CrouchIdle, CrouchWalk, WallGrab, WallClimb, WallJump, WallSlide, DirectionalJump, Attack, Hit, Death, LandImpact } // Enum declaration of state names as animator parameters
 
     [NonSerialized] public Animator Animator; // The Animator is used to control the player's animations based on their current state.
     [NonSerialized] public Rigidbody2D Rigidbody2D; // The Rigidbody2D is used to control movement based on velocity vector.
@@ -55,6 +55,12 @@ public class PlayerMain : MonoBehaviour
             pinInPlace: true, locksStateMachine: true);
         DeathState = new PlayerOneShotState(this, _stateMachine, AnimName.Death, PlayerData, "PlayerDeath",
             pinInPlace: true, locksStateMachine: true, returnToIdleOnFinish: false);
+
+        // Brief landing-impact "stun" the fall (Land) state exits into on touchdown, before Idle/Walk.
+        // pinInPlace freezes the player so the whole clip reads as a proper landing (kept short via the
+        // PlayerLandImpact state Speed). Not locked, so it doesn't wipe the jump buffer on finish.
+        LandImpactState = new PlayerOneShotState(this, _stateMachine, AnimName.LandImpact, PlayerData, "PlayerLandImpact",
+            pinInPlace: true);
     }
 
     // --- One-shot animation triggers (call these from gameplay code) ---

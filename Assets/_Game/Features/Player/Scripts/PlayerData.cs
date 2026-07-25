@@ -234,6 +234,7 @@ public class PlayerData
         [SerializeField, Space(5)] private float dashTime;
         [SerializeField] private float dashCooldown;
         [SerializeField, NonEditable] private float dashCooldownTimer;
+        [SerializeField, NonEditable] private bool dashCharged = true;
         [SerializeField, NonEditable] private float physics2DGravityScale;
         [SerializeField, NonEditable] private bool isDashEnabled = false;
 
@@ -245,6 +246,7 @@ public class PlayerData
         public float DashTime => dashTime;
         public float DashCooldown => dashCooldown;
         public float DashCooldownTimer { get { return dashCooldownTimer; } set { dashCooldownTimer = value; } }
+        public bool DashCharged { get { return dashCharged; } set { dashCharged = value; } }
         public float Physics2DGravityScale => physics2DGravityScale;
         public bool IsDashEnabled { get { return isDashEnabled; } set { isDashEnabled = value; } }
     }

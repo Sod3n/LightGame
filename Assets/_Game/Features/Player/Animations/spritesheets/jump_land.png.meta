@@ -101,6 +101,72 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 786
+        width: 512
+        height: 393
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32512e5db6041d45946089d049c1618
+      internalID: 1040392534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_land_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 786
+        width: 512
+        height: 393
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fddf0ffbbc484349a543bfaea58c31e
+      internalID: 1964699640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_land_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 786
+        width: 512
+        height: 393
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2a94048ba58d87489d636beed1c4e4f
+      internalID: -1993919862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_land_03
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 393
         width: 512
         height: 393
@@ -112,14 +178,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 552407e582d0b3549808c989ae553c33
-      internalID: 1040392534
+      spriteID: fb438993e19d423438d676d15ed9a9ce
+      internalID: 1412742404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump_land_01
+      name: jump_land_04
       rect:
         serializedVersion: 2
         x: 512
@@ -134,14 +200,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02875b9afc644c94781b3b3acab2d587
-      internalID: 1964699640
+      spriteID: 9daa5aad492ee064aa5411528636d49b
+      internalID: -1826127517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump_land_02
+      name: jump_land_05
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 393
+        width: 512
+        height: 393
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b171ea4982204145a42c5b37f72916b
+      internalID: -424803910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_land_06
       rect:
         serializedVersion: 2
         x: 0
@@ -156,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22bd412e04f905a489dad6368a9bd027
-      internalID: -1993919862
+      spriteID: ae7846240342ec443bb3f19f8ee6043c
+      internalID: 2146661677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump_land_03
+      name: jump_land_07
       rect:
         serializedVersion: 2
         x: 512
@@ -178,8 +266,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32a2fde00b63eeb40a68ac1db2dbd54e
-      internalID: 1412742404
+      spriteID: 8b22794cf9077464c92d72eceeda8cba
+      internalID: -1563898315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_land_08
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 393
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc0a9aa33ad7e04cb04053252b184f4
+      internalID: 1043034669
       vertices: []
       indices: 
       edges: []
@@ -202,6 +312,11 @@ TextureImporter:
       jump_land_01: 1964699640
       jump_land_02: -1993919862
       jump_land_03: 1412742404
+      jump_land_04: -1826127517
+      jump_land_05: -424803910
+      jump_land_06: 2146661677
+      jump_land_07: -1563898315
+      jump_land_08: 1043034669
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

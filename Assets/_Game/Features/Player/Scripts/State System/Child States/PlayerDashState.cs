@@ -11,6 +11,7 @@ public class PlayerDashState : MainState, IMove2D
         base.Enter();
         rigidbody2D.gravityScale = playerData.Dash.Physics2DGravityScale;
         playerData.Dash.DashCooldownTimer = playerData.Dash.DashCooldown;
+        playerData.Dash.DashCharged = false; // spend the charge; recharges only on the floor after cooldown
     }
 
     public override void Update()

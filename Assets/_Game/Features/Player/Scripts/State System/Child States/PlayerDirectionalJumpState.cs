@@ -97,7 +97,7 @@ public class PlayerDirectionalJumpState : MainState
             Debug.Log($"[DirectionalJump] Transitioning to LandState - Time: {localTime}/{jumpDuration}, HeadBump: {playerData.Physics.IsOnHeadBump}");
             stateMachine.ChangeState(player.LandState);
         }
-        else if (inputManager.Input_Dash && playerData.Dash.DashCooldownTimer <= 0f)
+        else if (inputManager.Input_Dash && playerData.Dash.DashCharged)
         {
             stateMachine.ChangeState(player.DashState);
         }

@@ -93,7 +93,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 500
   m_Sprite: {fileID: -1217774172, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1172,6 +1172,7 @@ MonoBehaviour:
   input_Crouch: 0
   input_WallGrab: 0
   input_WallClimb: 0
+  input_Attack: 0
 --- !u!114 &7553217259832705559
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -69,7 +69,7 @@ public class PlayerCrouchWalkState : MainState, IMove1D
         {
             stateMachine.ChangeState(player.LandState);
         }
-        else if (inputManager.Input_Dash && playerData.Dash.DashCooldownTimer <= 0f && playerData.Dash.IsDashEnabled)
+        else if (inputManager.Input_Dash && playerData.Dash.DashCharged && playerData.Dash.IsDashEnabled)
         {
             stateMachine.ChangeState(player.DashState);
         }

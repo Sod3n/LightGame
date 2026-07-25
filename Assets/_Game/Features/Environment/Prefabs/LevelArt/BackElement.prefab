@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6100000000000000002}
   - component: {fileID: 6100000000000000003}
   - component: {fileID: 6100000000000000004}
+  - component: {fileID: 5792882646181088725}
   m_Layer: 7
   m_Name: BackElement
   m_TagString: Untagged
@@ -101,6 +102,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41c09ec318835851b1e9888f42be857d, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier:
   blurPixels: 0
+  edgeBlurBoost: 2
+--- !u!114 &5792882646181088725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6100000000000000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad35be9f066e4cd59e4962cef7ae119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightGame::LightGame.Features.ParallaxEffect
+  cameraTransform: {fileID: 0}
+  parallaxMultiplier: {x: 0.03, y: 0.03}
+  autoFindCamera: 1
+  infiniteHorizontal: 0
+  infiniteVertical: 0
+  useActivationDistance: 0
+  activationDistanceX: 10
+  activationDistanceY: 10
+  textureUnitSizeX: 0
+  textureUnitSizeY: 0

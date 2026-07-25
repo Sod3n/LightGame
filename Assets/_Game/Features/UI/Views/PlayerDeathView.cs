@@ -70,9 +70,9 @@ namespace LightGame.Features.UI.Views
                 // Fallback: reload level if no checkpoint is active
                 Debug.LogWarning("No active checkpoint found! Falling back to level reload.");
                 var currentLevel = SceneLoader.GetCurrentLevel();
-                if (currentLevel.HasValue)
+                if (currentLevel != null)
                 {
-                    SceneLoader.LoadLevel(currentLevel.Value);
+                    SceneLoader.LoadLevel(currentLevel);
                 }
             }
         }
