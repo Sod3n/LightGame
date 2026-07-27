@@ -80,7 +80,10 @@ namespace Gemserk.Tools.ObjectPalette.Editor
         // scene view) automatically sets it as the Paint Under target. Ignores
         // programmatic selection changes (like our SelectBrushObject setting the preview
         // as active) — see the mouseOverWindow guard in HookSelectionChanged.
-        public static bool autoSetPaintUnderFromHierarchyClick = true;
+        // Off by default — persisted via EditorPrefs, see LoadAutoSetPaintUnderPref/
+        // SaveAutoSetPaintUnderPref. Exposed as a toggle in the palette window header.
+        public static bool autoSetPaintUnderFromHierarchyClick = false;
+        private const string AutoSetPaintUnderPrefKey = "Gemserk.ObjectPalette.AutoSetPaintUnder";
 
         [SerializeField]
         private ScriptableBrushBaseAsset defaultBrush = null;
@@ -124,6 +127,7 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             if (PaletteCommon.brush == null) PaletteCommon.brush = defaultBrush;
             RestorePaintTarget();
             LoadFavorites();
+            LoadAutoSetPaintUnderPref();
             RestoreSelectionAndPreview();
         }
 
@@ -466,6 +470,17 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             paintTargetButtons.Add(useSelBtn);
             paintTargetButtons.Add(clearBtn);
             header.Add(paintTargetButtons);
+
+            var autoSetToggle = new Toggle("Auto-set from selection") { value = autoSetPaintUnderFromHierarchyClick };
+            autoSetToggle.tooltip = "When on, clicking any scene object (Hierarchy or Scene View) automatically " +
+                                    "makes it the new Paint Under target. Off by default — use \"Use Selection\" " +
+                                    "or drag into the field above instead.";
+            autoSetToggle.RegisterValueChangedCallback(evt =>
+            {
+                autoSetPaintUnderFromHierarchyClick = evt.newValue;
+                SaveAutoSetPaintUnderPref();
+            });
+            header.Add(autoSetToggle);
 
             // Drag spacing
             dragSpacingField = new FloatField("Drag spacing") { value = PaletteCommon.dragSpacing };
@@ -1161,6 +1176,16 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             if (string.IsNullOrEmpty(raw)) return;
             foreach (var g in raw.Split(';'))
                 if (!string.IsNullOrEmpty(g)) PaletteCommon.favoriteGuids.Add(g);
+        }
+
+        private void LoadAutoSetPaintUnderPref()
+        {
+            autoSetPaintUnderFromHierarchyClick = EditorPrefs.GetBool(AutoSetPaintUnderPrefKey, false);
+        }
+
+        private static void SaveAutoSetPaintUnderPref()
+        {
+            EditorPrefs.SetBool(AutoSetPaintUnderPrefKey, autoSetPaintUnderFromHierarchyClick);
         }
 
         private void SavePaintTarget()
