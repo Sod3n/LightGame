@@ -6,7 +6,7 @@ namespace LightGame.Features
     {
         [Header("Parallax Settings")]
         [SerializeField] private Transform cameraTransform;
-        [SerializeField] private Vector2 parallaxMultiplier = new Vector2(0.5f, 0.5f);
+        [SerializeField] private Vector2 parallaxMultiplier = new Vector2(0.03f, 0.03f);
         
         [Header("Options")]
         [SerializeField] private bool autoFindCamera = true;

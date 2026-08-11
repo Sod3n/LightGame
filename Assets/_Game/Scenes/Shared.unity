@@ -930,11 +930,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c390d58dcccad4f129514a81fa39a4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Views.LevelChangeView
-  fadeOutDuration: 1
-  fadeInDuration: 1
+  fadeOutDuration: 0.05
+  fadeInDuration: 0.05
   fadeEase: 7
-  delayBeforeLoad: 0.2
-  delayAfterLoad: 0.2
+  delayBeforeLoad: 0
+  delayAfterLoad: 0.05
 --- !u!21 &1847294603
 Material:
   serializedVersion: 8

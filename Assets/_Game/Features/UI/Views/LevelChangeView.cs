@@ -10,13 +10,13 @@ namespace LightGame.Features.UI.Views
     public class LevelChangeView : MonoBehaviour
     {
         [Header("Fade Settings")]
-        [SerializeField] private float fadeOutDuration = 1f;
-        [SerializeField] private float fadeInDuration = 1f;
+        [SerializeField] private float fadeOutDuration = 0.05f;
+        [SerializeField] private float fadeInDuration = 0.05f;
         [SerializeField] private Ease fadeEase = Ease.InOutQuad;
-        
+
         [Header("Scene Load Delay")]
-        [SerializeField] private float delayBeforeLoad = 0.2f;
-        [SerializeField] private float delayAfterLoad = 0.2f;
+        [SerializeField] private float delayBeforeLoad = 0f;
+        [SerializeField] private float delayAfterLoad = 0.05f;
 
         private bool isTransitioning = false;
 
@@ -32,6 +32,7 @@ namespace LightGame.Features.UI.Views
 
         private void OnRequestLevelChange(RequestLevelChangeEvent evt)
         {
+            Debug.Log($"[TeleportDebug] LevelChangeView.OnRequestLevelChange: targetScene='{evt.TargetScene}', isTransitioning={isTransitioning}");
             if (!isTransitioning)
             {
                 ChangeLevel(evt.TargetScene);
@@ -69,6 +70,7 @@ namespace LightGame.Features.UI.Views
             yield return new WaitForSeconds(fadeOutDuration + delayBeforeLoad);
 
             // Load the new level (unloads previous, ensures Shared is loaded)
+            Debug.Log($"[TeleportDebug] LevelChangeView.ChangeLevelCoroutine: calling SceneLoader.LoadLevel('{targetScene}')");
             SceneLoader.LoadLevel(targetScene);
 
             // Wait a bit for scene to initialize

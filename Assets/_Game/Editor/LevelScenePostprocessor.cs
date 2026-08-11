@@ -42,6 +42,37 @@ namespace LightGame.Editor
                 Debug.Log("Level scenes: Build Settings updated automatically.");
         }
 
+        // OnPostprocessAllAssets only fires for import events Unity actually observes live,
+        // which it skips while the project has compile errors and never replays afterward.
+        // Reconcile against the real state of the Levels folder on every reload to catch drift.
+        [UnityEditor.Callbacks.DidReloadScripts]
+        private static void ReconcileOnReload()
+        {
+            bool changed = false;
+
+            var scenesOnDisk = AssetDatabase.FindAssets("t:Scene", new[] { LevelsFolder.TrimEnd('/') })
+                .Select(AssetDatabase.GUIDToAssetPath)
+                .Where(IsLevelScene)
+                .ToList();
+
+            foreach (var path in scenesOnDisk)
+                changed |= AddToBuildSettings(path);
+
+            var registeredLevelScenes = EditorBuildSettings.scenes
+                .Where(s => IsLevelScene(s.path))
+                .Select(s => s.path)
+                .ToList();
+
+            foreach (var path in registeredLevelScenes)
+            {
+                if (!scenesOnDisk.Contains(path))
+                    changed |= RemoveFromBuildSettings(path);
+            }
+
+            if (changed)
+                Debug.Log("Level scenes: Build Settings reconciled after script reload.");
+        }
+
         private static bool IsLevelScene(string path) =>
             path.StartsWith(LevelsFolder) && path.EndsWith(".unity");
 

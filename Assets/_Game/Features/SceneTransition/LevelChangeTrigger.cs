@@ -32,6 +32,7 @@ public class LevelChangeTrigger : MonoBehaviour
         if (!evt.LightType.HasValue || evt.LightType.Value != LightType.LevelChange)
             return;
 
+        UnityEngine.Debug.Log($"[TeleportDebug] LevelChangeTrigger.OnLightChangeEvent: isInLight={evt.IsInLight}, targetScene='{evt.TargetScene}'");
         OnInLightChange(evt.IsInLight, evt.TargetScene);
     }
 
@@ -42,12 +43,17 @@ public class LevelChangeTrigger : MonoBehaviour
             // Entered LevelChange light - trigger scene change with the scene from the trigger
             TriggerLevelChange(targetScene);
         }
+        else if (isInLight && targetScene == null)
+        {
+            UnityEngine.Debug.Log("[TeleportDebug] LevelChangeTrigger.OnInLightChange: entered light but targetScene is NULL, not triggering");
+        }
 
         _wasInLevelChangeLight = isInLight;
     }
 
     private void TriggerLevelChange(string targetScene)
     {
+        UnityEngine.Debug.Log($"[TeleportDebug] LevelChangeTrigger.TriggerLevelChange: publishing RequestLevelChangeEvent('{targetScene}')");
         // Publish event that LevelChangeView can listen to
         EventBus.Publish(new RequestLevelChangeEvent(targetScene));
     }

@@ -132,7 +132,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 77259150239670695, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 856498689888821865, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1601493017689678454, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: lightType
@@ -142,8 +146,20 @@ PrefabInstance:
       propertyPath: lightType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2961383234412292532, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061229305388297296, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4061229305388297296, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061229305388297296, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
+      propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4061229305388297296, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
@@ -152,11 +168,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4221531468912712721, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.14
+      value: 51.776855
       objectReference: {fileID: 0}
     - target: {fileID: 4221531468912712721, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.68
+      value: -22.894272
       objectReference: {fileID: 0}
     - target: {fileID: 4221531468912712721, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -190,6 +206,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5168845719378114551, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
+      propertyPath: lightType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5328450566413425602, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: 'lights.Array.data[0]'
       value: 
@@ -210,9 +230,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7489163170849327867, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489163170849327867, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7685691769215792500, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: m_Name
-      value: LevelEntryLight
+      value: LevelExitLight
       objectReference: {fileID: 0}
     - target: {fileID: 8821945272126170876, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: m_IsActive

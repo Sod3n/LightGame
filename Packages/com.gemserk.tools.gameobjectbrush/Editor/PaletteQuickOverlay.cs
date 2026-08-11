@@ -140,8 +140,8 @@ namespace Gemserk.Tools.ObjectPalette.Editor
             })
             {
                 text = on ? "Focus: On (3)" : "Focus (3)",
-                tooltip = "Highlight the Paint Target's objects and hide everything else in the Scene View " +
-                          "(non-destructive — Scene Visibility only). Hotkey: 3."
+                tooltip = "Highlight the Paint Target's objects and hide + disable clicking on everything else " +
+                          "(non-destructive — Scene Visibility only, nothing else is selectable while this is on). Hotkey: 3."
             };
             StyleModeButton(btn, on, new Color(0.3f, 0.75f, 1f));
             return btn;

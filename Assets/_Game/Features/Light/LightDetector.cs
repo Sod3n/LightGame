@@ -59,12 +59,18 @@ namespace LightGame.Features
                            {
                                // Get next scene from LevelOrder
                                targetScene = Game.LevelOrder?.GetNextScene();
+                               Debug.Log($"[TeleportDebug] LightDetector.Update: LevelChange isInLight={isInLightOfType}, GetNextScene() -> '{targetScene}' (currentLevel='{SceneLoader.GetCurrentLevel()}')");
                            }
                            else
                            {
                                // Use the specified target scene
                                targetScene = source.TargetScene;
+                               Debug.Log($"[TeleportDebug] LightDetector.Update: LevelChange isInLight={isInLightOfType}, fixed TargetScene='{targetScene}'");
                            }
+                       }
+                       else
+                       {
+                           Debug.Log("[TeleportDebug] LightDetector.Update: LevelChange active trigger has no LightSource component!");
                        }
                    }
 

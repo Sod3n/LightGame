@@ -13,11 +13,6 @@ MonoBehaviour:
   m_Name: FirstDesignedLevel.palette
   m_EditorClassIdentifier: Gemserk.Tools.ObjectPalette::Gemserk.Tools.ObjectPalette.ObjectPaletteAsset
   prefabs:
-  - {fileID: 5931826382513774664, guid: 6b5d0440592ae1348b746cedf11be080, type: 3}
-  - {fileID: 3966179534393677403, guid: 3b0869b69da908c439ea09b311448e4f, type: 3}
-  - {fileID: 4184650735809556391, guid: 7af9eb9e517c17d43b6d13df56e72cbd, type: 3}
-  - {fileID: 7478522064593523543, guid: c4c0f1da4f55e4948ab52782cb53ea2e, type: 3}
-  - {fileID: 8744231241019264859, guid: 6437e41980fd02a48b99d35e04098293, type: 3}
   - {fileID: 6037594481882327341, guid: 00b69bbf8b025234f95f5abfd2783801, type: 3}
   - {fileID: 992870335213510643, guid: 302fc23cb638f534d8510503a227027e, type: 3}
   - {fileID: 2435739383803067968, guid: 3f97b9ad589aec141bca4801e702573c, type: 3}
@@ -58,8 +53,6 @@ MonoBehaviour:
   - {fileID: 5303997304167690266, guid: d8c8237d0034c014db736cc1c6ffc5a7, type: 3}
   - {fileID: 5816341202016495236, guid: 621a2244910f5e8448a54ad98d7ee544, type: 3}
   - {fileID: 6391756028328812836, guid: 0bae017354f5a064c9c08724a23c216c, type: 3}
-  - {fileID: 6948502978575492595, guid: 831c2dc3f5635564fac68afdf4b4b10b, type: 3}
-  - {fileID: 6647275013270067522, guid: c8661cec8ed46344d9376c87d51fc1ac, type: 3}
   - {fileID: 3906753226731120683, guid: 5610bec87bbc949d8a1b5004f670e10e, type: 3}
   - {fileID: 4407559192304930328, guid: db2e3543a3fe040c3b7e5d49299ab90e, type: 3}
   - {fileID: 4554336685227497431, guid: 92c84a383b4395f4b9246eeab1f29b29, type: 3}
@@ -72,4 +65,8 @@ MonoBehaviour:
   - {fileID: 1897161711230862487, guid: a738e298e224c4ea080c316bed5511f6, type: 3}
   - {fileID: 7363534799861442824, guid: a68e8e38549a64fe4a7b538ee8b2d332, type: 3}
   - {fileID: 4444061436519602723, guid: cbac747453c404918a94f942bafeef17, type: 3}
-  - {fileID: 7008356457272032129, guid: 51e5077f39ee845aaa9dc9ddaad68a60, type: 3}
+  - {fileID: 3856383683359733303, guid: 016116994286d184282baa0490c7e469, type: 3}
+  - {fileID: 3856383683359733303, guid: 664c0a01d8ef43c3ae1af8320eea2ec9, type: 3}
+  - {fileID: 3856383683359733303, guid: 21e917fed2694387a0aa8f6aa9be7e24, type: 3}
+  - {fileID: 3856383683359733303, guid: a0de364313594e2c9894d095db45d110, type: 3}
+  - {fileID: 3856383683359733303, guid: 9c5ea13551714816877b3ca91723a74e, type: 3}

@@ -122,6 +122,8 @@ public class LightSource : MonoBehaviour
         if(!other.TryGetComponent<LightDetector>(out var component)) return;
 
         var is_lighted = component.LightBlockCheck(targetLightPoint.position);
+        if (lightType == LightType.LevelChange)
+            Debug.Log($"[TeleportDebug] LightSource({gameObject.name}).Handle: detector={other.gameObject.name}, lightBlockCheck={is_lighted}, useNextScene={useNextScene}");
         if (is_lighted)
         {
             component.AddLightSource(gameObject, lightType);

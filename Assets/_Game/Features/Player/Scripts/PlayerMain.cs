@@ -22,6 +22,8 @@ public class PlayerMain : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log($"[TeleportDebug] PlayerMain.Awake: instanceID={GetInstanceID()}, position={transform.position}, scene='{gameObject.scene.name}', frame={Time.frameCount}");
+
         // Declaration of necessary components:
         // Animator for controlling character animations,
         // Rigidbody2D for physics simulation,

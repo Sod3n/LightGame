@@ -21,59 +21,14 @@ EditorBuildSettings:
     path: Assets/_Game/Scenes/Levels/LevelTemplate.unity
     guid: c6d27237a7ea44c79b11c9bd5345aae3
   - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelTeleportPlatformerSimple.unity
-    guid: 436a981802a0f47c893c68333dbe57ac
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelWeightPlatformSimple.unity
-    guid: 4fde431d569ed43eaa0ec429cc59f66c
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelJumpadAndCubeSimple.unity
-    guid: 6018f193ada5d447d98270e0f780ad67
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelGetCubeUpper.unity
-    guid: ecae9b155fedf438d8c50fc976cf7db8
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightIntoduction.unity
-    guid: 4ffc5775ca1b440599da17b3b9f2e700
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightInverse.unity
-    guid: 018b2cd58c37e4825ae8429f10a53b57
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightSequencing.unity
-    guid: 39571940d283441598c6b38e66a53d4d
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightSequence2.unity
-    guid: 5a704d4afa663472498c844a2b8e6049
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelTeachPullCube.unity
-    guid: ff796814080ee4db3b1995e60ecff318
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightFinale.unity
-    guid: 1262062a23f874ebda767da490eb9f15
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightOptionalSkip.unity
-    guid: 3a19a52897001492d8c86ff95a6e5016
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelTeachPullCube2.unity
-    guid: 2bece49edadee4dfe970e4c154ba10ee
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelTeachPullCubeNarrowCoridor.unity
-    guid: 7559551f02ceb4348aa0499e575c1298
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightPlayerOnTrigger.unity
-    guid: f05e777c3137b4b8498f67015b5b6de3
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelCubeTriggerLightSequencingAdvance.unity
-    guid: 84ffc4364861d49d4968ec321c56d86e
-  - enabled: 1
-    path: Assets/_Game/Scenes/Levels/LevelTestAll.unity
-    guid: 6969e751d9992475f9ae8b6c8c14f405
-  - enabled: 1
     path: Assets/_Game/Scenes/Levels/FirstDesignedLevel.unity
     guid: 51b96e067bf7741c0af2dfc84ff2ab1a
   - enabled: 1
     path: Assets/_Game/Scenes/Levels/SecondLevel.unity
     guid: 889649cc28db97f4696ba12ba60a84a7
+  - enabled: 1
+    path: Assets/_Game/Scenes/Levels/ThirdLevel.unity
+    guid: b5344ff437f116a48a8930a2bc450510
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 57f2ff209156b4bbe979f26c23507ed1, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 779ec90fde5150045aad8f8c0c364448, type: 3}
