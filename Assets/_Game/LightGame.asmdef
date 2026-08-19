@@ -10,6 +10,7 @@
         "Kybernetik.UltEvents",
         "Unity.Localization",
         "Unity.RenderPipelines.Universal.2D.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime",
         "Unity.InputSystem",
         "Unity.Cinemachine",
         "Unity.ResourceManager",

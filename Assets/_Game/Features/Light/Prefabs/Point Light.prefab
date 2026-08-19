@@ -50,7 +50,9 @@ MonoBehaviour:
   collider2D: {fileID: 3340997641310451738}
   lightType: 0
   useNextScene: 1
-  targetScene: 0
+  targetScene:
+    sceneAsset: {fileID: 0}
+    sceneName: 
   teleportLandingPoint: {fileID: 7441360492803601728}
   teleportLandingOffset: {x: 0, y: 0}
 --- !u!58 &3340997641310451738

@@ -20,17 +20,24 @@ Shader "LightGame/SpriteBlur"
             "RenderPipeline"="UniversalPipeline"
         }
         Cull Off
-        Lighting Off
         ZWrite Off
         Blend One OneMinusSrcAlpha
 
         Pass
         {
+            // Required so the 2D Renderer's shape-light pass actually picks this
+            // shader up and feeds it the accumulated Light2D textures - without
+            // this tag the sprite falls back to an always-full-brightness draw.
+            Tags { "LightMode" = "Universal2D" }
+
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/2D/Include/Core2D.hlsl"
+            #include_with_pragmas "Packages/com.unity.render-pipelines.universal/Shaders/2D/Include/ShapeLightShared.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/2D/Include/LightingUtility.hlsl"
 
             struct Attributes
             {
@@ -44,6 +51,7 @@ Shader "LightGame/SpriteBlur"
                 float4 positionCS : SV_POSITION;
                 float4 color      : COLOR;
                 float2 uv         : TEXCOORD0;
+                half2  lightingUV : TEXCOORD1;
             };
 
             TEXTURE2D(_MainTex);
@@ -53,14 +61,30 @@ Shader "LightGame/SpriteBlur"
             float  _BlurPixels;
             float  _EdgeBlurBoost;
 
+            #if USE_SHAPE_LIGHT_TYPE_0
+            SHAPE_LIGHT(0)
+            #endif
+            #if USE_SHAPE_LIGHT_TYPE_1
+            SHAPE_LIGHT(1)
+            #endif
+            #if USE_SHAPE_LIGHT_TYPE_2
+            SHAPE_LIGHT(2)
+            #endif
+            #if USE_SHAPE_LIGHT_TYPE_3
+            SHAPE_LIGHT(3)
+            #endif
+
             Varyings vert(Attributes v)
             {
                 Varyings o;
                 o.positionCS = TransformObjectToHClip(v.positionOS.xyz);
                 o.color      = v.color * _Color;
                 o.uv         = v.uv;
+                o.lightingUV = half2(ComputeScreenPos(o.positionCS / o.positionCS.w).xy);
                 return o;
             }
+
+            #include "Packages/com.unity.render-pipelines.universal/Shaders/2D/Include/CombinedShapeLightShared.hlsl"
 
             // Texture is stored premultiplied (rgb baked with alpha at import), so
             // we can filter/blur it directly without a bilinear-halo.
@@ -88,7 +112,13 @@ Shader "LightGame/SpriteBlur"
                 half4 tint = i.color;
                 c.rgb *= tint.rgb * tint.a;
                 c.a   *= tint.a;
-                return c;
+
+                SurfaceData2D surfaceData;
+                InputData2D inputData;
+                InitializeSurfaceData(c.rgb, c.a, surfaceData);
+                InitializeInputData(i.uv, i.lightingUV, inputData);
+
+                return CombinedShapeLightShared(surfaceData, inputData);
             }
             ENDHLSL
         }

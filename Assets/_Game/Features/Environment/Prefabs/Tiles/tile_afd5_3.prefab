@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3635964322786676305}
   - component: {fileID: 1977514435378850850}
-  - component: {fileID: 418608472689212081}
+  - component: {fileID: 8040568412877047799}
+  - component: {fileID: 1696414256927719856}
   m_Layer: 7
   m_Name: tile_afd5_3
   m_TagString: Untagged
@@ -91,7 +92,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &418608472689212081
+--- !u!60 &8040568412877047799
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +130,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.96, y: 3.54}
+    oldSize: {x: 15.962354, y: 9.540001}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -137,119 +138,78 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.90999997, y: -1.64}
-      - {x: -0.72999996, y: -1.64}
-      - {x: -0.48999998, y: -1.5799999}
-      - {x: -0.14, y: -1.53}
-      - {x: -0.13, y: -1.52}
-      - {x: 0.82, y: -1.52}
-      - {x: 1, y: -1.49}
-      - {x: 1.18, y: -1.4499999}
-      - {x: 1.3299999, y: -1.39}
-      - {x: 1.76, y: -1.17}
-      - {x: 1.8399999, y: -1.15}
-      - {x: 1.9699999, y: -1.05}
-      - {x: 2.12, y: -0.90999997}
-      - {x: 2.22, y: -0.75}
-      - {x: 2.69, y: -0.61}
-      - {x: 2.9399998, y: -0.53999996}
-      - {x: 3.08, y: -0.48}
-      - {x: 3.3, y: -0.37}
-      - {x: 3.3999999, y: -0.26999998}
-      - {x: 3.4299998, y: -0.099999994}
-      - {x: 3.59, y: 0.12}
-      - {x: 3.74, y: 0.17}
-      - {x: 3.8999999, y: 0.25}
-      - {x: 4.17, y: 0.32}
-      - {x: 4.2999997, y: 0.35}
-      - {x: 4.36, y: 0.41}
-      - {x: 4.45, y: 0.48999998}
-      - {x: 4.5099998, y: 0.57}
-      - {x: 4.6, y: 0.78999996}
-      - {x: 4.7599998, y: 1.02}
-      - {x: 4.8199997, y: 1.11}
-      - {x: 4.85, y: 1.16}
-      - {x: 4.88, y: 1.22}
-      - {x: 4.98, y: 1.4399999}
-      - {x: 4.98, y: 1.5899999}
-      - {x: 4.89, y: 1.6999999}
-      - {x: 4.7799997, y: 1.77}
-      - {x: 3.6499999, y: 1.77}
-      - {x: 3.32, y: 1.74}
-      - {x: 3.32, y: 1.76}
-      - {x: 3.1599998, y: 1.75}
-      - {x: 2.9199998, y: 1.6999999}
-      - {x: 2.6599998, y: 1.7099999}
-      - {x: 2.36, y: 1.68}
-      - {x: 2.11, y: 1.65}
-      - {x: 1.9599999, y: 1.64}
-      - {x: 1.9, y: 1.63}
-      - {x: 1.79, y: 1.62}
-      - {x: 1.5799999, y: 1.61}
-      - {x: 1.41, y: 1.5899999}
-      - {x: 1.37, y: 1.5699999}
-      - {x: 1.15, y: 1.56}
-      - {x: 0.89, y: 1.52}
-      - {x: 0.74, y: 1.5}
-      - {x: 0.06, y: 1.4399999}
-      - {x: -0.19, y: 1.41}
-      - {x: -0.39, y: 1.4}
-      - {x: -0.65, y: 1.37}
-      - {x: -1.0799999, y: 1.3399999}
-      - {x: -1.24, y: 1.3199999}
-      - {x: -1.29, y: 1.31}
-      - {x: -1.4, y: 1.3}
-      - {x: -1.9, y: 1.26}
-      - {x: -1.9699999, y: 1.25}
-      - {x: -2.1299999, y: 1.1999999}
-      - {x: -2.23, y: 1.18}
-      - {x: -2.36, y: 1.16}
-      - {x: -2.78, y: 1.11}
-      - {x: -2.9399998, y: 1.09}
-      - {x: -3.1699998, y: 1.06}
-      - {x: -3.29, y: 1.04}
-      - {x: -3.55, y: 1.02}
-      - {x: -3.8, y: 0.98999995}
-      - {x: -4.0299997, y: 0.97999996}
-      - {x: -4.24, y: 0.95}
-      - {x: -4.46, y: 0.94}
-      - {x: -4.74, y: 0.89}
-      - {x: -4.8199997, y: 0.83}
-      - {x: -4.87, y: 0.61}
-      - {x: -4.87, y: 0.53}
-      - {x: -4.94, y: 0.45}
-      - {x: -4.98, y: 0.17}
-      - {x: -4.98, y: -0.04}
-      - {x: -4.79, y: -0.06}
-      - {x: -4.43, y: -0.08}
-      - {x: -4.35, y: -0.099999994}
-      - {x: -4.22, y: -0.22}
-      - {x: -4.45, y: -0.28}
-      - {x: -4.5, y: -0.29999998}
-      - {x: -4.65, y: -0.37}
-      - {x: -4.69, y: -0.42}
-      - {x: -4.72, y: -0.47}
-      - {x: -4.73, y: -0.58}
-      - {x: -4.7, y: -0.65}
-      - {x: -4.64, y: -0.71999997}
-      - {x: -4.68, y: -0.75}
-      - {x: -4.67, y: -0.78999996}
-      - {x: -4.5099998, y: -0.83}
-      - {x: -4.3399997, y: -0.87}
-      - {x: -3.82, y: -0.91999996}
-      - {x: -3.6599998, y: -0.96999997}
-      - {x: -3.4299998, y: -1.03}
-      - {x: -3.34, y: -1.03}
-      - {x: -3.12, y: -1.09}
-      - {x: -2.9199998, y: -1.18}
-      - {x: -2.76, y: -1.23}
-      - {x: -2.55, y: -1.4399999}
-      - {x: -2.47, y: -1.5}
-      - {x: -2.3799999, y: -1.55}
-      - {x: -2.33, y: -1.68}
-      - {x: -2.26, y: -1.74}
-      - {x: -2.19, y: -1.77}
-      - {x: -1.2099999, y: -1.77}
-      - {x: -1.0699999, y: -1.7199999}
-      - {x: -0.94, y: -1.67}
+    - - {x: 5.0038238, y: 1.5588236}
+      - {x: 4.754412, y: 1.7926471}
+      - {x: 3.2423532, y: 1.777059}
+      - {x: -4.7076473, y: 0.9197059}
+      - {x: -4.832353, y: 0.84176475}
+      - {x: -5.0038238, y: -0.015588236}
+      - {x: -4.3958826, y: -0.07794118}
+      - {x: -4.2555885, y: -0.2182353}
+      - {x: -4.7232356, y: -0.4364706}
+      - {x: -4.645294, y: -0.8105883}
+      - {x: -2.7902942, y: -1.2002941}
+      - {x: -2.2291179, y: -1.7614707}
+      - {x: -1.3405883, y: -1.7926471}
+      - {x: -0.12470589, y: -1.5276471}
+      - {x: 0.84176475, y: -1.5276471}
+      - {x: 1.8238236, y: -1.1535295}
+      - {x: 2.2135296, y: -0.76382357}
+      - {x: 3.3514707, y: -0.3429412}
+      - {x: 3.6008825, y: 0.10911765}
+      - {x: 4.286765, y: 0.31176472}
+      - {x: 4.505, y: 0.5144118}
   m_UseDelaunayMesh: 0
+--- !u!114 &1696414256927719856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7889363850323059649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.ShadowCaster2D
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000a556f4a5b1cef1e421925162a14fa392
+  m_ShapePath:
+  - {x: -7.981177, y: -4.7700005, z: 0}
+  - {x: -7.981177, y: 4.7700005, z: 0}
+  - {x: 7.981177, y: 4.7700005, z: 0}
+  - {x: 7.981177, y: -4.7700005, z: 0}
+  m_ShapePathHash: 0
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 1977514435378850850}
+  m_ShadowShape2DProvider:
+    rid: 1997254336511475804
+  m_ShadowCastingSource: 2
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: -0.013328552, y: 0, z: 0}
+      m_Extent: {x: 4.5864487, y: 1.4082336, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.4
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0
+  m_PreviousEdgeProcessing: -1
+  m_PreviousShadowCastingSource: -1
+  m_PreviousShadowShape2DSource: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 1997254336511475804
+      type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data: 
