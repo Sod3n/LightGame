@@ -7,14 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sprite-Lit-Default-ZWrite
-  m_Shader: {fileID: 4800000, guid: e260cfa7296ee7642b167f1eb5be5023, type: 3}
+  m_Name: SpriteLitDissolve
+  m_Shader: {fileID: 4800000, guid: 565ea3607533b7242a7ef31028ce8896, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
-  - ETC1_EXTERNAL_ALPHA
-  - _ZWRITE_ON
+  - _DISSOLVEINVERT_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -27,6 +26,10 @@ Material:
     m_TexEnvs:
     - _AlphaTex:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DissolveMap:
+        m_Texture: {fileID: 2800000, guid: 369029d1b80f1ba4da23864580b51660, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -43,11 +46,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DissolveAmount: 0
+    - _DissolveInvert: 1
+    - _DissolveNoise: 0
+    - _EdgeNoiseScale: 2.5
+    - _EdgeNoiseStrength: 0.3
+    - _EdgeWidth: 0.45
     - _EnableExternalAlpha: 0
-    - _ZWrite: 1
+    - _NoiseScale: 1
+    - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _EdgeColor: {r: 1, g: 0.749, b: 0.282, a: 1}
+    - _EdgeColor2: {r: 1, g: 0, b: 0, a: 1}
+    - _EdgeNoiseSpeed: {r: 0.18, g: 0.13, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

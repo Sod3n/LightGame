@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &1194493443044084381
 GameObject:
@@ -106,12 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &3898804180119221296
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -276,12 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &1014718798460617244
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -446,12 +434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &4008948519703237316
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -567,7 +549,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9cea3835d8e81472b983ec4f8bc2a29c, type: 2}
+  - {fileID: 2100000, guid: 9c63a4777a896e84abf59d214c53be31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -706,12 +688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &5379124802891612133
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -876,12 +852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &2563957150135888009
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1046,12 +1016,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &8383274246163457586
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1306,12 +1270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &4652863736840797376
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1476,12 +1434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &6257231568947236479
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1646,12 +1598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &484772853738442776
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1816,12 +1762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &4188567173129691577
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1986,12 +1926,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &3795022989707565175
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2156,12 +2090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &9142170003894424948
 SpriteRenderer:
   m_ObjectHideFlags: 0

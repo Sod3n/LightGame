@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3783736969779793907, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
+      propertyPath: m_ShadowsEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4061229305388297296, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: m_Enabled
       value: 0

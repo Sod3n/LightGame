@@ -25,8 +25,11 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _BreatheAmount: 0.35
+    - _BreatheAmount: 0.055
     - _BreatheSpeed: 1.2
+    - _DepthFarBright: 0.1
+    - _DepthNearBright: 10
+    - _DepthReadability: 1
     - _EdgeNoiseScale: 3
     - _EdgeNoiseStrength: 0.437
     - _EdgeWidth: 0.25
@@ -46,7 +49,7 @@ Material:
     - _FogScrollSpeed2: {r: -0.3, g: 0.35, b: 0, a: 0}
     - _ScrollSpeed1: {r: 0.25, g: 0.18, b: 0, a: 0}
     - _ScrollSpeed2: {r: -0.15, g: 0.3, b: 0, a: 0}
-    - _VoidColor: {r: 0.09, g: 0.08, b: 0.18, a: 1}
-    - _VoidColorDeep: {r: 0.005, g: 0.016, b: 0.007, a: 1}
+    - _VoidColor: {r: 0.02296189, g: 0.03773582, b: 0.02296189, a: 0.39215687}
+    - _VoidColorDeep: {r: 0.014150947, g: 0.056603737, b: 0.028301893, a: 0.39215687}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

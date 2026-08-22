@@ -32,6 +32,9 @@ Shader "Hidden/LightGame/VoidLightBuffer"
         _EdgeNoiseScale("Edge Noise Scale", Float) = 3
         _EdgeNoiseStrength("Edge Noise Strength", Range(0, 1)) = 0.2
         _EdgeNoiseSpeed("Edge Noise Speed", Vector) = (0.05, 0.03, 0, 0)
+        _DepthReadability("Depth Readability", Range(0, 1)) = 1
+        _DepthNearBright("Depth Near Brightness", Float) = 1.6
+        _DepthFarBright("Depth Far Brightness", Float) = 0.55
     }
     SubShader
     {
@@ -66,6 +69,10 @@ Shader "Hidden/LightGame/VoidLightBuffer"
             TEXTURE2D(_ShapeLightTexture0);
             SAMPLER(sampler_ShapeLightTexture0);
 
+            // Per-pixel world-Z (0..1) from VoidDepthPrepassFeature; -1 where no object.
+            TEXTURE2D(_VoidDepthTexture);
+            SAMPLER(sampler_VoidDepthTexture);
+
             CBUFFER_START(UnityPerMaterial)
                 half4 _VoidColor;
                 half4 _VoidColorDeep;
@@ -80,6 +87,9 @@ Shader "Hidden/LightGame/VoidLightBuffer"
                 half _EdgeNoiseScale;
                 half _EdgeNoiseStrength;
                 half4 _EdgeNoiseSpeed;
+                half _DepthReadability;
+                half _DepthNearBright;
+                half _DepthFarBright;
             CBUFFER_END
 
             Varyings Vert(Attributes v)
@@ -139,11 +149,25 @@ Shader "Hidden/LightGame/VoidLightBuffer"
 
                 half3 overlaid = lerp(voidBase, _VoidColorDeep.rgb, blobs * _NoiseContrast);
 
+                // Blend the two colors' alpha the same way as their rgb, so the
+                // alpha you set on _VoidColor / _VoidColorDeep controls how opaque
+                // the void fill is (e.g. a=0.5 -> half-transparent void).
+                half voidColorAlpha = lerp(_VoidColor.a, _VoidColorDeep.a, blobs * _NoiseContrast);
+
                 // 3) Slow full-screen brightness "breathing".
                 float breathe = sin(_Time.y * _BreatheSpeed) * 0.5 + 0.5;
                 half3 voidFill = overlaid * (1.0 + _BreatheAmount * (breathe - 0.5));
 
-                float voidAlpha = saturate(darkness * _VoidStrength);
+                // 4) Depth readability: nearer objects (depth->0) keep a brighter void,
+                // farther ones (depth->1) sink darker, so overlapping shapes stay legible
+                // even when everything is unlit. -1 = no object -> leave the fill neutral.
+                half depthRaw = SAMPLE_TEXTURE2D(_VoidDepthTexture, sampler_VoidDepthTexture, input.lightingUV).r;
+                half hasObj = step(0.0, depthRaw);
+                half depth01 = saturate(depthRaw);
+                half depthBright = lerp(_DepthNearBright, _DepthFarBright, depth01);
+                voidFill *= lerp(1.0, depthBright, hasObj * _DepthReadability);
+
+                float voidAlpha = saturate(darkness * _VoidStrength * voidColorAlpha);
 
                 return half4(voidFill, voidAlpha);
             }
