@@ -12,6 +12,12 @@ namespace LightGame.Features
         [Header("Void Overlay")]
         [SerializeField] private Material voidMaterial;
 
+        [Header("Darkness Tuning")]
+        [Tooltip("Base light on all geometry so silhouettes stay readable in the dark. 0 = pure black.")]
+        [SerializeField, Range(0f, 1f)] private float ambientIntensity = 0.15f;
+        [Tooltip("How opaque the void overlay is. 1 = fully black; lower lets the dim, ambient-lit scene show through.")]
+        [SerializeField, Range(0f, 1f)] private float voidStrength = 0.6f;
+
         private static readonly int VoidStrengthId = Shader.PropertyToID("_VoidStrength");
 
         private void Awake()
@@ -44,10 +50,10 @@ namespace LightGame.Features
         private void Apply()
         {
             if (ambientLight != null)
-                ambientLight.intensity = 0f;
+                ambientLight.intensity = ambientIntensity;
 
             if (voidMaterial != null)
-                voidMaterial.SetFloat(VoidStrengthId, 1f);
+                voidMaterial.SetFloat(VoidStrengthId, voidStrength);
         }
     }
 }
