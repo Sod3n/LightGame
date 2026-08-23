@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.EditorTools;
 
 [CustomEditor(typeof(Platform))]
 public class PlatformEditor : Editor
@@ -8,12 +9,24 @@ public class PlatformEditor : Editor
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
-        
+
         Platform platform = (Platform)target;
-        
+
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Waypoint Tools", EditorStyles.boldLabel);
-        
+
+        bool editing = ToolManager.activeToolType == typeof(PlatformPathTool);
+        if (GUILayout.Button(editing ? "Exit Edit Path Mode" : "Edit Path (Scene Tool)"))
+        {
+            if (editing)
+                ToolManager.RestorePreviousTool();
+            else
+                ToolManager.SetActiveTool<PlatformPathTool>();
+        }
+        EditorGUILayout.HelpBox(
+            "In Edit Path mode: click empty space to add a point, drag a dot to move it, click the red X to delete.",
+            MessageType.Info);
+
         if (GUILayout.Button("Add Waypoint"))
         {
             AddWaypoint(platform);
@@ -107,6 +120,10 @@ public class PlatformEditor : Editor
     // Draw waypoint gizmos in the scene view
     private void OnSceneGUI()
     {
+        // The Edit Path tool draws its own richer handles; avoid duplicate lines/labels.
+        if (ToolManager.activeToolType == typeof(PlatformPathTool))
+            return;
+
         Platform platform = (Platform)target;
         SerializedObject serializedPlatform = new SerializedObject(platform);
         SerializedProperty waypointsProperty = serializedPlatform.FindProperty("waypoints");
