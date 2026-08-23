@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5500000000000000001
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
+      propertyPath: m_Name
+      value: LightGatedActivator
+      objectReference: {fileID: 0}
+    - target: {fileID: 6134384030542355784, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
+      propertyPath: inactiveFactor
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5500000000000000090}
+    - targetCorrespondingSourceObject: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5500000000000000050}
+    - targetCorrespondingSourceObject: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5500000000000000060}
+  m_SourcePrefab: {fileID: 100100000, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
+--- !u!1 &5500000000000000010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
+  m_PrefabInstance: {fileID: 5500000000000000001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5500000000000000040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7140033457921835401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
+  m_PrefabInstance: {fileID: 5500000000000000001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5500000000000000080 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6134384030542355784, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
+  m_PrefabInstance: {fileID: 5500000000000000001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5500000000000000070 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5277358670142572057, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
+  m_PrefabInstance: {fileID: 5500000000000000001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &5500000000000000090
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500000000000000010}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &5500000000000000050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500000000000000010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+--- !u!114 &5500000000000000060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500000000000000010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c3f1a94d2e4c8fae5b0d6172839c40, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  revealInLight: 1
+  defaultLightOnly: 0
+  fadeDuration: 0.35
+  fadeEase: 6
+  fadeSprites:
+  - {fileID: 5500000000000000070}
+  lightTween: {fileID: 5500000000000000080}
+  gatedBehaviours:
+  - {fileID: 5500000000000000040}

@@ -138,7 +138,12 @@ namespace LightGame.Features
            var results = new List<RaycastHit2D>();
            Physics2D.Raycast(transform.position, direction.normalized, filter, results, direction.magnitude);
            var hit = results.FirstOrDefault(x => !x.collider.transform.CompareTag("PassLight"));
-           if(hit.collider == null) return false;
+
+           // Handle() only calls this for detectors already inside the light cone, so the question
+           // is purely occlusion: is anything blocking the path to the light? The ray mask is
+           // LightSource + Ground. Nothing hit => clear line of sight => lit. If the first hit is
+           // the light itself ("Light") => lit. Anything else on the path (Ground) => blocked.
+           if(hit.collider == null) return true;
            Debug.DrawLine(transform.position, hit.transform.position);
            return hit.collider.CompareTag("Light");
        }
