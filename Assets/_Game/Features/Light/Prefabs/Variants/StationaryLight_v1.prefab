@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3783736969779793907, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: m_ShadowsEnabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4061229305388297296, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: m_Enabled
@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 5328450566413425602, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: 'lights.Array.data[0]'
       value: 
-      objectReference: {fileID: 4300881148386179368}
+      objectReference: {fileID: 9095085427559781060}
     - target: {fileID: 5328450566413425602, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: targetSpriteRenderer
       value: 
@@ -165,8 +165,8 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1238806247983432509, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
   m_PrefabInstance: {fileID: 3611073054957900880}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4300881148386179368 stripped
+--- !u!1 &9095085427559781060 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 698857637847723384, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5486835484678702740, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
   m_PrefabInstance: {fileID: 3611073054957900880}
   m_PrefabAsset: {fileID: 0}

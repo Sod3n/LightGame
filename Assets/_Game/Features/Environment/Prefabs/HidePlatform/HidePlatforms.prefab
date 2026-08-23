@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &741419047852774922
 GameObject:
@@ -132,13 +132,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2897280016589520976}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0c477c63ab4d1049a843d1321b17111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Renderer:
-  - {fileID: 0}
+  m_Renderer: []
 --- !u!61 &6450833395887816423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -197,12 +196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &36698283983494296
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -303,13 +296,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3415493196973216477}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0c477c63ab4d1049a843d1321b17111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Renderer:
-  - {fileID: 0}
+  m_Renderer: []
 --- !u!61 &8478527592682382781
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -368,12 +360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &5301345018633292638
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -618,13 +604,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4484467362774573466}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0c477c63ab4d1049a843d1321b17111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Renderer:
-  - {fileID: 0}
+  m_Renderer: []
 --- !u!61 &9134951126035154620
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -683,12 +668,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &798685349733048127
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -789,13 +768,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5043363478484331384}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0c477c63ab4d1049a843d1321b17111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Renderer:
-  - {fileID: 0}
+  m_Renderer: []
 --- !u!61 &4197963609702820386
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -854,12 +832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &7275732591920402213
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -960,13 +932,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6157021221520779228}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0c477c63ab4d1049a843d1321b17111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Renderer:
-  - {fileID: 0}
+  m_Renderer: []
 --- !u!61 &3741572358219786925
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1025,12 +996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &3331766168131236264
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1142,56 +1107,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LightGame::SimpleBlockToSpriteSync
   wallSprite: {fileID: 2556095395379936237}
-  blockRegions:
-  - objectHider: {fileID: 5423339535884542237}
-    uvRegion:
-      serializedVersion: 2
-      x: 0.031538725
-      y: 0.0011511147
-      width: 0.1666443
-      height: 0.9976997
-    currentDissolve: 0
-  - objectHider: {fileID: 3509813244617267052}
-    uvRegion:
-      serializedVersion: 2
-      x: 0.17672276
-      y: 0.0011511147
-      width: 0.16664428
-      height: 0.9976997
-    currentDissolve: 0
-  - objectHider: {fileID: 6193694766918716647}
-    uvRegion:
-      serializedVersion: 2
-      x: 0.3411796
-      y: 0.0011511147
-      width: 0.16664428
-      height: 0.9976997
-    currentDissolve: 0
-  - objectHider: {fileID: 9099536967395641041}
-    uvRegion:
-      serializedVersion: 2
-      x: 0.5056364
-      y: 0.0011511147
-      width: 0.16664429
-      height: 0.9976997
-    currentDissolve: 0
-  - objectHider: {fileID: 7009831370565784308}
-    uvRegion:
-      serializedVersion: 2
-      x: 0.67009324
-      y: 0.0011511147
-      width: 0.16664429
-      height: 0.9976997
-    currentDissolve: 0
-  - objectHider: {fileID: 6868619755010778760}
-    uvRegion:
-      serializedVersion: 2
-      x: 0.8345501
-      y: 0.0011511147
-      width: 0.16664428
-      height: 0.9976997
-    currentDissolve: 0
-  dissolveSpeed: 3.5
+  invert: 1
+  noise: 0
+  defaultRadius: 2
+  animationDuration: 0.5
+  animationEase: 6
 --- !u!1 &8979753334862764691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,13 +1154,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8979753334862764691}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0c477c63ab4d1049a843d1321b17111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Renderer:
-  - {fileID: 0}
+  m_Renderer: []
 --- !u!61 &5848910738306291226
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1299,12 +1218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cccd0d3da7746019b2e7fc7213e1293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.LightDetector
-  onChangeState:
-    m_PersistentCalls:
-      m_Calls: []
-  onChangeStateInverse:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &3921060699491425134
 SpriteRenderer:
   m_ObjectHideFlags: 0

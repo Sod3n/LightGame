@@ -585,6 +585,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7501893172505055916, guid: 5610bec87bbc949d8a1b5004f670e10e, type: 3}
+      propertyPath: m_ShadowsEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501893172505055916, guid: 5610bec87bbc949d8a1b5004f670e10e, type: 3}
+      propertyPath: m_ShadowIntensity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2830124636963163474, guid: 5610bec87bbc949d8a1b5004f670e10e, type: 3}
     - {fileID: 1956235034214001320, guid: 5610bec87bbc949d8a1b5004f670e10e, type: 3}
@@ -647,6 +655,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3213259104454701875, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605189137420668275, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_ShadowsEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605189137420668275, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
+      propertyPath: m_ShadowIntensity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

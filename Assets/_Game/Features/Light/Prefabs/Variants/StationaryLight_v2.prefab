@@ -165,7 +165,7 @@ PrefabInstance:
     - target: {fileID: 5328450566413425602, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: 'lights.Array.data[0]'
       value: 
-      objectReference: {fileID: 249336272358161919}
+      objectReference: {fileID: 5107682967492498963}
     - target: {fileID: 5328450566413425602, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
       propertyPath: 'lights.Array.data[1]'
       value: 
@@ -267,5 +267,10 @@ GameObject:
 --- !u!4 &3059599104013203857 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2356196767004043542, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
+  m_PrefabInstance: {fileID: 776595325052539015}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5107682967492498963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5486835484678702740, guid: 1b521f81e5b95487c9493a44632d62a8, type: 3}
   m_PrefabInstance: {fileID: 776595325052539015}
   m_PrefabAsset: {fileID: 0}

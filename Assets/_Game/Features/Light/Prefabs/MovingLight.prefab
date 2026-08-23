@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &2642626501288576035
 GameObject:
@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LightGame::LightGame.Features.UI.Views.LightProjectorView
   lights:
-  - {fileID: 3776454411217442731}
-  - {fileID: 1434488149860620480}
-  - {fileID: 5167782084821752879}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 153217981279549379}
   fadeOutDuration: 0.6
   fadeInDuration: 0.6
   targetSpriteRenderer: {fileID: 0}
@@ -173,6 +173,14 @@ PrefabInstance:
     - target: {fileID: 3515691141930703393, guid: a035de815e5174448afe708ccd118af3, type: 3}
       propertyPath: m_SortingLayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329318531723950466, guid: a035de815e5174448afe708ccd118af3, type: 3}
+      propertyPath: m_ShadowsEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4329318531723950466, guid: a035de815e5174448afe708ccd118af3, type: 3}
+      propertyPath: m_ShadowIntensity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4950435877615530213, guid: a035de815e5174448afe708ccd118af3, type: 3}
       propertyPath: m_Name
@@ -259,19 +267,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7430239409190459619}
   m_SourcePrefab: {fileID: 100100000, guid: a035de815e5174448afe708ccd118af3, type: 3}
---- !u!1 &1434488149860620480 stripped
+--- !u!1 &153217981279549379 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6159656131576913894, guid: a035de815e5174448afe708ccd118af3, type: 3}
-  m_PrefabInstance: {fileID: 5085458719567890214}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3776454411217442731 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8285361649344532621, guid: a035de815e5174448afe708ccd118af3, type: 3}
-  m_PrefabInstance: {fileID: 5085458719567890214}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5167782084821752879 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 82344280721218313, guid: a035de815e5174448afe708ccd118af3, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4950435877615530213, guid: a035de815e5174448afe708ccd118af3, type: 3}
   m_PrefabInstance: {fileID: 5085458719567890214}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5699037000820707568 stripped

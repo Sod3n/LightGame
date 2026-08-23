@@ -12,12 +12,7 @@ namespace LightGame.Features
         [Header("Void Overlay")]
         [SerializeField] private Material voidMaterial;
 
-        [Header("Fog Overlay")]
-        [SerializeField] private Material fogMaterial;
-        [SerializeField] private float voidFogStrength = 0.85f;
-
         private static readonly int VoidStrengthId = Shader.PropertyToID("_VoidStrength");
-        private static readonly int FogStrengthId = Shader.PropertyToID("_FogStrength");
 
         private void Awake()
         {
@@ -53,9 +48,6 @@ namespace LightGame.Features
 
             if (voidMaterial != null)
                 voidMaterial.SetFloat(VoidStrengthId, 1f);
-
-            if (fogMaterial != null)
-                fogMaterial.SetFloat(FogStrengthId, voidFogStrength);
         }
     }
 }
