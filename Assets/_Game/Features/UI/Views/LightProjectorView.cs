@@ -81,9 +81,16 @@ namespace LightGame.Features.UI.Views
         private void DisableAllLights()
         {
             SwapSprite(disabledSprite);
-            
+
             foreach (var lightObj in lights)
             {
+                // Keep lights with a residual glow active; only fully deactivate the rest.
+                var listener = lightObj.GetComponent<Light2DGlobalListener>();
+                if (listener != null && listener.HasResidual)
+                {
+                    continue;
+                }
+
                 lightObj.SetActive(false);
             }
         }

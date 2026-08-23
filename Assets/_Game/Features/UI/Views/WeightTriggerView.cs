@@ -2,6 +2,7 @@
 using DG.Tweening;
 using LightGame.Features;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace LightGame.Features.UI
 {
@@ -13,6 +14,8 @@ namespace LightGame.Features.UI
     {
         [Header("Visual Components")]
         [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private Light2D light2D;
+        [SerializeField] private Light2DTween lightTween;
         [SerializeField] private TweenableBase activateScaleTween;
         [SerializeField] private TweenableBase deactivateScaleTween;
         
@@ -31,7 +34,18 @@ namespace LightGame.Features.UI
             {
                 spriteRenderer = GetComponent<SpriteRenderer>();
             }
-            
+
+            // Auto-resolve the light references so the grow/residual tween is used even
+            // if the serialized links didn't propagate to an existing scene instance.
+            if (lightTween == null)
+            {
+                lightTween = GetComponentInChildren<Light2DTween>(true);
+            }
+            if (light2D == null)
+            {
+                light2D = GetComponentInChildren<Light2D>(true);
+            }
+
             // Auto-connect to WeightTrigger component
             _weightTrigger = GetComponent<WeightTrigger>();
             if (_weightTrigger == null)
@@ -45,15 +59,16 @@ namespace LightGame.Features.UI
             // Initialize color based on WeightTrigger's initial state
             // The WeightTrigger.Start() will invoke onActivate/onDeactivate events
             // which will set the correct color through the event listeners
-            if (_weightTrigger != null && spriteRenderer != null)
+            bool isActive = _weightTrigger != null && _weightTrigger.IsActive;
+
+            if (spriteRenderer != null)
             {
                 // Set initial color based on current active state
-                spriteRenderer.color = _weightTrigger.IsActive ? activeColor : inactiveColor;
+                spriteRenderer.color = isActive ? activeColor : inactiveColor;
             }
-            else if (spriteRenderer != null)
-            {
-                spriteRenderer.color = inactiveColor;
-            }
+
+            // Snap the light to its initial state without animating on load.
+            SetLightEnabled(isActive, animate: false);
         }
         
         private void OnEnable()
@@ -99,6 +114,8 @@ namespace LightGame.Features.UI
             {
                 activateScaleTween.Play();
             }
+
+            SetLightEnabled(true);
         }
         
         /// <summary>
@@ -120,6 +137,27 @@ namespace LightGame.Features.UI
             if (deactivateScaleTween != null)
             {
                 deactivateScaleTween.Play();
+            }
+
+            SetLightEnabled(false);
+        }
+
+        /// <summary>
+        /// Drives the light so it only shines while active. Prefers the grow/shrink
+        /// tween when assigned; otherwise toggles the light instantly.
+        /// </summary>
+        private void SetLightEnabled(bool enabled, bool animate = true)
+        {
+            if (lightTween != null)
+            {
+                if (animate) lightTween.SetActive(enabled);
+                else lightTween.SetActiveImmediate(enabled);
+                return;
+            }
+
+            if (light2D != null)
+            {
+                light2D.enabled = enabled;
             }
         }
     }

@@ -16,21 +16,33 @@ public class Light2DGlobalListener : MonoBehaviour
     [Header("Tween Settings")]
     [SerializeField] private float duration = 0.5f;
     [SerializeField] private Ease ease = Ease.InOutQuad;
-    
+
+    [Tooltip("When true, FadeIn/FadeOut also animate the outer radius so the light 'grows' in and out instead of only fading intensity.")]
+    [SerializeField] private bool growRadius = true;
+
+    [Tooltip("Residual level (0..1) the light keeps after FadeOut. 0 = fully off, >0 leaves a faint glow.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float inactiveFactor = 0.15f;
+
     [Header("Auto Register")]
     [SerializeField] private bool autoRegisterOnEnable = true;
-    
+
     private Light2D light2D;
     private float originalIntensity;
+    private float originalRadius;
     private Tween currentTween;
-    
+
     public LightType Type => lightType;
+
+    /// <summary>True when FadeOut leaves a faint glow rather than going fully dark.</summary>
+    public bool HasResidual => inactiveFactor > 0f;
 
     private void Awake()
     {
         light2D = GetComponent<Light2D>();
 
         originalIntensity = light2D.intensity;
+        originalRadius = light2D.pointLightOuterRadius;
         
         // If there's a stored intensity from a scene change, apply it immediately
         if (_storedIntensity >= 0f)
@@ -172,12 +184,7 @@ public class Light2DGlobalListener : MonoBehaviour
     /// <param name="onComplete">Optional callback when fade completes</param>
     public void FadeOut(float fadeDuration = 0.5f, System.Action onComplete = null)
     {
-        currentTween?.Kill();
-
-        currentTween = DOVirtual.Float(light2D.intensity, 0f, fadeDuration,
-            value => light2D.intensity = value)
-            .SetEase(ease)
-            .OnComplete(() => onComplete?.Invoke());
+        AnimateFactor(inactiveFactor, fadeDuration, onComplete);
     }
 
     /// <summary>
@@ -187,11 +194,30 @@ public class Light2DGlobalListener : MonoBehaviour
     /// <param name="onComplete">Optional callback when fade completes</param>
     public void FadeIn(float fadeDuration = 0.5f, System.Action onComplete = null)
     {
+        AnimateFactor(1f, fadeDuration, onComplete);
+    }
+
+    /// <summary>
+    /// Drives a 0..1 factor that scales intensity (and the outer radius when
+    /// <see cref="growRadius"/> is enabled), so the light grows/shrinks smoothly.
+    /// </summary>
+    private void AnimateFactor(float targetFactor, float fadeDuration, System.Action onComplete)
+    {
         currentTween?.Kill();
 
-        currentTween = DOVirtual.Float(light2D.intensity, originalIntensity, fadeDuration,
-            value => light2D.intensity = value)
+        float fromFactor = originalIntensity > 0f ? light2D.intensity / originalIntensity : targetFactor;
+
+        currentTween = DOVirtual.Float(fromFactor, targetFactor, fadeDuration, ApplyFactor)
             .SetEase(ease)
             .OnComplete(() => onComplete?.Invoke());
+    }
+
+    private void ApplyFactor(float factor)
+    {
+        light2D.intensity = originalIntensity * factor;
+        if (growRadius)
+        {
+            light2D.pointLightOuterRadius = originalRadius * factor;
+        }
     }
 }
