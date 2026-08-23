@@ -1,0 +1,20 @@
+{
+  "name": "com.gemserk.tools.gameobjectbrush",
+  "version": "0.0.10",
+  "displayName": "GameObject Paint Tool for 2D Games",
+  "description": "GameObject Paint Tool for 2D Games, code at https://github.com/acoppes/unity-gameobject-brush",
+  "unity": "2019.4",
+  "unityRelease": "13f1",
+  "dependencies": {},
+  "keywords": [
+    "tools",
+    "paint",
+    "brush"
+  ],
+  "author": {
+    "name": "Ariel Coppes",
+    "email": "ariel.coppes@gmail.com",
+    "url": "https://blog.gemserk.com"
+  },
+  "_fingerprint": "f43283fdc49f3cb7639015002c2d3f90c548ae78"
+}

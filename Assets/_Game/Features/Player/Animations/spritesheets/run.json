@@ -1,0 +1,38 @@
+{
+  "source_folder": "новые кадры/новые кадры/бег",
+  "frame_count": 14,
+  "frame_size": [
+    512,
+    393
+  ],
+  "source_frame_size": [
+    1760,
+    1350
+  ],
+  "scale": 0.2909,
+  "grid": {
+    "cols": 4,
+    "rows": 4
+  },
+  "sheet_size": [
+    2048,
+    1572
+  ],
+  "read_order": "left-to-right, top-to-bottom",
+  "source_files": [
+    "бег_0000.png",
+    "бег_0001.png",
+    "бег_0002.png",
+    "бег_0003.png",
+    "бег_0004.png",
+    "бег_0005.png",
+    "бег_0006.png",
+    "бег_0007.png",
+    "бег_0008.png",
+    "бег_0009.png",
+    "бег_0010.png",
+    "бег_0011.png",
+    "бег_0012.png",
+    "бег_0013.png"
+  ]
+}

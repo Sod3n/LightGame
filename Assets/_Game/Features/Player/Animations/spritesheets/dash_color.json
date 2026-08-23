@@ -1,0 +1,29 @@
+{
+  "source_folder": "новые кадры/новые кадры/рывок/кадры без чб",
+  "frame_count": 5,
+  "frame_size": [
+    512,
+    393
+  ],
+  "source_frame_size": [
+    1760,
+    1350
+  ],
+  "scale": 0.2909,
+  "grid": {
+    "cols": 3,
+    "rows": 2
+  },
+  "sheet_size": [
+    1536,
+    786
+  ],
+  "read_order": "left-to-right, top-to-bottom",
+  "source_files": [
+    "кадр_без_чб_0000.png",
+    "кадр_без_чб_0001.png",
+    "кадр_без_чб_0002.png",
+    "кадр_без_чб_0003.png",
+    "кадр_без_чб_0004.png"
+  ]
+}

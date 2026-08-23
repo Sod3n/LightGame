@@ -29,7 +29,7 @@ TagManager:
   - OneWayPlatform
   - BumpHead
   - 
-  - 
+  - FogExclude
   - 
   - 
   - 
@@ -57,6 +57,12 @@ TagManager:
     locked: 0
   - name: LightSource
     uniqueID: 2460176289
+    locked: 0
+  - name: FogReceiver
+    uniqueID: 607064251
+    locked: 0
+  - name: VoidOverlay
+    uniqueID: 3196478131
     locked: 0
   m_RenderingLayers:
   - Default

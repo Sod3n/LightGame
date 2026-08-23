@@ -1,0 +1,29 @@
+{
+  "source_folder": "падение/падение",
+  "frame_count": 4,
+  "frame_size": [
+    512,
+    393
+  ],
+  "source_frame_size": [
+    1760,
+    1350
+  ],
+  "scale": 0.2909,
+  "grid": {
+    "cols": 2,
+    "rows": 2
+  },
+  "sheet_size": [
+    1024,
+    786
+  ],
+  "read_order": "left-to-right, top-to-bottom",
+  "source_files": [
+    "падение_0000.png",
+    "падение_0001.png",
+    "падение_0002.png",
+    "падение_0003.png"
+  ],
+  "note": "trimmed to first 4 frames of source"
+}

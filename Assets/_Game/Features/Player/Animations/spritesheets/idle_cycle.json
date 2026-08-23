@@ -1,0 +1,38 @@
+{
+  "source_folder": "новые кадры/новые кадры/idle/цикл",
+  "frame_count": 14,
+  "frame_size": [
+    512,
+    393
+  ],
+  "source_frame_size": [
+    1760,
+    1350
+  ],
+  "scale": 0.2909,
+  "grid": {
+    "cols": 4,
+    "rows": 4
+  },
+  "sheet_size": [
+    2048,
+    1572
+  ],
+  "read_order": "left-to-right, top-to-bottom",
+  "source_files": [
+    "idle_цикл0000.png",
+    "idle_цикл0001.png",
+    "idle_цикл0002.png",
+    "idle_цикл0003.png",
+    "idle_цикл0004.png",
+    "idle_цикл0005.png",
+    "idle_цикл0006.png",
+    "idle_цикл0007.png",
+    "idle_цикл0008.png",
+    "idle_цикл0009.png",
+    "idle_цикл0010.png",
+    "idle_цикл0011.png",
+    "idle_цикл0012.png",
+    "idle_цикл0013.png"
+  ]
+}

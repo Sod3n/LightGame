@@ -1,0 +1,30 @@
+{
+  "source_folder": "новые кадры/новые кадры/рывок/эффект",
+  "frame_count": 6,
+  "frame_size": [
+    512,
+    393
+  ],
+  "source_frame_size": [
+    1760,
+    1350
+  ],
+  "scale": 0.2909,
+  "grid": {
+    "cols": 3,
+    "rows": 2
+  },
+  "sheet_size": [
+    1536,
+    786
+  ],
+  "read_order": "left-to-right, top-to-bottom",
+  "source_files": [
+    "эффект_0000.png",
+    "эффект_0001.png",
+    "эффект_0002.png",
+    "эффект_0003.png",
+    "эффект_0004.png",
+    "эффект_0005.png"
+  ]
+}

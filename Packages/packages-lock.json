@@ -1,23 +1,5 @@
 {
   "dependencies": {
-    "com.coffee.ui-effect": {
-      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0"
-      },
-      "hash": "70937d2ce39b61c29c4feb4d13642c65bb553d6c"
-    },
-    "com.cysharp.r3": {
-      "version": "https://github.com/Cysharp/R3.git?path=src/R3.Unity/Assets/R3.Unity",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.modules.imgui": "1.0.0"
-      },
-      "hash": "24d04125d68719816e24dfb79c60dd97ca396038"
-    },
     "com.cysharp.unitask": {
       "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
       "depth": 0,
@@ -25,12 +7,32 @@
       "dependencies": {},
       "hash": "73a63b7f672b88f7e9992f6917eb458a8cbb6fa9"
     },
-    "com.github-glitchenzo.nugetforunity": {
-      "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
+    "com.gemserk.tools.gameobjectbrush": {
+      "version": "file:com.gemserk.tools.gameobjectbrush",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "c2af83c9d4f8cdaada9d4a0e94de2f195d8e1d01"
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "com.ivanmurzak.unity.mcp": {
+      "version": "0.86.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.test-framework": "1.1.33",
+        "com.unity.modules.uielements": "1.0.0",
+        "extensions.unity.playerprefsex": "2.1.5"
+      },
+      "url": "https://package.openupm.com"
+    },
+    "com.ivanmurzak.unity.mcp.animation": {
+      "version": "1.2.28",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.ivanmurzak.unity.mcp": "0.86.0",
+        "com.unity.modules.animation": "1.0.0"
+      },
+      "url": "https://package.openupm.com"
     },
     "com.kybernetik.ultevents": {
       "version": "file:com.kybernetik.ultevents",
@@ -44,13 +46,6 @@
       "source": "git",
       "dependencies": {},
       "hash": "33135342e868201eb0d4cef821ecab90caca373e"
-    },
-    "com.svermeulen.extenject": {
-      "version": "https://github.com/Mathijs-Bakker/Extenject.git?path=UnityProject/Assets/Plugins/Zenject/Source",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "ec31a279be809bc98f5d1ed9f2add1ce3ddc77fc"
     },
     "com.unity.2d.animation": {
       "version": "12.0.3",
@@ -161,15 +156,6 @@
         "com.unity.modules.unitywebrequest": "1.0.0",
         "com.unity.scriptablebuildpipeline": "2.4.3",
         "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.ai.navigation": {
-      "version": "2.0.9",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.ai": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -297,14 +283,6 @@
         "com.unity.editorcoroutines": "1.0.0"
       },
       "url": "https://packages.unity.com"
-    },
-    "com.unity.multiplayer.center": {
-      "version": "1.0.0",
-      "depth": 0,
-      "source": "builtin",
-      "dependencies": {
-        "com.unity.modules.uielements": "1.0.0"
-      }
     },
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.5",
@@ -434,18 +412,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.timeline": {
-      "version": "1.8.9",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.audio": "1.0.0",
-        "com.unity.modules.director": "1.0.0",
-        "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.particlesystem": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.ugui": {
       "version": "2.0.0",
       "depth": 0,
@@ -455,15 +421,12 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "com.unity.visualscripting": {
-      "version": "1.9.7",
-      "depth": 0,
+    "extensions.unity.playerprefsex": {
+      "version": "2.1.5",
+      "depth": 1,
       "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
+      "dependencies": {},
+      "url": "https://package.openupm.com"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

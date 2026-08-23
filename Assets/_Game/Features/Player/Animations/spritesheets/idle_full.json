@@ -1,0 +1,43 @@
+{
+  "source_folder": "новые кадры/новые кадры/idle/полная анимация",
+  "frame_count": 19,
+  "frame_size": [
+    512,
+    393
+  ],
+  "source_frame_size": [
+    1760,
+    1350
+  ],
+  "scale": 0.2909,
+  "grid": {
+    "cols": 5,
+    "rows": 4
+  },
+  "sheet_size": [
+    2560,
+    1572
+  ],
+  "read_order": "left-to-right, top-to-bottom",
+  "source_files": [
+    "idle_0000.png",
+    "idle_0001.png",
+    "idle_0002.png",
+    "idle_0003.png",
+    "idle_0004.png",
+    "idle_0005.png",
+    "idle_0006.png",
+    "idle_0007.png",
+    "idle_0008.png",
+    "idle_0009.png",
+    "idle_0010.png",
+    "idle_0011.png",
+    "idle_0012.png",
+    "idle_0013.png",
+    "idle_0014.png",
+    "idle_0015.png",
+    "idle_0016.png",
+    "idle_0017.png",
+    "idle_0018.png"
+  ]
+}

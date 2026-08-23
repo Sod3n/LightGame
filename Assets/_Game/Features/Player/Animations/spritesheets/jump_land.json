@@ -1,0 +1,34 @@
+{
+  "source_folder": "падение/падение",
+  "frame_count": 9,
+  "frame_size": [
+    512,
+    393
+  ],
+  "source_frame_size": [
+    1760,
+    1350
+  ],
+  "scale": 0.2909,
+  "grid": {
+    "cols": 3,
+    "rows": 3
+  },
+  "sheet_size": [
+    1536,
+    1179
+  ],
+  "read_order": "left-to-right, top-to-bottom",
+  "source_files": [
+    "падение_0004.png",
+    "падение_0005.png",
+    "падение_0006.png",
+    "падение_0007.png",
+    "падение_0008.png",
+    "падение_0009.png",
+    "падение_0010.png",
+    "падение_0011.png",
+    "падение_0012.png"
+  ],
+  "note": "landing portion (source frames 4..end of падение)"
+}

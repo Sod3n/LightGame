@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4554914833053208009
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1594256560580050333, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_Name
+      value: Arrow_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294858613455773647, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.393
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069175321639385348, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_Color.b
+      value: 0.34901962
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069175321639385348, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_Color.g
+      value: 0.34901962
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069175321639385348, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      propertyPath: m_Color.r
+      value: 0.89411765
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1594256560580050333, guid: 42965448539c84c32ac855c93820b229, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1429588398463230432}
+  m_SourcePrefab: {fileID: 100100000, guid: 42965448539c84c32ac855c93820b229, type: 3}
+--- !u!1 &2966078908828414036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1594256560580050333, guid: 42965448539c84c32ac855c93820b229, type: 3}
+  m_PrefabInstance: {fileID: 4554914833053208009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1429588398463230432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2966078908828414036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491315e97708e4afebacde5dfbe5b4fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightGame::LightGame.Features.DistanceAlphaFade
+  minDistance: 0
+  maxDistance: 13
+  fadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  minAlpha: 0.1
+  maxAlpha: 1
+  updateInFixedUpdate: 0
+  updateInterval: 0.1
+  tweenDuration: 0.3
+  tweenEase: 6
