@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 563658081202739}
   - component: {fileID: 8911092722811945818}
   - component: {fileID: 7352882981468197292}
+  - component: {fileID: 6416873258356292950}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -1302,6 +1303,22 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_SortAtRoot: 0
+--- !u!114 &6416873258356292950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213259104454701869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8851f5e786f6a48dda32254c2e2d06ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightGame::LightGame.Features.VFX.SpriteAnimationCrossfade
+  animator: {fileID: 3213259104454701871}
+  layer: 0
+  defaultDuration: 0.1
+  transitions: []
 --- !u!1 &3803380629175493506
 GameObject:
   m_ObjectHideFlags: 0
