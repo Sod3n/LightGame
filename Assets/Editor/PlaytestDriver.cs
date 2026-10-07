@@ -140,6 +140,15 @@ public static class PlaytestDriver
             case "open":
                 if (EditorApplication.isPlaying) throw new Exception("stop play mode first");
                 return "opened " + OpenScene(arg);
+            case "discard":
+            {
+                if (EditorApplication.isPlaying) throw new Exception("stop play mode first");
+                var paths = Enumerable.Range(0, SceneManager.sceneCount).Select(i => SceneManager.GetSceneAt(i).path)
+                    .Where(p => p.Length > 0).ToList();
+                for (var i = 0; i < paths.Count; i++)
+                    EditorSceneManager.OpenScene(paths[i], i == 0 ? OpenSceneMode.Single : OpenSceneMode.Additive);
+                return "reloaded " + string.Join(", ", paths);
+            }
             case "pause":
                 EditorApplication.isPaused = arg != "0";
                 return $"paused={EditorApplication.isPaused}";
@@ -148,6 +157,8 @@ public static class PlaytestDriver
                 _pendingSteps += arg.Length > 0 ? int.Parse(arg) : 1;
                 return $"stepping {_pendingSteps} frame(s)";
             case "timescale":
+                // Outside Play Mode the value is saved into ProjectSettings/TimeManager.asset.
+                if (!EditorApplication.isPlaying) throw new Exception("not playing");
                 Time.timeScale = ParseFloat(arg);
                 return $"timescale={Time.timeScale}";
             case "press":

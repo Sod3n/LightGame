@@ -1,6 +1,6 @@
 ---
 name: playtest
-description: Playtest LightGame in the user's open Unity editor - open a level, enter Play Mode, move the player with simulated keys, pause/step frames, dump objects and component fields, take screenshots, read errors. Use to check a gameplay, animation, lighting or level-setup change in the real game.
+description: Playtest LightGame in an agent-owned Unity editor - open a level, enter Play Mode, move the player with simulated keys, pause/step frames, dump objects and component fields, take screenshots, read errors. Use to check a gameplay, animation, lighting or level-setup change in the real game.
 ---
 
 # Playtest LightGame
@@ -37,10 +37,11 @@ cat Temp/playtest/status.txt         # heartbeat: playing / paused / compiling /
 | Command | Does |
 |---|---|
 | `play [scene]` | enter Play Mode; with a scene name or path, open it first (fails if open scenes have unsaved changes) |
-| `stop` | exit Play Mode and release all keys |
+| `stop` | exit Play Mode and release all keys. Exiting takes a moment: wait for `playing=False` before the next `play` |
 | `open <scene>` | open a scene in edit mode, e.g. `open LevelTemplate` |
+| `discard` | reload the open scenes without saving, e.g. after a prefab edit dirtied a level that nests it |
 | `pause [0]` / `step [n]` | pause (or `pause 0` to resume) / advance n frames while paused |
-| `timescale <x>` | set `Time.timeScale`, e.g. `0.2` to slow animations down |
+| `timescale <x>` | set `Time.timeScale` in Play Mode, e.g. `0.2` to slow animations down |
 | `press <keys> [sec]` | hold keys for sec (default 0.1) on a virtual keyboard, e.g. `press d 1.5`, `press d+space 0.3` |
 | `release` | release all held keys |
 | `refresh` | `AssetDatabase.Refresh` (force-import changed files) |
@@ -65,7 +66,7 @@ lowered `timescale`.
 
 ```bash
 $P/pt.sh "play FirstDesignedLevel"
-until grep -q "playing=True.*player=" Temp/playtest/status.txt; do sleep 1; done
+for i in $(seq 60); do grep -q "playing=True.*player=" Temp/playtest/status.txt && break; sleep 1; done
 $P/pt.sh "press d 1" ; sleep 1.2
 $P/pt.sh "press space 0.3" "pause" "dump Player" "shot $PWD/Temp/jump.png" logs
 $P/pt.sh "step 5" ; $P/pt.sh "dump Player"     # watch animation frames advance

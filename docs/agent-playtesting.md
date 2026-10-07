@@ -82,7 +82,7 @@ After any script or asset edit, run `pt.sh stop` (imports wait while in Play Mod
 
 ```bash
 $P/pt.sh "play FirstDesignedLevel"                 # levels load Shared on their own
-until grep -q "playing=True.*player=" Temp/playtest/status.txt; do sleep 1; done
+for i in $(seq 60); do grep -q "playing=True.*player=" Temp/playtest/status.txt && break; sleep 1; done
 $P/pt.sh "timescale 0.1" "press a+e 1.5"           # slow motion, dash left
 $P/pt.sh "dump Player"                             # sprite, current clip, position
 $P/pt.sh pause "step 1" "shot $PWD/Temp/frame.png 1"
@@ -133,4 +133,7 @@ For the next task, either reuse the agent checkout on a fresh branch
 | Game frames stop advancing while Unity is in the background | Run In Background is off in Player Settings. The driver turns it on for each play session and restores it afterwards; this only appears if the driver isn't loaded. |
 | `press` has no effect | Not in Play Mode, or the game is paused (`pause 0`). Hold times are real seconds, so under a low `timescale` they cover less game time. |
 | Many modified `.asset`/`.prefab` files you didn't touch | Unity reformatted them on import, usually after a long-stale `Library`. Leave them out of commits. |
+| `play` fails with "unsaved changes" right after a prefab edit | Levels nest the Player through `GeneralLevel`, so prefab edits dirty the open scene. `pt.sh discard`, then `play`. |
+| `play` answers "already playing" just after `stop` | Leaving Play Mode is asynchronous. Wait for `playing=False` in `status.txt` first. |
+| The level kills the player before you can test movement | Hazards sit near most spawns. A throwaway `invoke` method can add a wide `Ground`-layer `BoxCollider2D` far above the level and move the player's `Rigidbody2D` onto it. |
 | `logs` shows the same exception many times | Grouped as `(xN)`; startup noise from `ImageWithRoundedCorners` is pre-existing. |
