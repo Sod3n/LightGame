@@ -1,0 +1,21 @@
+{
+  "source_folder": "Атака(нов.анимация)",
+  "frame_count": 5,
+  "frame_size": [
+    599,
+    596
+  ],
+  "source_frame_size": [
+    2060,
+    2050
+  ],
+  "scale": 0.2909,
+  "source_files": [
+    "эффект/эффект_0002.png",
+    "эффект/эффект_0007.png",
+    "эффект/эффект_0008.png",
+    "эффект/эффект_0009.png",
+    "эффект/эффект_0010.png"
+  ],
+  "note": "Empty source frames are left out; the clip shows no effect sprite on them. Pivot is the character canvas centre."
+}
