@@ -26,6 +26,8 @@ namespace LightGame.Features.VFX
         [SerializeField] private int layer;
         [Tooltip("Looping states that start on the frame closest to the outgoing pose instead of their first frame.")]
         [SerializeField] private List<string> matchedStates = new();
+        [Tooltip("Frames whose sprite name ends with this are never picked as a start frame. Generated in-betweens are softer, so they would otherwise score as closest to everything.")]
+        [SerializeField] private string skipSpriteSuffix = "_inb";
         [Tooltip("Baked from the controller's clips with the context menu; rebake after changing sprites.")]
         [SerializeField] private List<Match> matches = new();
 
@@ -98,6 +100,7 @@ namespace LightGame.Features.VFX
                     for (var k = 0; k < target.keys.Length; k++)
                     {
                         if (target.keys[k].value is not Sprite candidate) continue;
+                        if (!string.IsNullOrEmpty(skipSpriteSuffix) && candidate.name.EndsWith(skipSpriteSuffix)) continue;
                         var d = Distance(descriptors[s], descriptors[candidate]);
                         if (d < bestDistance) { bestDistance = d; best = k; }
                     }

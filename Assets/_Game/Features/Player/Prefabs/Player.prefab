@@ -1390,174 +1390,262 @@ MonoBehaviour:
   matchedStates:
   - PlayerIdle
   - PlayerWalk
+  skipSpriteSuffix: _inb
   matches:
   - state: PlayerIdle
     from: {fileID: -1217774172, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
     normalizedTime: 0.001
   - state: PlayerIdle
+    from: {fileID: 1975085463, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.501
+  - state: PlayerIdle
     from: {fileID: 777502491, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.07242857
+    normalizedTime: 0.07242858
+  - state: PlayerIdle
+    from: {fileID: -1221730227, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.14385715
   - state: PlayerIdle
     from: {fileID: -1868280146, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.14385714
+    normalizedTime: 0.14385715
+  - state: PlayerIdle
+    from: {fileID: 424592281, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.28671432
   - state: PlayerIdle
     from: {fileID: -571546040, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerIdle
     from: {fileID: 818103748, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2867143
+    normalizedTime: 0.28671432
+  - state: PlayerIdle
+    from: {fileID: -922746805, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.14385715
   - state: PlayerIdle
     from: {fileID: -127694874, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.35814282
+    normalizedTime: 0.35814285
+  - state: PlayerIdle
+    from: {fileID: 449859053, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.07242858
   - state: PlayerIdle
     from: {fileID: 1792495355, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.4295714
+    normalizedTime: 0.42957145
+  - state: PlayerIdle
+    from: {fileID: 262778727, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.501
   - state: PlayerIdle
     from: {fileID: 1937810424, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.5009999
+    normalizedTime: 0.501
+  - state: PlayerIdle
+    from: {fileID: -1431278932, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.5724286
   - state: PlayerIdle
     from: {fileID: 51214303, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.5724285
+    normalizedTime: 0.5724286
+  - state: PlayerIdle
+    from: {fileID: -235012832, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.6438572
   - state: PlayerIdle
     from: {fileID: 1823850624, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.6438571
+    normalizedTime: 0.6438572
+  - state: PlayerIdle
+    from: {fileID: 1690990724, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -1998704538, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 133987102, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: 598197794, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.8581429
   - state: PlayerIdle
     from: {fileID: 497125271, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
+  - state: PlayerIdle
+    from: {fileID: -9182776, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.001
   - state: PlayerIdle
     from: {fileID: -2112166601, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -510038044, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: -1071286633, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.35814285
   - state: PlayerIdle
     from: {fileID: -35969471, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.35814282
+    normalizedTime: 0.35814285
+  - state: PlayerIdle
+    from: {fileID: 1238866997, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.35814285
   - state: PlayerIdle
     from: {fileID: 1747637883, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.35814282
+    normalizedTime: 0.35814285
   - state: PlayerIdle
     from: {fileID: 1510386773, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerIdle
     from: {fileID: -62002681, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.35814282
+    normalizedTime: 0.35814285
+  - state: PlayerIdle
+    from: {fileID: 1971828922, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -715124975, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: -1139239016, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 631269024, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: -770712168, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -1032191678, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: -1000360193, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -159808895, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.35814282
+    normalizedTime: 0.35814285
+  - state: PlayerIdle
+    from: {fileID: 1018275889, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.35814285
   - state: PlayerIdle
     from: {fileID: -365173958, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.35814282
+    normalizedTime: 0.35814285
+  - state: PlayerIdle
+    from: {fileID: 2045471882, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -2067637747, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerIdle
+    from: {fileID: -1927304737, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.35814285
   - state: PlayerIdle
     from: {fileID: -1979375319, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -1236605797, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -182474891, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.35814282
+    normalizedTime: 0.35814285
   - state: PlayerIdle
     from: {fileID: 195583966, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: -356826277, guid: 045873e46e75a47779fa71b95f9b718d, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 2098957659, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -1038603347, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -1644514072, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
-    normalizedTime: 0.5724285
+    normalizedTime: 0.5724286
   - state: PlayerIdle
     from: {fileID: -1159747737, guid: 494331ca7ba7cbf42833b396c1e2da98, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerIdle
+    from: {fileID: -1427002482, guid: 045873e46e75a47779fa71b95f9b718d, type: 3}
+    normalizedTime: 0.5724286
   - state: PlayerIdle
     from: {fileID: -1727437433, guid: 494331ca7ba7cbf42833b396c1e2da98, type: 3}
-    normalizedTime: 0.07242857
+    normalizedTime: 0.07242858
+  - state: PlayerIdle
+    from: {fileID: 1740784358, guid: 045873e46e75a47779fa71b95f9b718d, type: 3}
+    normalizedTime: 0.5724286
   - state: PlayerIdle
     from: {fileID: -136565260, guid: 494331ca7ba7cbf42833b396c1e2da98, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: -1335308004, guid: 045873e46e75a47779fa71b95f9b718d, type: 3}
+    normalizedTime: 0.001
   - state: PlayerIdle
     from: {fileID: -1733522904, guid: 3cc4d31ad769c8542b805a4bb82f32bf, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: 1555404231, guid: 3cc4d31ad769c8542b805a4bb82f32bf, type: 3}
-    normalizedTime: 0.35814282
+    normalizedTime: 0.35814285
   - state: PlayerIdle
     from: {fileID: 1369912565, guid: 51f8f37840b10ad40b57b57e94f8ac92, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -646697007, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 1752773505, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -455624945, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: 536761454, guid: a8cd889a32e414bd5b2dfcc775123fff, type: 3}
+    normalizedTime: 0.42957145
   - state: PlayerIdle
     from: {fileID: -776711119, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -1884466071, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 1436159217, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 1521395411, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: 1866284026, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -1672808572, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: 688794719, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -1266353608, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: -1659492901, guid: 92eaf49390f834149b65dc67d18d5fca, type: 3}
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -253602288, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -1175943312, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -172072742, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -889633931, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: -1128452933, guid: 92eaf49390f834149b65dc67d18d5fca, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 557989404, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -91911138, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
     normalizedTime: 0.001
   - state: PlayerIdle
+    from: {fileID: -50804217, guid: 92eaf49390f834149b65dc67d18d5fca, type: 3}
+    normalizedTime: 0.001
+  - state: PlayerIdle
     from: {fileID: -1787134560, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.001
+  - state: PlayerIdle
+    from: {fileID: -542431059, guid: 92eaf49390f834149b65dc67d18d5fca, type: 3}
     normalizedTime: 0.001
   - state: PlayerIdle
     from: {fileID: -867603655, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
@@ -1567,235 +1655,373 @@ MonoBehaviour:
     normalizedTime: 0.001
   - state: PlayerIdle
     from: {fileID: 568508397, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.5724285
+    normalizedTime: 0.5724286
   - state: PlayerIdle
     from: {fileID: 563440346, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -1664182530, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 1306244948, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 748997085, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: 1475695015, guid: 38f2fbbbcd2d34d0ebd21353458f1d88, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -1169150565, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: 435233936, guid: 38f2fbbbcd2d34d0ebd21353458f1d88, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 1782518317, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: 1161200545, guid: 38f2fbbbcd2d34d0ebd21353458f1d88, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -2146130153, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: 451295057, guid: 38f2fbbbcd2d34d0ebd21353458f1d88, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerIdle
     from: {fileID: 786674789, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerIdle
     from: {fileID: -755442613, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -2124112074, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerIdle
+    from: {fileID: -2050541618, guid: 38f2fbbbcd2d34d0ebd21353458f1d88, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 1291652665, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -51356610, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: -1889120244, guid: 38f2fbbbcd2d34d0ebd21353458f1d88, type: 3}
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -1739330675, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -907506989, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerIdle
     from: {fileID: 117575827, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 1202958275, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: 1124766353, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -1338602015, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: -1148443743, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -589210020, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: -1200228731, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 41435249, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: -1087004779, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -1117481097, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: 1335209175, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: 968798243, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: 1878586033, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: 1375539351, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: -893923702, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -1320523384, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: 656268865, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 1039531710, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: -1332382429, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -1511877303, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: 1913319518, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: -874898105, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerIdle
+    from: {fileID: -541230902, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -1256556118, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: 1940552379, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: 589858727, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: -69563240, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -1432884321, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: -1635614354, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: 1843593112, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: 931818332, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: 1040392534, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: 1317893950, guid: 6873c9d1772eb462d9359c92cc914614, type: 3}
+    normalizedTime: 0.5724286
   - state: PlayerIdle
     from: {fileID: 1964699640, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.5724285
+    normalizedTime: 0.5724286
   - state: PlayerIdle
     from: {fileID: -1993919862, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerIdle
     from: {fileID: 1412742404, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerIdle
     from: {fileID: -1826127517, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: -1903045160, guid: 6873c9d1772eb462d9359c92cc914614, type: 3}
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -424803910, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
+  - state: PlayerIdle
+    from: {fileID: -1861391369, guid: 6873c9d1772eb462d9359c92cc914614, type: 3}
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: 2146661677, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerIdle
     from: {fileID: -1563898315, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerIdle
     from: {fileID: 1043034669, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
   - state: PlayerWalk
     from: {fileID: -1217774172, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: 1975085463, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 777502491, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -1221730227, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -1868280146, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: 424592281, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -571546040, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 818103748, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -922746805, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -127694874, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: 449859053, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 1792495355, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: 262778727, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 1937810424, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -1431278932, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 51214303, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -235012832, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 1823850624, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: 1690990724, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -1998704538, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 133987102, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: 598197794, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 497125271, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -9182776, guid: 385677c718cf24042a5f5b131d930e23, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -2112166601, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -510038044, guid: 121809027496e9440a612a3360030f72, type: 3}
     normalizedTime: 0.001
   - state: PlayerWalk
+    from: {fileID: -1071286633, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.07242858
+  - state: PlayerWalk
     from: {fileID: -35969471, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.07242857
+    normalizedTime: 0.07242858
+  - state: PlayerWalk
+    from: {fileID: 1238866997, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.14385715
   - state: PlayerWalk
     from: {fileID: 1747637883, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.14385714
+    normalizedTime: 0.14385715
   - state: PlayerWalk
     from: {fileID: 1510386773, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -62002681, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.2867143
+    normalizedTime: 0.28671432
+  - state: PlayerWalk
+    from: {fileID: 1971828922, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.28671432
   - state: PlayerWalk
     from: {fileID: -715124975, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.35814282
+    normalizedTime: 0.35814285
+  - state: PlayerWalk
+    from: {fileID: -1139239016, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.35814285
   - state: PlayerWalk
     from: {fileID: 631269024, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.4295714
+    normalizedTime: 0.42957145
+  - state: PlayerWalk
+    from: {fileID: -770712168, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.42957145
   - state: PlayerWalk
     from: {fileID: -1032191678, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.5009999
+    normalizedTime: 0.501
+  - state: PlayerWalk
+    from: {fileID: -1000360193, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.5724286
   - state: PlayerWalk
     from: {fileID: -159808895, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.5724285
+    normalizedTime: 0.5724286
+  - state: PlayerWalk
+    from: {fileID: 1018275889, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.6438572
   - state: PlayerWalk
     from: {fileID: -365173958, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.6438571
+    normalizedTime: 0.6438572
+  - state: PlayerWalk
+    from: {fileID: 2045471882, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerWalk
     from: {fileID: -2067637747, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerWalk
+    from: {fileID: -1927304737, guid: d4367ae0815c444999a22b2469454233, type: 3}
+    normalizedTime: 0.7867143
   - state: PlayerWalk
     from: {fileID: -1979375319, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.78671426
+    normalizedTime: 0.7867143
   - state: PlayerWalk
     from: {fileID: -1236605797, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: -182474891, guid: 121809027496e9440a612a3360030f72, type: 3}
-    normalizedTime: 0.9295714
+    normalizedTime: 0.9295715
   - state: PlayerWalk
     from: {fileID: 195583966, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
-    normalizedTime: 0.6438571
+    normalizedTime: 0.6438572
+  - state: PlayerWalk
+    from: {fileID: -356826277, guid: 045873e46e75a47779fa71b95f9b718d, type: 3}
+    normalizedTime: 0.6438572
   - state: PlayerWalk
     from: {fileID: 2098957659, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
-    normalizedTime: 0.6438571
+    normalizedTime: 0.6438572
   - state: PlayerWalk
     from: {fileID: -1038603347, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
-    normalizedTime: 0.78671426
+    normalizedTime: 0.7867143
   - state: PlayerWalk
     from: {fileID: -1644514072, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: -1159747737, guid: 494331ca7ba7cbf42833b396c1e2da98, type: 3}
-    normalizedTime: 0.35814282
+    normalizedTime: 0.35814285
+  - state: PlayerWalk
+    from: {fileID: -1427002482, guid: 045873e46e75a47779fa71b95f9b718d, type: 3}
+    normalizedTime: 0.7867143
   - state: PlayerWalk
     from: {fileID: -1727437433, guid: 494331ca7ba7cbf42833b396c1e2da98, type: 3}
-    normalizedTime: 0.4295714
+    normalizedTime: 0.42957145
+  - state: PlayerWalk
+    from: {fileID: 1740784358, guid: 045873e46e75a47779fa71b95f9b718d, type: 3}
+    normalizedTime: 0.42957145
   - state: PlayerWalk
     from: {fileID: -136565260, guid: 494331ca7ba7cbf42833b396c1e2da98, type: 3}
-    normalizedTime: 0.4295714
+    normalizedTime: 0.42957145
+  - state: PlayerWalk
+    from: {fileID: -1335308004, guid: 045873e46e75a47779fa71b95f9b718d, type: 3}
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: -1733522904, guid: 3cc4d31ad769c8542b805a4bb82f32bf, type: 3}
     normalizedTime: 0.001
@@ -1804,193 +2030,274 @@ MonoBehaviour:
     normalizedTime: 0.001
   - state: PlayerWalk
     from: {fileID: 1369912565, guid: 51f8f37840b10ad40b57b57e94f8ac92, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: -646697007, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
-    normalizedTime: 0.07242857
+    normalizedTime: 0.07242858
   - state: PlayerWalk
     from: {fileID: 1752773505, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: -455624945, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
-    normalizedTime: 0.6438571
+    normalizedTime: 0.6438572
+  - state: PlayerWalk
+    from: {fileID: 536761454, guid: a8cd889a32e414bd5b2dfcc775123fff, type: 3}
+    normalizedTime: 0.07242858
   - state: PlayerWalk
     from: {fileID: -776711119, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
-    normalizedTime: 0.6438571
+    normalizedTime: 0.6438572
   - state: PlayerWalk
     from: {fileID: -1884466071, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: 1436159217, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.35814282
+    normalizedTime: 0.35814285
   - state: PlayerWalk
     from: {fileID: 1521395411, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.6438571
+    normalizedTime: 0.6438572
   - state: PlayerWalk
     from: {fileID: 1866284026, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.5009999
+    normalizedTime: 0.501
   - state: PlayerWalk
     from: {fileID: -1672808572, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.5009999
+    normalizedTime: 0.501
   - state: PlayerWalk
     from: {fileID: 688794719, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.5009999
+    normalizedTime: 0.501
   - state: PlayerWalk
     from: {fileID: -1266353608, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.5009999
+    normalizedTime: 0.501
+  - state: PlayerWalk
+    from: {fileID: -1659492901, guid: 92eaf49390f834149b65dc67d18d5fca, type: 3}
+    normalizedTime: 0.501
   - state: PlayerWalk
     from: {fileID: -253602288, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.5009999
+    normalizedTime: 0.501
   - state: PlayerWalk
     from: {fileID: -1175943312, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.35814282
+    normalizedTime: 0.35814285
   - state: PlayerWalk
     from: {fileID: -172072742, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: -889633931, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -1128452933, guid: 92eaf49390f834149b65dc67d18d5fca, type: 3}
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: 557989404, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: -91911138, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.4295714
+    normalizedTime: 0.42957145
+  - state: PlayerWalk
+    from: {fileID: -50804217, guid: 92eaf49390f834149b65dc67d18d5fca, type: 3}
+    normalizedTime: 0.42957145
   - state: PlayerWalk
     from: {fileID: -1787134560, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.4295714
+    normalizedTime: 0.42957145
+  - state: PlayerWalk
+    from: {fileID: -542431059, guid: 92eaf49390f834149b65dc67d18d5fca, type: 3}
+    normalizedTime: 0.42957145
   - state: PlayerWalk
     from: {fileID: -867603655, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.4295714
+    normalizedTime: 0.42957145
   - state: PlayerWalk
     from: {fileID: 926237084, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.4295714
+    normalizedTime: 0.42957145
   - state: PlayerWalk
     from: {fileID: 568508397, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.78671426
+    normalizedTime: 0.7867143
   - state: PlayerWalk
     from: {fileID: 563440346, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.78671426
+    normalizedTime: 0.7867143
   - state: PlayerWalk
     from: {fileID: -1664182530, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 1306244948, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 748997085, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
+  - state: PlayerWalk
+    from: {fileID: 1475695015, guid: 38f2fbbbcd2d34d0ebd21353458f1d88, type: 3}
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: -1169150565, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
+  - state: PlayerWalk
+    from: {fileID: 435233936, guid: 38f2fbbbcd2d34d0ebd21353458f1d88, type: 3}
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: 1782518317, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
+  - state: PlayerWalk
+    from: {fileID: 1161200545, guid: 38f2fbbbcd2d34d0ebd21353458f1d88, type: 3}
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: -2146130153, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
+  - state: PlayerWalk
+    from: {fileID: 451295057, guid: 38f2fbbbcd2d34d0ebd21353458f1d88, type: 3}
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: 786674789, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.2867143
+    normalizedTime: 0.28671432
   - state: PlayerWalk
     from: {fileID: -755442613, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: -2124112074, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -2050541618, guid: 38f2fbbbcd2d34d0ebd21353458f1d88, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 1291652665, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -51356610, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -1889120244, guid: 38f2fbbbcd2d34d0ebd21353458f1d88, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -1739330675, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -907506989, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 117575827, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: 1202958275, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.78671426
+    normalizedTime: 0.7867143
   - state: PlayerWalk
     from: {fileID: 1124766353, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.78671426
+    normalizedTime: 0.7867143
   - state: PlayerWalk
     from: {fileID: -1338602015, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -1148443743, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -589210020, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -1200228731, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerWalk
     from: {fileID: 41435249, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerWalk
+    from: {fileID: -1087004779, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerWalk
     from: {fileID: -1117481097, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerWalk
+    from: {fileID: 1335209175, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerWalk
     from: {fileID: 968798243, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerWalk
+    from: {fileID: 1878586033, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerWalk
     from: {fileID: 1375539351, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.71528566
+    normalizedTime: 0.7152857
+  - state: PlayerWalk
+    from: {fileID: -893923702, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.7152857
   - state: PlayerWalk
     from: {fileID: -1320523384, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: 656268865, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 1039531710, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -1332382429, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -1511877303, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: 1913319518, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.6438572
   - state: PlayerWalk
     from: {fileID: -874898105, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.07242857
+    normalizedTime: 0.07242858
+  - state: PlayerWalk
+    from: {fileID: -541230902, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -1256556118, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: 1940552379, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 589858727, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -69563240, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -1432884321, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.78671426
+    normalizedTime: 0.7867143
+  - state: PlayerWalk
+    from: {fileID: -1635614354, guid: 7e6f88c969b2c446cab7ba4d9458a148, type: 3}
+    normalizedTime: 0.7867143
   - state: PlayerWalk
     from: {fileID: 1843593112, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.78671426
+    normalizedTime: 0.7867143
   - state: PlayerWalk
     from: {fileID: 931818332, guid: 236851ea355d9854e983e5762e438011, type: 3}
-    normalizedTime: 0.78671426
+    normalizedTime: 0.7867143
   - state: PlayerWalk
     from: {fileID: 1040392534, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
+  - state: PlayerWalk
+    from: {fileID: 1317893950, guid: 6873c9d1772eb462d9359c92cc914614, type: 3}
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: 1964699640, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: -1993919862, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
   - state: PlayerWalk
     from: {fileID: 1412742404, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -1826127517, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -1903045160, guid: 6873c9d1772eb462d9359c92cc914614, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -424803910, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
+  - state: PlayerWalk
+    from: {fileID: -1861391369, guid: 6873c9d1772eb462d9359c92cc914614, type: 3}
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 2146661677, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: -1563898315, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.2152857
+    normalizedTime: 0.21528572
   - state: PlayerWalk
     from: {fileID: 1043034669, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
-    normalizedTime: 0.8581428
+    normalizedTime: 0.8581429
 --- !u!114 &1538311224339401729
 MonoBehaviour:
   m_ObjectHideFlags: 0
