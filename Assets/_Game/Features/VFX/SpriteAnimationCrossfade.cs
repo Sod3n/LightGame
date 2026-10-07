@@ -4,10 +4,6 @@ using UnityEngine;
 
 namespace LightGame.Features.VFX
 {
-    /// <summary>
-    /// Smooths cuts between frame-by-frame animations: when the Animator changes state, the last
-    /// frame of the outgoing animation fades out on top of the incoming one.
-    /// </summary>
     [RequireComponent(typeof(SpriteRenderer))]
     public class SpriteAnimationCrossfade : MonoBehaviour
     {
@@ -24,6 +20,8 @@ namespace LightGame.Features.VFX
         [SerializeField] private Animator animator;
         [SerializeField] private int layer;
         [SerializeField, Min(0)] private float defaultDuration = 0.1f;
+        [Tooltip("Opacity of the outgoing frame at the moment of the switch. Below 1 the new pose shows through immediately.")]
+        [SerializeField, Range(0, 1)] private float startOpacity = 0.6f;
         [Tooltip("First match wins. Set duration to 0 to keep a hard cut.")]
         [SerializeField] private List<Transition> transitions = new();
 
@@ -37,7 +35,7 @@ namespace LightGame.Features.VFX
         private void Awake()
         {
             _renderer = GetComponent<SpriteRenderer>();
-            if (animator == null) animator = GetComponent<Animator>();
+            if (animator == null) animator = GetComponentInParent<Animator>();
 
             var go = new GameObject("CrossfadeGhost");
             go.transform.SetParent(transform, false);
@@ -51,13 +49,12 @@ namespace LightGame.Features.VFX
             _lastState = 0;
         }
 
-        // LateUpdate runs after the Animator has applied this frame's sprite.
         private void LateUpdate()
         {
             if (animator == null || !animator.isActiveAndEnabled) return;
 
             var state = animator.GetCurrentAnimatorStateInfo(layer).shortNameHash;
-            if (_lastState != 0 && state != _lastState && _lastSprite != null)
+            if (_lastState != 0 && state != _lastState && _lastSprite != null && _lastSprite != _renderer.sprite)
             {
                 var duration = DurationFor(_lastState, state);
                 if (duration > 0) StartFade(_lastSprite, duration);
@@ -66,7 +63,6 @@ namespace LightGame.Features.VFX
 
             if (_ghost.enabled)
             {
-                _fadeElapsed += Time.deltaTime;
                 var t = _fadeElapsed / _fadeDuration;
                 if (t >= 1)
                 {
@@ -75,9 +71,10 @@ namespace LightGame.Features.VFX
                 else
                 {
                     var c = _renderer.color;
-                    c.a *= 1 - t;
+                    c.a *= startOpacity * (1 - t);
                     _ghost.color = c;
                 }
+                _fadeElapsed += Time.deltaTime;
             }
 
             _lastSprite = _renderer.sprite;
@@ -103,7 +100,6 @@ namespace LightGame.Features.VFX
             _ghost.flipX = _renderer.flipX;
             _ghost.flipY = _renderer.flipY;
             _ghost.maskInteraction = _renderer.maskInteraction;
-            _ghost.color = _renderer.color;
             _ghost.enabled = true;
             _fadeElapsed = 0;
             _fadeDuration = duration;

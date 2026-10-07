@@ -92,7 +92,9 @@ public class PlayerOneShotState : MainState
                 player.ClearPendingMovementIntent();
                 stateMachine.Unlock();
             }
-            stateMachine.ChangeState(player.IdleState, force: true);
+            // Going straight to Walk avoids a one-frame idle pose when a direction is held.
+            var walking = inputManager.Input_Walk != 0 && !playerData.Physics.Slope.StayStill;
+            stateMachine.ChangeState(walking ? player.WalkState : player.IdleState, force: true);
         }
         // Otherwise (Death) we stay here, locked and frozen, until PlayerMain.OnRespawn releases us.
     }

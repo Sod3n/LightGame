@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3213259104454701869
+--- !u!1 &758447521089040115
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,54 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3213259104454701875}
-  - component: {fileID: 3213259104454701874}
-  - component: {fileID: 3213259104454701873}
-  - component: {fileID: 3213259104454701872}
-  - component: {fileID: 3213259104454701871}
-  - component: {fileID: 3213259104454701870}
-  - component: {fileID: 1868357830118979999}
-  - component: {fileID: 7553217259832705559}
-  - component: {fileID: 7814056437280613642}
-  - component: {fileID: 2287397683517608150}
-  - component: {fileID: 5736767365432281745}
-  - component: {fileID: 8691095846045560413}
-  - component: {fileID: 4577508022152415354}
-  - component: {fileID: 563658081202739}
-  - component: {fileID: 8911092722811945818}
-  - component: {fileID: 7352882981468197292}
-  - component: {fileID: 6416873258356292950}
+  - component: {fileID: 6855574981905229310}
+  - component: {fileID: 1863464963338424444}
+  - component: {fileID: 1722447205728133196}
   m_Layer: 9
-  m_Name: Player
-  m_TagString: Player
+  m_Name: Visual
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3213259104454701875
+--- !u!4 &6855574981905229310
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3213259104454701869}
+  m_GameObject: {fileID: 758447521089040115}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 742726834364584989}
-  - {fileID: 4784293917535534717}
-  m_Father: {fileID: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3213259104454701875}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3213259104454701874
+--- !u!212 &1863464963338424444
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3213259104454701869}
+  m_GameObject: {fileID: 758447521089040115}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -107,6 +91,91 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1722447205728133196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758447521089040115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8851f5e786f6a48dda32254c2e2d06ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightGame::LightGame.Features.VFX.SpriteAnimationCrossfade
+  animator: {fileID: 3213259104454701871}
+  layer: 0
+  defaultDuration: 0.08
+  startOpacity: 0.6
+  transitions:
+  - from: PlayerWalk
+    to: PlayerIdle
+    duration: 0.15
+  - from: PlayerIdle
+    to: PlayerWalk
+    duration: 0.1
+  - from: PlayerLandImpact
+    to: 
+    duration: 0.12
+  - from: PlayerLand
+    to: PlayerLandImpact
+    duration: 0
+  - from: 
+    to: PlayerDash
+    duration: 0.04
+  - from: 
+    to: PlayerHit
+    duration: 0
+--- !u!1 &3213259104454701869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3213259104454701875}
+  - component: {fileID: 3213259104454701873}
+  - component: {fileID: 3213259104454701872}
+  - component: {fileID: 3213259104454701871}
+  - component: {fileID: 3213259104454701870}
+  - component: {fileID: 1868357830118979999}
+  - component: {fileID: 7553217259832705559}
+  - component: {fileID: 7814056437280613642}
+  - component: {fileID: 2287397683517608150}
+  - component: {fileID: 5736767365432281745}
+  - component: {fileID: 8691095846045560413}
+  - component: {fileID: 4577508022152415354}
+  - component: {fileID: 563658081202739}
+  - component: {fileID: 8911092722811945818}
+  - component: {fileID: 7352882981468197292}
+  - component: {fileID: 8822001593893012822}
+  - component: {fileID: 1538311224339401729}
+  m_Layer: 9
+  m_Name: Player
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3213259104454701875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213259104454701869}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 6855574981905229310}
+  - {fileID: 742726834364584989}
+  - {fileID: 4784293917535534717}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &3213259104454701873
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1303,7 +1372,7 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_SortAtRoot: 0
---- !u!114 &6416873258356292950
+--- !u!114 &8822001593893012822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1312,13 +1381,684 @@ MonoBehaviour:
   m_GameObject: {fileID: 3213259104454701869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8851f5e786f6a48dda32254c2e2d06ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 421d0a485718144d299972d8d9738a70, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: LightGame::LightGame.Features.VFX.SpriteAnimationCrossfade
+  m_EditorClassIdentifier: LightGame::LightGame.Features.VFX.AnimatorPoseMatcher
   animator: {fileID: 3213259104454701871}
+  spriteRenderer: {fileID: 1863464963338424444}
   layer: 0
-  defaultDuration: 0.1
-  transitions: []
+  matchedStates:
+  - PlayerIdle
+  - PlayerWalk
+  matches:
+  - state: PlayerIdle
+    from: {fileID: -1217774172, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.001
+  - state: PlayerIdle
+    from: {fileID: 777502491, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.07242857
+  - state: PlayerIdle
+    from: {fileID: -1868280146, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.14385714
+  - state: PlayerIdle
+    from: {fileID: -571546040, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerIdle
+    from: {fileID: 818103748, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2867143
+  - state: PlayerIdle
+    from: {fileID: -127694874, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.35814282
+  - state: PlayerIdle
+    from: {fileID: 1792495355, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.4295714
+  - state: PlayerIdle
+    from: {fileID: 1937810424, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.5009999
+  - state: PlayerIdle
+    from: {fileID: 51214303, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.5724285
+  - state: PlayerIdle
+    from: {fileID: 1823850624, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.6438571
+  - state: PlayerIdle
+    from: {fileID: -1998704538, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 133987102, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 497125271, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerIdle
+    from: {fileID: -2112166601, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -510038044, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -35969471, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.35814282
+  - state: PlayerIdle
+    from: {fileID: 1747637883, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.35814282
+  - state: PlayerIdle
+    from: {fileID: 1510386773, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerIdle
+    from: {fileID: -62002681, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.35814282
+  - state: PlayerIdle
+    from: {fileID: -715124975, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 631269024, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -1032191678, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -159808895, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.35814282
+  - state: PlayerIdle
+    from: {fileID: -365173958, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.35814282
+  - state: PlayerIdle
+    from: {fileID: -2067637747, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerIdle
+    from: {fileID: -1979375319, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -1236605797, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -182474891, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.35814282
+  - state: PlayerIdle
+    from: {fileID: 195583966, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 2098957659, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -1038603347, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -1644514072, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
+    normalizedTime: 0.5724285
+  - state: PlayerIdle
+    from: {fileID: -1159747737, guid: 494331ca7ba7cbf42833b396c1e2da98, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerIdle
+    from: {fileID: -1727437433, guid: 494331ca7ba7cbf42833b396c1e2da98, type: 3}
+    normalizedTime: 0.07242857
+  - state: PlayerIdle
+    from: {fileID: -136565260, guid: 494331ca7ba7cbf42833b396c1e2da98, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -1733522904, guid: 3cc4d31ad769c8542b805a4bb82f32bf, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: 1555404231, guid: 3cc4d31ad769c8542b805a4bb82f32bf, type: 3}
+    normalizedTime: 0.35814282
+  - state: PlayerIdle
+    from: {fileID: 1369912565, guid: 51f8f37840b10ad40b57b57e94f8ac92, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -646697007, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 1752773505, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -455624945, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -776711119, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -1884466071, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 1436159217, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 1521395411, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: 1866284026, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -1672808572, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: 688794719, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -1266353608, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -253602288, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -1175943312, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -172072742, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -889633931, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 557989404, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -91911138, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.001
+  - state: PlayerIdle
+    from: {fileID: -1787134560, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.001
+  - state: PlayerIdle
+    from: {fileID: -867603655, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.001
+  - state: PlayerIdle
+    from: {fileID: 926237084, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.001
+  - state: PlayerIdle
+    from: {fileID: 568508397, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.5724285
+  - state: PlayerIdle
+    from: {fileID: 563440346, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -1664182530, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 1306244948, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 748997085, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -1169150565, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 1782518317, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -2146130153, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: 786674789, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerIdle
+    from: {fileID: -755442613, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -2124112074, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerIdle
+    from: {fileID: 1291652665, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -51356610, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -1739330675, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -907506989, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerIdle
+    from: {fileID: 117575827, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 1202958275, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: 1124766353, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -1338602015, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -589210020, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 41435249, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -1117481097, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: 968798243, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: 1375539351, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -1320523384, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 1039531710, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -1511877303, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -874898105, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: -1256556118, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: 589858727, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -1432884321, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: 1843593112, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: 931818332, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: 1040392534, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: 1964699640, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.5724285
+  - state: PlayerIdle
+    from: {fileID: -1993919862, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerIdle
+    from: {fileID: 1412742404, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerIdle
+    from: {fileID: -1826127517, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -424803910, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: 2146661677, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerIdle
+    from: {fileID: -1563898315, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerIdle
+    from: {fileID: 1043034669, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerWalk
+    from: {fileID: -1217774172, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 777502491, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -1868280146, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -571546040, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 818103748, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -127694874, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 1792495355, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 1937810424, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 51214303, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 1823850624, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -1998704538, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 133987102, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 497125271, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -2112166601, guid: e7ee0351d5ea07b459c2462a962e4326, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -510038044, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.001
+  - state: PlayerWalk
+    from: {fileID: -35969471, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.07242857
+  - state: PlayerWalk
+    from: {fileID: 1747637883, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.14385714
+  - state: PlayerWalk
+    from: {fileID: 1510386773, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -62002681, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.2867143
+  - state: PlayerWalk
+    from: {fileID: -715124975, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.35814282
+  - state: PlayerWalk
+    from: {fileID: 631269024, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.4295714
+  - state: PlayerWalk
+    from: {fileID: -1032191678, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.5009999
+  - state: PlayerWalk
+    from: {fileID: -159808895, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.5724285
+  - state: PlayerWalk
+    from: {fileID: -365173958, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.6438571
+  - state: PlayerWalk
+    from: {fileID: -2067637747, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerWalk
+    from: {fileID: -1979375319, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.78671426
+  - state: PlayerWalk
+    from: {fileID: -1236605797, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: -182474891, guid: 121809027496e9440a612a3360030f72, type: 3}
+    normalizedTime: 0.9295714
+  - state: PlayerWalk
+    from: {fileID: 195583966, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
+    normalizedTime: 0.6438571
+  - state: PlayerWalk
+    from: {fileID: 2098957659, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
+    normalizedTime: 0.6438571
+  - state: PlayerWalk
+    from: {fileID: -1038603347, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
+    normalizedTime: 0.78671426
+  - state: PlayerWalk
+    from: {fileID: -1644514072, guid: 2e17841a27649fc4ea942aed6b015093, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: -1159747737, guid: 494331ca7ba7cbf42833b396c1e2da98, type: 3}
+    normalizedTime: 0.35814282
+  - state: PlayerWalk
+    from: {fileID: -1727437433, guid: 494331ca7ba7cbf42833b396c1e2da98, type: 3}
+    normalizedTime: 0.4295714
+  - state: PlayerWalk
+    from: {fileID: -136565260, guid: 494331ca7ba7cbf42833b396c1e2da98, type: 3}
+    normalizedTime: 0.4295714
+  - state: PlayerWalk
+    from: {fileID: -1733522904, guid: 3cc4d31ad769c8542b805a4bb82f32bf, type: 3}
+    normalizedTime: 0.001
+  - state: PlayerWalk
+    from: {fileID: 1555404231, guid: 3cc4d31ad769c8542b805a4bb82f32bf, type: 3}
+    normalizedTime: 0.001
+  - state: PlayerWalk
+    from: {fileID: 1369912565, guid: 51f8f37840b10ad40b57b57e94f8ac92, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: -646697007, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
+    normalizedTime: 0.07242857
+  - state: PlayerWalk
+    from: {fileID: 1752773505, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: -455624945, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
+    normalizedTime: 0.6438571
+  - state: PlayerWalk
+    from: {fileID: -776711119, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
+    normalizedTime: 0.6438571
+  - state: PlayerWalk
+    from: {fileID: -1884466071, guid: bcbbd930803b1554da2ebb0c572728b6, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: 1436159217, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.35814282
+  - state: PlayerWalk
+    from: {fileID: 1521395411, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.6438571
+  - state: PlayerWalk
+    from: {fileID: 1866284026, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.5009999
+  - state: PlayerWalk
+    from: {fileID: -1672808572, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.5009999
+  - state: PlayerWalk
+    from: {fileID: 688794719, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.5009999
+  - state: PlayerWalk
+    from: {fileID: -1266353608, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.5009999
+  - state: PlayerWalk
+    from: {fileID: -253602288, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.5009999
+  - state: PlayerWalk
+    from: {fileID: -1175943312, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.35814282
+  - state: PlayerWalk
+    from: {fileID: -172072742, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: -889633931, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 557989404, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: -91911138, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.4295714
+  - state: PlayerWalk
+    from: {fileID: -1787134560, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.4295714
+  - state: PlayerWalk
+    from: {fileID: -867603655, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.4295714
+  - state: PlayerWalk
+    from: {fileID: 926237084, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.4295714
+  - state: PlayerWalk
+    from: {fileID: 568508397, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.78671426
+  - state: PlayerWalk
+    from: {fileID: 563440346, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.78671426
+  - state: PlayerWalk
+    from: {fileID: -1664182530, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 1306244948, guid: ab40320d9e52db6419eb81a73edfa7f1, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 748997085, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: -1169150565, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: 1782518317, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: -2146130153, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: 786674789, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.2867143
+  - state: PlayerWalk
+    from: {fileID: -755442613, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: -2124112074, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 1291652665, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -51356610, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -1739330675, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -907506989, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 117575827, guid: a42a2e3a0c3b00b43bbdacb9941a0831, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: 1202958275, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.78671426
+  - state: PlayerWalk
+    from: {fileID: 1124766353, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.78671426
+  - state: PlayerWalk
+    from: {fileID: -1338602015, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -589210020, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 41435249, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerWalk
+    from: {fileID: -1117481097, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerWalk
+    from: {fileID: 968798243, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerWalk
+    from: {fileID: 1375539351, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.71528566
+  - state: PlayerWalk
+    from: {fileID: -1320523384, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 1039531710, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -1511877303, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -874898105, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.07242857
+  - state: PlayerWalk
+    from: {fileID: -1256556118, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 589858727, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -1432884321, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.78671426
+  - state: PlayerWalk
+    from: {fileID: 1843593112, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.78671426
+  - state: PlayerWalk
+    from: {fileID: 931818332, guid: 236851ea355d9854e983e5762e438011, type: 3}
+    normalizedTime: 0.78671426
+  - state: PlayerWalk
+    from: {fileID: 1040392534, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: 1964699640, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: -1993919862, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.8581428
+  - state: PlayerWalk
+    from: {fileID: 1412742404, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -1826127517, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -424803910, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 2146661677, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: -1563898315, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.2152857
+  - state: PlayerWalk
+    from: {fileID: 1043034669, guid: 9414893d5f594b44395c1074c38852d8, type: 3}
+    normalizedTime: 0.8581428
+--- !u!114 &1538311224339401729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213259104454701869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df8ecb84475541ae876873db4834e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightGame::LightGame.Features.VFX.SpriteTransitionSpring
+  animator: {fileID: 3213259104454701871}
+  visual: {fileID: 6855574981905229310}
+  layer: 0
+  anchor: {x: 0.11591196, y: -1.0579565}
+  frequency: 4
+  damping: 0.45
+  turnStretch: 0.08
+  kicks:
+  - from: 
+    to: PlayerExtraJump1
+    stretch: 0.12
+    lean: 0
+  - from: 
+    to: PlayerExtraJump2
+    stretch: 0.12
+    lean: 0
+  - from: 
+    to: PlayerLandImpact
+    stretch: -0.12
+    lean: 0
+  - from: PlayerLand
+    to: PlayerWalk
+    stretch: -0.08
+    lean: 3
+  - from: PlayerLand
+    to: PlayerIdle
+    stretch: -0.08
+    lean: 0
+  - from: PlayerIdle
+    to: PlayerWalk
+    stretch: -0.03
+    lean: 6
+  - from: PlayerLandImpact
+    to: PlayerWalk
+    stretch: 0
+    lean: 5
+  - from: PlayerWalk
+    to: PlayerIdle
+    stretch: -0.04
+    lean: -5
+  - from: 
+    to: PlayerDash
+    stretch: -0.1
+    lean: 4
+  - from: PlayerDash
+    to: 
+    stretch: 0.05
+    lean: -3
+  - from: 
+    to: PlayerHit
+    stretch: -0.08
+    lean: -8
+  - from: 
+    to: PlayerAttack
+    stretch: 0
+    lean: 3
 --- !u!1 &3803380629175493506
 GameObject:
   m_ObjectHideFlags: 0
