@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+// Nested inside the GeneralLevel prefab; without this a Scene view click selects the whole level rig.
+[SelectionBase]
 public class PlayerMain : MonoBehaviour
 {
     public PlayerStateMachine _stateMachine; // State Machine declaration where we change current state

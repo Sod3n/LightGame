@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace LightGame.Features
 {
+    [SelectionBase]
     public class Checkpoint : MonoBehaviour
     {
         public static Checkpoint Active;

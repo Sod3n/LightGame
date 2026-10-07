@@ -6,6 +6,7 @@ using UnityEngine.Rendering.Universal;
 using LightGame.Core;
 namespace LightGame.Features.UI.Views
 {
+    [SelectionBase]
     public class LightProjectorView : Togglable
     {
         [SerializeField] private List<GameObject> lights;
