@@ -16,7 +16,17 @@ cat Temp/playtest/status.txt         # heartbeat: playing / paused / compiling /
 
 ## Prerequisites
 
-- Unity 6000.2.7f2 open on the repo root.
+- A Unity 6000.2.7f2 editor on this checkout. Prefer your own editor on a separate git worktree
+  over the user's open one: you can kill and relaunch it freely and it never touches their scenes.
+  ```bash
+  git worktree add ../LightGame-agent -b agent/<task>       # once; then work inside it
+  rsync -a --exclude '*lock*' ../LightGame/Library/ ../LightGame-agent/Library/   # skip a full import
+  $P/editor.sh start      # launches Unity in the background for this checkout, logs to Logs/agent-editor.log
+  $P/editor.sh restart    # when it hangs (e.g. stuck in a domain reload); also stop / status / log
+  ```
+  The Unity-MCP plugin has hung domain reloads; in an agent worktree drop `com.ivanmurzak.unity.mcp*`
+  from `Packages/manifest.json` and `packages-lock.json`, then
+  `git update-index --skip-worktree Packages/manifest.json Packages/packages-lock.json` so it never gets committed.
 - **The editor only imports file changes while its window is focused**, and it defers imports
   during Play Mode. After editing assets or scripts: `pt.sh stop`, then `scripts/focus-unity.sh`
   (brings Unity forward, waits for the refresh, restores focus, prints compile errors).

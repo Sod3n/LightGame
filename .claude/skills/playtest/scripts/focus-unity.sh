@@ -1,8 +1,10 @@
 #!/bin/zsh
 # The editor only imports file changes while focused: bring it forward, wait for a refresh, restore focus.
-pid=$(pgrep -f "Unity.app/Contents/MacOS/Unity -projectpath .*/LightGame" | head -1)
-[ -n "$pid" ] || { echo "Unity editor for LightGame is not running"; exit 1; }
-log=~/Library/Logs/Unity/Editor.log
+ROOT="$(git -C "$(dirname "$0")" rev-parse --show-toplevel)"
+pid=$(pgrep -if "Unity.app/Contents/MacOS/Unity -projectpath $ROOT( |$)" | head -1)
+[ -n "$pid" ] || { echo "no Unity editor running on $ROOT"; exit 1; }
+log="$ROOT/Logs/agent-editor.log"
+ps -o args= -p $pid | grep -q -- "-logFile" || log=~/Library/Logs/Unity/Editor.log
 prev=$(osascript -e 'tell application "System Events" to get name of first application process whose frontmost is true')
 before=$(grep -c "Asset Pipeline Refresh" $log)
 osascript -e "tell application \"System Events\" to set frontmost of (first process whose unix id is $pid) to true"
