@@ -251,11 +251,12 @@ public static class PlaytestDriver
     {
         if (_keyboard == null)
         {
-            _keyboard = InputSystem.AddDevice<Keyboard>("PlaytestKeyboard");
             _savedEditorBehavior = InputSystem.settings.editorInputBehaviorInPlayMode;
             _savedBackground = InputSystem.settings.backgroundBehavior;
             InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
             InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus;
+            _keyboard = InputSystem.AddDevice<Keyboard>("PlaytestKeyboard");
+            if (!_keyboard.enabled) InputSystem.EnableDevice(_keyboard);
         }
         InputSystem.QueueStateEvent(_keyboard, new KeyboardState(Held.Keys.ToArray()));
     }
