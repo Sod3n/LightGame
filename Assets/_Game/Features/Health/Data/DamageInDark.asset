@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DamageInDark
   m_EditorClassIdentifier: LightGame::LightGame.Features.Abilities.DamageInDarkAbility
   unlockAtLevel: 4
-  unlockBehavior: 0
+  unlockBehavior: 1
   disableInNearDeath: 1
   damageData:
     Duration: 0

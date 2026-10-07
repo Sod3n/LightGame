@@ -22,11 +22,31 @@ namespace LightGame.Features
 
         private MonoBehaviour _current;
 
-        public void SetOnLight(HealOverTimeEffect.EffectData data) => onLight = data;
-        public void SetOnDark(DamageOverTimeEffect.EffectData data) => onDark = data;
+        public void SetOnLight(HealOverTimeEffect.EffectData data)
+        {
+            onLight = data;
+            ApplyCurrentLight();
+        }
+
+        public void SetOnDark(DamageOverTimeEffect.EffectData data)
+        {
+            onDark = data;
+            ApplyCurrentLight();
+        }
+
         public bool AnyActive => (onLight != null && onLight.Amount > 0) || (onDark != null && onDark.Amount > 0);
 
-        private void OnEnable() => EventBus.Subscribe<LightChangeEvent>(gameObject, OnLightChangeEvent);
+        private void OnEnable()
+        {
+            EventBus.Subscribe<LightChangeEvent>(gameObject, OnLightChangeEvent);
+            ApplyCurrentLight();
+        }
+
+        // LightDetector only publishes changes, so a target that starts in the dark never gets a first event.
+        private void ApplyCurrentLight()
+        {
+            if (isActiveAndEnabled) OnInLightChange(GetComponent<LightDetector>().IsInLightOfType(LightType.Default));
+        }
         private void OnDisable()
         {
             EventBus.Unsubscribe<LightChangeEvent>(gameObject, OnLightChangeEvent);
