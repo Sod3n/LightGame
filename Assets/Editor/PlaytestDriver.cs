@@ -21,6 +21,7 @@ public static class PlaytestDriver
     static readonly string OutPath = Path.Combine(Dir, "out.txt");
     static readonly string StatusPath = Path.Combine(Dir, "status.txt");
     static readonly List<string> Logs = new();
+    static readonly Dictionary<string, int> LogCounts = new();
     static readonly Dictionary<Key, double> Held = new();
     static Keyboard _keyboard;
     static InputSettings.EditorInputBehaviorInPlayMode? _savedEditorBehavior;
@@ -42,12 +43,34 @@ public static class PlaytestDriver
     static void OnLog(string msg, string stack, LogType type)
     {
         if (type == LogType.Log || type == LogType.Warning) return;
-        lock (Logs) Logs.Add($"[{type}] {msg}\n{string.Join("\n", stack.Split('\n').Take(6))}");
+        var entry = $"[{type}] {msg}\n{string.Join("\n", stack.Split('\n').Take(6))}";
+        lock (Logs)
+        {
+            if (LogCounts.TryGetValue(entry, out var n)) LogCounts[entry] = n + 1;
+            else { LogCounts[entry] = 1; Logs.Add(entry); }
+        }
     }
 
+    // With Run In Background off the player loop stalls whenever Unity isn't the frontmost app,
+    // which is always the case while an agent drives it. Kept in SessionState to survive the play-mode domain reload.
     static void OnPlayModeChanged(PlayModeStateChange change)
     {
-        if (change == PlayModeStateChange.ExitingPlayMode) ReleaseKeyboard();
+        switch (change)
+        {
+            case PlayModeStateChange.EnteredPlayMode:
+                if (SessionState.GetInt("PlaytestDriver.RunInBackground", -1) < 0)
+                    SessionState.SetInt("PlaytestDriver.RunInBackground", Application.runInBackground ? 1 : 0);
+                Application.runInBackground = true;
+                break;
+            case PlayModeStateChange.ExitingPlayMode:
+                ReleaseKeyboard();
+                break;
+            case PlayModeStateChange.EnteredEditMode:
+                var saved = SessionState.GetInt("PlaytestDriver.RunInBackground", -1);
+                if (saved >= 0) PlayerSettings.runInBackground = saved == 1;
+                SessionState.EraseInt("PlaytestDriver.RunInBackground");
+                break;
+        }
     }
 
     static void Tick()
@@ -198,8 +221,9 @@ public static class PlaytestDriver
             case "logs":
                 lock (Logs)
                 {
-                    var s = Logs.Count == 0 ? "(no errors)" : string.Join("\n---\n", Logs);
+                    var s = Logs.Count == 0 ? "(no errors)" : string.Join("\n---\n", Logs.Select(l => LogCounts[l] > 1 ? $"(x{LogCounts[l]}) {l}" : l));
                     Logs.Clear();
+                    LogCounts.Clear();
                     return s;
                 }
             case "status":
@@ -304,9 +328,9 @@ public static class PlaytestDriver
         var line = new StringBuilder($"{new string(' ', depth * 2)}{t.name}{(go.activeSelf ? "" : " (off)")}  pos=({p.x:F2},{p.y:F2})");
         var comps = go.GetComponents<Component>().Where(c => c != null && c is not Transform).ToList();
         if (comps.Count > 0) line.Append($"  [{string.Join(", ", comps.Select(c => c.GetType().Name))}]");
-        if (go.GetComponent<SpriteRenderer>() is { } sr)
+        if (go.TryGetComponent<SpriteRenderer>(out var sr))
             line.Append($"  sprite={(sr.sprite ? sr.sprite.name : "null")} color={Hex(sr.color)}{(sr.flipX ? " flipX" : "")}");
-        if (go.GetComponent<Animator>() is { runtimeAnimatorController: not null } anim && anim.isActiveAndEnabled && EditorApplication.isPlaying)
+        if (go.TryGetComponent<Animator>(out var anim) && anim.runtimeAnimatorController && anim.isActiveAndEnabled && EditorApplication.isPlaying)
         {
             var clip = anim.GetCurrentAnimatorClipInfo(0).FirstOrDefault().clip;
             line.Append($"  anim={(clip ? clip.name : "none")}@{anim.GetCurrentAnimatorStateInfo(0).normalizedTime:F2}");
