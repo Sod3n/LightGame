@@ -20,7 +20,7 @@ cat Temp/playtest/status.txt         # heartbeat: playing / paused / compiling /
   over the user's open one: you can kill and relaunch it freely and it never touches their scenes.
   ```bash
   git worktree add ../LightGame-agent -b agent/<task>       # once; then work inside it
-  rsync -a --exclude '*lock*' ../LightGame/Library/ ../LightGame-agent/Library/   # skip a full import
+  rsync -a --exclude '*-lock' --exclude '*.lock' ../LightGame/Library/ ../LightGame-agent/Library/   # skip a full import
   $P/editor.sh start      # launches Unity in the background for this checkout, logs to Logs/agent-editor.log
   $P/editor.sh restart    # when it hangs (e.g. stuck in a domain reload); also stop / status / log
   ```
@@ -77,3 +77,5 @@ works. Look at every screenshot.
 
 The repo also ships Unity-MCP skills (`gameobject-*`, `scene-*`, `screenshot-*`), which need
 the MCP server connected; this driver needs only the open editor.
+
+The full agent workflow (setup, loop, merging back, troubleshooting) is in `docs/agent-playtesting.md`.
