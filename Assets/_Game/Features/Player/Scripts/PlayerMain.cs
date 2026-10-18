@@ -1,15 +1,15 @@
 using System;
 using UnityEngine;
 
-// Nested inside the GeneralLevel prefab; without this a Scene view click selects the whole level rig.
+// Without this a Scene view click on the sprite selects the Visual child instead of the player.
 [SelectionBase]
 public class PlayerMain : MonoBehaviour
 {
     public PlayerStateMachine _stateMachine; // State Machine declaration where we change current state
     [NonEditable, Space(5)] public AnimName CurrentState; // Variable to display the current state in the Unity inspector for debugging purposes.
     public MainState IdleState, WalkState, JumpState, LandState, DashState, CrouchIdleState, CrouchWalkState, WallGrabState, WallClimbState, WallJumpState, WallSlideState, DirectionalJumpState ; // State declarations
-    public PlayerOneShotState AttackState, HitState, DeathState, LandImpactState; // One-shot presentation states (triggered from gameplay / touchdown, not movement input)
-    public enum AnimName { Idle, Walk, Jump, ExtraJump1, ExtraJump2, Land, Dash, CrouchIdle, CrouchWalk, WallGrab, WallClimb, WallJump, WallSlide, DirectionalJump, Attack, Hit, Death, LandImpact } // Enum declaration of state names as animator parameters
+    public PlayerOneShotState AttackState, AirAttackState, HitState, DeathState, LandImpactState; // One-shot presentation states (triggered from gameplay / touchdown, not movement input)
+    public enum AnimName { Idle, Walk, Jump, ExtraJump1, ExtraJump2, Land, Dash, CrouchIdle, CrouchWalk, WallGrab, WallClimb, WallJump, WallSlide, DirectionalJump, Attack, Hit, Death, LandImpact, AirAttack } // Enum declaration of state names as animator parameters
 
     [NonSerialized] public Animator Animator; // The Animator is used to control the player's animations based on their current state.
     [NonSerialized] public Rigidbody2D Rigidbody2D; // The Rigidbody2D is used to control movement based on velocity vector.
@@ -55,6 +55,8 @@ public class PlayerMain : MonoBehaviour
         // for completion) and then hand control back to Idle.
         AttackState = new PlayerOneShotState(this, _stateMachine, AnimName.Attack, PlayerData, "PlayerAttack",
             pinInPlace: true);
+        AirAttackState = new PlayerOneShotState(this, _stateMachine, AnimName.AirAttack, PlayerData, "PlayerAirAttack",
+            pinInPlace: true);
         HitState = new PlayerOneShotState(this, _stateMachine, AnimName.Hit, PlayerData, "PlayerHit",
             pinInPlace: true, locksStateMachine: true);
         DeathState = new PlayerOneShotState(this, _stateMachine, AnimName.Death, PlayerData, "PlayerDeath",
@@ -69,11 +71,11 @@ public class PlayerMain : MonoBehaviour
 
     // --- One-shot animation triggers (call these from gameplay code) ---
 
-    /// <summary>Play the attack animation once, then return to Idle. Ignored while dead.</summary>
+    /// <summary>Play the attack animation once (the slash when airborne), then return to Idle. Ignored while dead.</summary>
     public void PlayAttack()
     {
         if (CurrentState == AnimName.Death) return;
-        _stateMachine.ChangeState(AttackState);
+        _stateMachine.ChangeState(PlayerData.Physics.IsGrounded ? AttackState : AirAttackState);
     }
 
     /// <summary>Play the hit/hurt reaction once, then return to Idle. Ignored while dead.</summary>

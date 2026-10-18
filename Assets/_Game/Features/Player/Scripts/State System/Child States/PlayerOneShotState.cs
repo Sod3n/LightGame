@@ -92,9 +92,11 @@ public class PlayerOneShotState : MainState
                 player.ClearPendingMovementIntent();
                 stateMachine.Unlock();
             }
-            // Going straight to Walk avoids a one-frame idle pose when a direction is held.
+            // Going straight to Walk avoids a one-frame idle pose when a direction is held,
+            // and straight to the fall when airborne (e.g. after an air attack).
             var walking = inputManager.Input_Walk != 0 && !playerData.Physics.Slope.StayStill;
-            stateMachine.ChangeState(walking ? player.WalkState : player.IdleState, force: true);
+            var next = !playerData.Physics.IsGrounded ? player.LandState : walking ? player.WalkState : player.IdleState;
+            stateMachine.ChangeState(next, force: true);
         }
         // Otherwise (Death) we stay here, locked and frozen, until PlayerMain.OnRespawn releases us.
     }
