@@ -125,8 +125,10 @@ namespace LightGame.Features
        
        public bool LightBlockCheck(Vector3 targetPosition)
        {
-           Vector3 direction = targetPosition - transform.position;
-   
+           // 2D only: lights sit at a different z (e.g. 100) than detectors, and a 3D length would
+           // carry the ray past the light into ground behind it.
+           Vector2 direction = targetPosition - transform.position;
+
            if (!_lightRaycastMaskInitialized)
            {
                _lightRaycastMask = LayerMask.GetMask("LightSource", "Ground");
