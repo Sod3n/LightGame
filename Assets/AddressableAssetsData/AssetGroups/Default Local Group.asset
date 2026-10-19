@@ -54,12 +54,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b05545aceef844ef68d04dfba0d54449
-    m_Address: Assets/Light and controller/GameData/Abilities/Teleport.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - default
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b30bf01b4e8114e50bccbc3c1d136979
     m_Address: Assets/Light and controller/GameData/Abilities/PushStrength.asset
     m_ReadOnly: 0
