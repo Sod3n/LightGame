@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -7420591174968518522, guid: 49a7ed57dcc350e4eb9fbe9150f3b84e, type: 3}
+    - target: {fileID: 359303039305025099, guid: 016116994286d184282baa0490c7e469, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7420591174968518522, guid: 49a7ed57dcc350e4eb9fbe9150f3b84e, type: 3}
     - target: {fileID: 3362313857864935038, guid: 016116994286d184282baa0490c7e469, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 2.392323
@@ -92,26 +96,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike_Tall
       objectReference: {fileID: 0}
-    - target: {fileID: 5480418681047465312, guid: 016116994286d184282baa0490c7e469, type: 3}
-      propertyPath: m_ShadowMesh.m_InitialTrim
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5480418681047465312, guid: 016116994286d184282baa0490c7e469, type: 3}
-      propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
-      value: 0.004081726
-      objectReference: {fileID: 0}
-    - target: {fileID: 5480418681047465312, guid: 016116994286d184282baa0490c7e469, type: 3}
-      propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
-      value: -0.00881958
-      objectReference: {fileID: 0}
-    - target: {fileID: 5480418681047465312, guid: 016116994286d184282baa0490c7e469, type: 3}
-      propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.x
-      value: 0.9999924
-      objectReference: {fileID: 0}
-    - target: {fileID: 5480418681047465312, guid: 016116994286d184282baa0490c7e469, type: 3}
-      propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
-      value: 2.0559692
-      objectReference: {fileID: 0}
+    - target: {fileID: 6563758740159339438, guid: 016116994286d184282baa0490c7e469, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5508804408551019331, guid: 819d532fad704d7499eb01b9612ad8b2, type: 3}
     - target: {fileID: 8277983608082644577, guid: 016116994286d184282baa0490c7e469, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
