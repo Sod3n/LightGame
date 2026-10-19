@@ -87,7 +87,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &5622024215408865623
@@ -98,6 +98,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 573932647451716245, guid: 723aacfa635b5d6419729712e303b194, type: 3}
+      propertyPath: lights.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 573932647451716245, guid: 723aacfa635b5d6419729712e303b194, type: 3}
+      propertyPath: 'lights.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6082932936299085053}
+    - target: {fileID: 573932647451716245, guid: 723aacfa635b5d6419729712e303b194, type: 3}
+      propertyPath: 'lights.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5486835484678702740}
     - target: {fileID: 2642626501288576035, guid: 723aacfa635b5d6419729712e303b194, type: 3}
       propertyPath: m_Name
       value: StationaryLight
@@ -154,5 +166,15 @@ PrefabInstance:
 --- !u!4 &2356196767004043542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7978009390108497985, guid: 723aacfa635b5d6419729712e303b194, type: 3}
+  m_PrefabInstance: {fileID: 5622024215408865623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5486835484678702740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 153217981279549379, guid: 723aacfa635b5d6419729712e303b194, type: 3}
+  m_PrefabInstance: {fileID: 5622024215408865623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6082932936299085053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1904911017968111018, guid: 723aacfa635b5d6419729712e303b194, type: 3}
   m_PrefabInstance: {fileID: 5622024215408865623}
   m_PrefabAsset: {fileID: 0}

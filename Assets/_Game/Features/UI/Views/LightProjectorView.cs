@@ -26,6 +26,7 @@ namespace LightGame.Features.UI.Views
             
             foreach (var lightObj in lights)
             {
+                if (lightObj == null) continue; // an emptied slot in the inspector must not stop the toggle
                 lightObj.SetActive(true);
 
                 // Fade in lights that have the listener component
@@ -43,6 +44,7 @@ namespace LightGame.Features.UI.Views
             pendingFadeOuts = 0;
             foreach (var lightObj in lights)
             {
+                if (lightObj == null) continue; // an emptied slot in the inspector must not stop the toggle
                 var listener = lightObj.GetComponent<Light2DGlobalListener>();
                 if (listener != null)
                 {
@@ -60,6 +62,7 @@ namespace LightGame.Features.UI.Views
             // Fade out lights with listeners
             foreach (var lightObj in lights)
             {
+                if (lightObj == null) continue; // an emptied slot in the inspector must not stop the toggle
                 var listener = lightObj.GetComponent<Light2DGlobalListener>();
                 if (listener != null)
                 {
@@ -85,6 +88,7 @@ namespace LightGame.Features.UI.Views
 
             foreach (var lightObj in lights)
             {
+                if (lightObj == null) continue; // an emptied slot in the inspector must not stop the toggle
                 // Keep lights with a residual glow active; only fully deactivate the rest.
                 var listener = lightObj.GetComponent<Light2DGlobalListener>();
                 if (listener != null && listener.HasResidual)
