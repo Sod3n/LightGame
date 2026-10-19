@@ -220,28 +220,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""a053c03a-bb61-4c23-a8c9-37facff80fa1"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3dd0157a-9339-4ea3-aafc-3e47313cfe20"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""Left-Right"",
                     ""id"": ""8be2eb41-35b2-4533-a37c-17e3e07556d6"",
                     ""path"": ""1DAxis"",
