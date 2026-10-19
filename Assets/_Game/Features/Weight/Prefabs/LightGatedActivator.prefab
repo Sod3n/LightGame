@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7763155121045277640, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1841544180778154401, guid: 82fccc600b72ede43b60197c890f38c7, type: 3}
       propertyPath: m_Name
       value: LightGatedActivator
