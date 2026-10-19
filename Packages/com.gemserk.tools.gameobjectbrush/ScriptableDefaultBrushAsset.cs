@@ -13,6 +13,14 @@ namespace Gemserk.Tools.ObjectPalette
         public override void CreatePreview(IEnumerable<PaletteObject> paletteObjects)
         {
             DestroyPreview();
+#if UNITY_EDITOR
+            // The preview holds live prefab clones; built in (or on the way into) Play Mode they
+            // run as real level objects. The palette window restores its selection on the domain
+            // reload that starts Play Mode, so refuse here; PalettePlayModeGuard rebuilds it once
+            // the editor is back in Edit Mode.
+            if (EditorApplication.isPlayingOrWillChangePlaymode)
+                return;
+#endif
             CreateParent();
 
             foreach (var paletteObject in paletteObjects)
