@@ -13,6 +13,10 @@ public class PlayerLandState : MainState, IMove2D
     // Minimum airtime (seconds spent in this fall state) before touchdown plays the
     // jump-land squash. Keeps tiny steps / stairs from flickering a landing animation.
     private const float MinAirTimeForImpact = 0.1f;
+    // Minimum drop from the highest point of this fall. Keeps a short hop off a ledge
+    // or a dash over a crest from playing the landing stun on near-flat ground.
+    private const float MinDropForImpact = 1f;
+    private float _peakY;
 
     public event Action<float> OnLanded;
     
@@ -34,6 +38,7 @@ public class PlayerLandState : MainState, IMove2D
             phase = Phase.Null;
         }
         localXVelovity = 0;
+        _peakY = rigidbody2D.position.y;
     }
 
     public override void Update()
@@ -52,6 +57,7 @@ public class PlayerLandState : MainState, IMove2D
             rigidbody2D.linearVelocity = new(0f, -1f);
         }
         xCurveTime += Time.fixedDeltaTime;
+        _peakY = Mathf.Max(_peakY, rigidbody2D.position.y);
     }
 
     public override void Exit()
@@ -72,19 +78,20 @@ public class PlayerLandState : MainState, IMove2D
     {
         base.SwitchStateLogic();
         bool cleanGround = playerData.Physics.IsGrounded && !playerData.Physics.IsOnNotWalkableSlope;
+        bool realFall = localTime >= MinAirTimeForImpact && _peakY - rigidbody2D.position.y >= MinDropForImpact;
 
         if ((cleanGround && inputManager.Input_Walk == 0) || playerData.Physics.IsMultipleContactWithNonWalkableSlope)
         {
             // Clean touchdown after a real fall -> play the jump-land squash (it returns to Idle,
             // where Walk re-engages next frame if a direction is held). Odd-slope contacts skip it.
-            if (cleanGround && !playerData.Physics.IsMultipleContactWithNonWalkableSlope && localTime >= MinAirTimeForImpact)
+            if (cleanGround && !playerData.Physics.IsMultipleContactWithNonWalkableSlope && realFall)
                 stateMachine.ChangeState(player.LandImpactState);
             else
                 stateMachine.ChangeState(player.IdleState);
         }
         else if (cleanGround)
         {
-            if (localTime >= MinAirTimeForImpact)
+            if (realFall)
                 stateMachine.ChangeState(player.LandImpactState);
             else
                 stateMachine.ChangeState(player.WalkState);
