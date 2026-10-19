@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 1538311224339401729}
   - component: {fileID: 5155129357812069361}
   - component: {fileID: 8316987674754121355}
+  - component: {fileID: 310713745216659199}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -2532,6 +2533,30 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &310713745216659199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213259104454701869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717ba6f7f829f484c920cbcb7f7a19d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LightGame::LightGame.Features.Audio.AnimatorStateSound
+  animator: {fileID: 3213259104454701871}
+  layer: 0
+  states:
+  - PlayerAttack
+  - PlayerAirAttack
+  sound:
+    Guid:
+      Data1: -1792387555
+      Data2: 1111686765
+      Data3: -1295087973
+      Data4: -1747344413
+    Path: event:/Sound Design/Attack
 --- !u!1 &5649844776797507002
 GameObject:
   m_ObjectHideFlags: 0

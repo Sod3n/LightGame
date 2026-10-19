@@ -1,7 +1,6 @@
 ﻿using System;
 using LightGame.Features.Audio;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -35,8 +34,7 @@ namespace LightGame.Features
             Game.Init();
             Debug.Log($"[TeleportDebug] SceneRoot.Awake: Game.LevelOrder is {(Game.LevelOrder == null ? "NULL" : "loaded, " + Game.LevelOrder.Levels.Count + " levels")}");
             ExecuteEvents.ExecuteHierarchy<IInitializable>(gameObject, null, (x, _) => x.Initialize());
-            var mainTheme = Addressables.LoadAssetAsync<SoundData>("Sounds/MainTheme").WaitForCompletion();
-            if(!SoundManager.IsMusicPlaying()) SoundManager.PlayMusic(mainTheme, 2f);
+            FmodMusic.EnterScene(mainMenu: gameObject.scene.name == "MainMenu");
         }
     }
 }

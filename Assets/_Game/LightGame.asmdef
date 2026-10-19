@@ -17,7 +17,8 @@
         "Unity.ResourceManager",
         "Unity.Addressables",
         "EasyTextEffects",
-        "AmazingAssets.AdvancedDissolve"
+        "AmazingAssets.AdvancedDissolve",
+        "FMODUnity"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
