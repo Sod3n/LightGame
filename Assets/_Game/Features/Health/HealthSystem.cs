@@ -29,6 +29,9 @@ public class HealthSystem : MonoBehaviour, IDamageable, IHealable
 
     public bool IsInNearDeathState => isInNearDeathState;
 
+    // Where the latest damage landed; null when it had no point (e.g. damage over time in the dark).
+    public Vector2? LastHitPoint { get; private set; }
+
     protected virtual void Awake()
     {
         MaxHealth = Health;
@@ -56,6 +59,7 @@ public class HealthSystem : MonoBehaviour, IDamageable, IHealable
 
     private void OnDamageEvent(DamageEvent evt)
     {
+        LastHitPoint = evt.Point;
         TakeDamage(evt.Amount);
     }
 

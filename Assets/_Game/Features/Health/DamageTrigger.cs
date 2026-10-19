@@ -19,7 +19,7 @@ public class DamageTrigger : MonoBehaviour
     {
         if(useCollision) return;
         if(!ObjectsInTrigger.Add(other.gameObject)) return;
-        EventBus.Publish(other.gameObject, new DamageEvent { Amount = damage });
+        EventBus.Publish(other.gameObject, new DamageEvent { Amount = damage, Point = other.ClosestPoint(transform.position) });
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -32,7 +32,11 @@ public class DamageTrigger : MonoBehaviour
     {
         if(!useCollision) return;
         if(!ObjectsInTrigger.Add(collision.gameObject)) return;
-        EventBus.Publish(collision.gameObject, new DamageEvent { Amount = damage });
+        EventBus.Publish(collision.gameObject, new DamageEvent
+        {
+            Amount = damage,
+            Point = collision.contactCount > 0 ? collision.GetContact(0).point : collision.collider.ClosestPoint(transform.position)
+        });
     }
 
     private void OnCollisionExit2D(Collision2D collision)

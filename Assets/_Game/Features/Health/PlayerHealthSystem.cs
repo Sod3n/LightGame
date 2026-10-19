@@ -1,5 +1,6 @@
 ﻿using System;
 using LightGame.Events;
+using LightGame.Features.VFX;
 using LightGame.Globals;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace LightGame.Features
         private Rigidbody2D rigidbody = null;
         private AbilityManager abilityManager = null;
         private PlayerMain playerMain = null;
+        private DeathDissolve deathDissolve = null;
 
         protected override void Awake()
         {
@@ -51,8 +53,18 @@ namespace LightGame.Features
             playerMain ??= GetComponent<PlayerMain>();
             if (playerMain != null)
             {
-                // Play the death animation first; only fade/respawn once it has finished.
-                playerMain.PlayDeath(() => EventBus.Publish(new PlayerDiedEvent(gameObject)));
+                deathDissolve ??= GetComponent<DeathDissolve>();
+                if (deathDissolve != null)
+                {
+                    // Freeze the pose and burn it away from where the hit landed; respawn once it has finished.
+                    deathDissolve.Play(() => EventBus.Publish(new PlayerDiedEvent(gameObject)), LastHitPoint);
+                    playerMain.PlayDeath();
+                }
+                else
+                {
+                    // Play the death animation first; only fade/respawn once it has finished.
+                    playerMain.PlayDeath(() => EventBus.Publish(new PlayerDiedEvent(gameObject)));
+                }
             }
             else
             {
@@ -70,6 +82,8 @@ namespace LightGame.Features
             // death lock and hand control back to the movement state machine.
             if (wasDead && Health > 0)
             {
+                deathDissolve ??= GetComponent<DeathDissolve>();
+                if (deathDissolve != null) deathDissolve.ResetVisual();
                 playerMain ??= GetComponent<PlayerMain>();
                 playerMain?.OnRespawn();
             }
