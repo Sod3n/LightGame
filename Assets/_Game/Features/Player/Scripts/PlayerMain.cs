@@ -124,6 +124,8 @@ public class PlayerMain : MonoBehaviour
 
     private void Start()
     {
+        // The serialized jump counter starts at 0, which no jump slot matches; start clean at the first jump.
+        ClearPendingMovementIntent();
         _stateMachine.Initialize(IdleState); //Here, we assign the starting state
 
         // The Derivative function is used to calculate the derivative of the animation curves,

@@ -109,6 +109,9 @@ public class PlayerInputManager : MonoBehaviour
         }
 
         playerData.Jump.JumpBufferTimer = playerData.Jump.JumpBufferTimer > 0f ? playerData.Jump.JumpBufferTimer - Time.deltaTime : 0f;
+        // A press no state used within the buffer is dropped; left set, it would fire an air jump
+        // later (walking off a ledge, after a respawn) without any input.
+        if (playerData.Jump.JumpBufferTimer <= 0f) playerData.Jump.NewJump = false;
         playerData.Jump.CoyoteTimeTimer = playerData.Jump.CoyoteTimeTimer > 0f ? playerData.Jump.CoyoteTimeTimer - Time.deltaTime : 0f;
         // Dash works like a charge you refill on the floor: the cooldown ticks down everywhere
         // (including mid-air), but the dash only RECHARGES while grounded once the cooldown has
