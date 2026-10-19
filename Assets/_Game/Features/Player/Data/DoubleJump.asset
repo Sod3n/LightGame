@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: LightGame::LightGame.Features.Abilities.DoubleJumpAbility
   unlockAtLevel: 0
   unlockBehavior: 1
-  disableInNearDeath: 1
+  disableInNearDeath: 0
   jumpInfo:
     Animation: 3
     maxHeight: 3

@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54db35fd4e84fd891fab143dcacdf84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
+  health: 3
   invincibilityDuration: 1
   nearDeathThreshold: 1
 --- !u!114 &8691095846045560413

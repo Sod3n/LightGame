@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: LightGame::LightGame.Features.Abilities.DashAbility
   unlockAtLevel: 0
   unlockBehavior: 1
-  disableInNearDeath: 1
+  disableInNearDeath: 0

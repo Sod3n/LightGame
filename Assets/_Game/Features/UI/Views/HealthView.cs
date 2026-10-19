@@ -59,7 +59,8 @@ namespace LightGame.Features.UI
         
         private void OnTakeDamagePendingCancel()
         {
-            _pendingDamageSectors.ForEach(x => x.OnTakeDamagePendingCancel());
+            // Leaving Play Mode can destroy the sectors before the damage effect cancels its tick.
+            _pendingDamageSectors.Where(x => x != null).ToList().ForEach(x => x.OnTakeDamagePendingCancel());
             _pendingDamageSectors.Clear();
         }
 
